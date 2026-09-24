@@ -103,11 +103,7 @@ def make_preview(img_bgr, mask_bin, cutout_bgr):
 
 
 def dataset_name_from_path(images_dir: Path) -> str:
-    """Deduce un nombre de dataset legible a partir de la ruta de entrada.
-
-    ".../Dataset_papilionidae/images"                  -> "Dataset_papilionidae"
-    ".../Dataset_pieridae/images/Dataset_pieridae"      -> "Dataset_pieridae"
-    """
+  
     if images_dir.name.lower() == "images":
         return images_dir.parent.name
     return images_dir.name
