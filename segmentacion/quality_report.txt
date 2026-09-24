@@ -1,0 +1,14 @@
+=== AUDITORÍA DE CALIDAD ===
+Total de filas: 812
+Filas con al menos un NaN en features: 0
+fg_pixels -> min=6292, mediana=87304, max=1298037
+Filas con fg_pixels < 500 (posible segmentación fallida): 0
+TOTAL marcadas como low_quality (NaN o fg_pixels bajo): 0 / 812
+
+[AVISO] No hay labels -- se omite el reporte de distribución de clases.
+
+=== LIMPIEZA DE FEATURES ===
+Columnas de features totales: 147
+Columnas de features restantes: 147
+
+Dataset final guardado en: D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\segmentacion\features_dataset_ready.csv  (812 filas, 151 columnas)

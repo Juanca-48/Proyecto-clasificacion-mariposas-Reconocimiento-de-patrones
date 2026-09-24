@@ -11,25 +11,19 @@ from skimage.feature import graycomatrix, graycoprops
 from skimage.filters import gabor
 import mahotas
 
-# ----------------------------------------------------------------------
-# CONFIG (usado si no se pasan argumentos por línea de comandos)
-# ----------------------------------------------------------------------
+
 REPO_DIR = Path(r"D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones")
 SEGMENTATION_ROOT = REPO_DIR / "segmentacion"
-
-# Nombres de las subcarpetas de dataset dentro de SEGMENTATION_ROOT. Si se
-# deja vacío ([]), el script las autodetecta: cualquier subcarpeta que
-# contenga una carpeta "segmented" adentro se trata como un dataset.
 DEFAULT_DATASETS = ["Dataset_papilionidae", "Dataset_pieridae"]
 
-DEFAULT_LABELS_CSV = None   # opcional: ruta a un labels.csv con columnas filename,label
+DEFAULT_LABELS_CSV = None  
 
-GLCM_LEVELS = 32                       # niveles de gris para cuantizar (sin contar el 0 reservado a fondo)
-GLCM_DISTANCES = [1, 2, 3]             # distancias (en píxeles) entre pares de co-ocurrencia
-GLCM_ANGLES_DEG = [0, 45, 90, 135]     # ángulos en grados
+GLCM_LEVELS = 32                      
+GLCM_DISTANCES = [1, 2, 3]             
+GLCM_ANGLES_DEG = [0, 45, 90, 135]    
 GLCM_PROPS = ["contrast", "dissimilarity", "homogeneity", "energy", "correlation", "ASM"]
 
-WHITE_BG_THRESHOLD = 245   # si no hay máscara, se asume fondo = píxel con los 3 canales >= este valor
+WHITE_BG_THRESHOLD = 245   
 VALID_EXTS = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"}
 
 HARALICK_NAMES = [
@@ -40,8 +34,8 @@ HARALICK_NAMES = [
 ]
 
 ENABLE_GABOR = True
-GABOR_FREQUENCIES = [0.1, 0.2, 0.3, 0.4]   # ciclos por píxel (más alto = detalle más fino)
-GABOR_THETAS_DEG = [0, 45, 90, 135]        # orientaciones del filtro
+GABOR_FREQUENCIES = [0.1, 0.2, 0.3, 0.4]  
+GABOR_THETAS_DEG = [0, 45, 90, 135]        
 
 
 # ----------------------------------------------------------------------
@@ -99,9 +93,6 @@ def glcm_features(gray: np.ndarray, mask: np.ndarray) -> dict:
         symmetric=True,
         normed=False,
     )
-    # Anular toda transición desde/hacia el nivel 0 (fondo). graycoprops
-    # renormaliza internamente por la suma de cada matriz, así que el
-    # fondo queda completamente excluido del cálculo de propiedades.
     glcm[0, :, :, :] = 0
     glcm[:, 0, :, :] = 0
 
@@ -123,9 +114,7 @@ def glcm_features(gray: np.ndarray, mask: np.ndarray) -> dict:
 # ----------------------------------------------------------------------
 
 def haralick_features(gray: np.ndarray, mask: np.ndarray) -> dict:
-    # Desplazar el rango real a [1,255] para que el 0 quede reservado
-    # exclusivamente al fondo (muchas alas son negras/oscuras: sin este
-    # desplazamiter, ignore_zeros también las excluiría por error).
+
     shifted = 1 + (gray.astype(np.float32) * (254.0 / 255.0))
     shifted = shifted.astype(np.uint8)
     shifted[mask == 0] = 0
@@ -157,9 +146,6 @@ def gabor_features(gray: np.ndarray, mask: np.ndarray) -> dict:
     if fg_vals.size == 0:
         return {name: np.nan for name in gabor_feature_names()}
 
-    # Rellenar el fondo con el gris medio del primer plano: evita un borde
-    # artificial de alto contraste entre mariposa y fondo blanco/negro que
-    # el filtro interpretaría como textura falsa justo en el contorno.
     fill_value = float(fg_vals.mean())
     gray_filled = gray.astype(np.float64)
     gray_filled[mask == 0] = fill_value
@@ -268,9 +254,7 @@ def process_folder(images_dir: Path, masks_dir: Path | None, output_csv: Path,
 
 
 def discover_datasets(root: Path, names: list) -> list:
-    """Devuelve [(nombre, images_dir, masks_dir), ...]. Si `names` está
-    vacío, autodetecta cualquier subcarpeta de `root` que contenga una
-    carpeta 'segmented' adentro."""
+   
     result = []
     if names:
         for name in names:
