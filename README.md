@@ -5,11 +5,6 @@ clasificar mariposas colombianas por **familia** (con expansión planeada a **g�
 a partir de fotografías de catálogo, usando características clásicas de **textura** y
 **color** como entrada a un modelo de machine learning.
 
-El enfoque es deliberadamente clásico (no deep learning end-to-end): el dataset es
-pequeño y muy desbalanceado por clase, así que se prioriza un pipeline de
-características diseñadas a mano (*hand-crafted features*) + clasificador clásico, en
-vez de una red neuronal entrenada desde cero.
-
 ## Tabla de contenido
 
 - [Pipeline general](#pipeline-general)
