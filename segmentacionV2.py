@@ -25,6 +25,7 @@ VALID_EXTS = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"}
 # --- Filtro de "objetos intrusos" (dedos, flores) usado como SEMILLA ---
 ENABLE_INTRUDER_REFINEMENT = True
 INTRUDER_MIN_AREA_FRAC = 0.005    # un blob debe cubrir al menos este % del área para considerarse intruso
+INTRUDER_MAX_FRAC = 0.25          # si el intruso cubre más de este % de la mariposa, se asume que es el ala y no se refina
 CORE_ERODE_FRAC = 0.03            # qué tanto se erosiona el "núcleo seguro" de mariposa (ver docstring)
 FLOWER_HUE_RANGES = ((125, 179), (0, 10))  # rangos de matiz (H, 0-180) considerados "color de flor"
 FLOWER_SAT_THRESH = 90
@@ -172,17 +173,38 @@ def segment_grabcut_pass2_refine(img_bgr: np.ndarray, mask1: np.ndarray, intrude
     return clean_mask(mask_bin)
 
 
+def intruders_from_outside(intruder: np.ndarray, mask1: np.ndarray, min_area: float) -> np.ndarray:
+    """Conserva solo los blobs que están en parte DENTRO y en parte FUERA de
+    la mariposa: un dedo o una flor entran desde fuera, mientras que una
+    mancha del ala del mismo color queda entera dentro de la máscara."""
+    n_labels, labels, stats, _ = cv2.connectedComponentsWithStats(intruder, connectivity=8)
+    out = np.zeros_like(intruder)
+    for lbl in range(1, n_labels):
+        blob = labels == lbl
+        if (blob & (mask1 == 0)).sum() >= min_area and (blob & (mask1 == 255)).any():
+            out[blob] = 255
+    return out
+
+
 def segment_grabcut(img_bgr: np.ndarray) -> np.ndarray:
     mask1 = segment_grabcut_pass1(img_bgr)
     if not ENABLE_INTRUDER_REFINEMENT:
         return mask1
 
+    h, w = mask1.shape
     intruder = cv2.bitwise_or(skin_mask(img_bgr), flower_color_mask(img_bgr))
     intruder = large_blobs(intruder, INTRUDER_MIN_AREA_FRAC)
-    if not intruder.any():
-        return mask1  # nada sospechoso, no hace falta la segunda pasada
+    intruder = intruders_from_outside(intruder, mask1, INTRUDER_MIN_AREA_FRAC * h * w)
+    inside = cv2.countNonZero(cv2.bitwise_and(intruder, mask1))
+    # si "el intruso" es gran parte de la mariposa, el detector de color está viendo el ala (alas
+    # amarillas/marrones caen en el rango de piel, manchas rojas en el de flor): no refinar
+    if inside == 0 or inside > INTRUDER_MAX_FRAC * cv2.countNonZero(mask1):
+        return mask1
 
-    return segment_grabcut_pass2_refine(img_bgr, mask1, intruder)
+    mask2 = segment_grabcut_pass2_refine(img_bgr, mask1, intruder)
+    # la pasada 2 solo puede QUITAR píxeles marcados como intruso, nunca el resto del ala
+    keep = cv2.bitwise_and(mask1, cv2.bitwise_not(intruder))
+    return clean_mask(cv2.bitwise_or(mask2, keep))
 
 
 def segment_otsu(img_bgr: np.ndarray) -> np.ndarray:
