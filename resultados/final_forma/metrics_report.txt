@@ -1,0 +1,30 @@
+Verificación: ninguna imagen se repite entre particiones.
+
+Modelo: Regresión logística. 163 features sin estandarizar. Train+val: 690 imágenes, 150 especies. Test: 122 imágenes.
+
+=== CV agrupada por especie (5 folds, train + val) ===
+Hiperparámetros elegidos: {'C': 1}. balanced_accuracy=0.887±0.032
+
+=== TEST (modelo final entrenado con train + val) ===
+Test: 122 imágenes, 24 especies
+
+              precision    recall  f1-score   support
+
+Papilionidae      0.796     0.907     0.848        43
+    Pieridae      0.945     0.873     0.908        79
+
+    accuracy                          0.885       122
+   macro avg      0.871     0.890     0.878       122
+weighted avg      0.893     0.885     0.887       122
+
+Métricas: accuracy=0.885  balanced_accuracy=0.890  f1_macro=0.878  auc=0.967
+IC 95 % (bootstrap por especie, 1000 remuestreos):
+  balanced_accuracy  0.890  [0.787, 0.964]
+  f1_macro           0.878  [0.724, 0.957]
+  auc                0.967  [0.918, 0.995]
+Referencia, siempre la familia mayoritaria: balanced_accuracy=0.500
+
+Matriz de confusión (filas = real, columnas = predicho):
+                   pred Papilionidae  pred Pieridae
+real Papilionidae                 39              4
+real Pieridae                     10             69

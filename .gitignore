@@ -1,3 +1,7 @@
-# Salida de segmentacionV2.py (se regenera con el script)
-segmentacion/Dataset_papilionidae_v2/
-segmentacion/Dataset_pieridae_v2/
+# Se regeneran con los scripts (Standardize_features.py y Train_models.py)
+resultados/dataset_split/standardized/
+resultados/dataset_split_forma/standardized/
+resultados/modelos/
+resultados/modelos_forma/
+
+__pycache__/

@@ -1,0 +1,39 @@
+Imágenes encontradas: 812 en 2 datasets
+Features cargados: 812 filas (features_dataset_ready.csv)
+Origen de la etiqueta de especie:
+label_source
+nombre_de_archivo    812
+  ejemplo de lectura por nombre: '001_Battus_crassus_crassus.png' -> 'Battus_crassus_crassus'
+  ejemplo de lectura por nombre: '002_Battus_crassus_crassus.png' -> 'Battus_crassus_crassus'
+
+=== RESULTADO DE LA DIVISIÓN ===
+Imágenes por familia y partición:
+split         train  val  test  total
+family                               
+Papilionidae    199   43    43    285
+Pieridae        369   79    79    527
+
+Proporción lograda por familia (objetivo: train 0.70 / val 0.15 / test 0.15):
+split         train    val   test
+family                           
+Papilionidae  0.698  0.151  0.151
+Pieridae      0.700  0.150  0.150
+
+Total por partición: train=568 (70.0%), val=122 (15.0%), test=122 (15.0%)
+
+Especies distintas por familia y partición:
+split         train  val  test
+family                        
+Papilionidae     45    9     8
+Pieridae         80   16    16
+
+=== VERIFICACIONES ===
+OK: ninguna especie aparece en más de una partición (sin fuga entre train, val y test).
+
+=== FEATURES POR PARTICIÓN ===
+  features_train.csv: 568 filas
+  features_val.csv: 122 filas
+  features_test.csv: 122 filas
+
+Manifiesto: D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\dataset_split_forma\splits.csv
+Reporte:    D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\dataset_split_forma\split_report.txt

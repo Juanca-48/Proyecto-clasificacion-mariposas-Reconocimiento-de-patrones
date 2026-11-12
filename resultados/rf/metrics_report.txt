@@ -1,0 +1,119 @@
+Modo DIVIDIDO: se leen features_train/val/test.csv de D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\dataset_split
+
+=== DATOS ===
+Imágenes por familia y partición:
+              train  val  test  total
+family                               
+Pieridae        369   79    79    527
+Papilionidae    199   43    43    285
+Especies (grupos) por familia y partición:
+              train  val  test
+family                        
+Papilionidae     45    9     8
+Pieridae         80   16    16
+Verificación: ninguna imagen se repite entre particiones.
+Features usadas: 147
+[AVISO] Clases desbalanceadas en train + val (448 vs 242): se usa class_weight='balanced' y se reportan métricas que no se inflan por la clase mayoritaria.
+
+=== AJUSTE DE HIPERPARÁMETROS (CV agrupada por especie, 5 folds, train + val) ===
+Malla: 18 configuraciones, métrica balanced_accuracy.
+Mejores 6 configuraciones:
+max_features  min_samples_leaf max_depth  balanced_acc  error_estandar
+      0.3000                 5      None        0.8556          0.0245
+      0.3000                 2      None        0.8530          0.0236
+      0.3000                 2         8        0.8527          0.0218
+      0.3000                 5         8        0.8524          0.0237
+      0.3000                 1      None        0.8487          0.0211
+      0.3000                 1         8        0.8484          0.0207
+Mejor: balanced_acc=0.8556. Umbral de 1 error estándar: 0.8311.
+Elegida (la más simple dentro del umbral): {'max_features': 0.3, 'min_samples_leaf': 5, 'max_depth': 8}
+
+=== VALIDACIÓN (modelo entrenado solo con train, evaluado en val) ===
+accuracy=0.828  balanced_accuracy=0.846  f1_macro=0.822  auc=0.909   (n=122; con tan pocas imágenes, cada error pesa mucho)
+
+=== VALIDACIÓN CRUZADA SOBRE TRAIN + VAL ===
+Agrupada por especie : accuracy=0.848±0.071  balanced_accuracy=0.850±0.065  f1_macro=0.839±0.071  auc=0.928±0.057
+Aleatoria            : accuracy=0.872±0.023  balanced_accuracy=0.873±0.029  f1_macro=0.863±0.025  auc=0.941±0.025
+-> Brecha de balanced_accuracy entre ambas: 0.023. Es pequeña: el modelo generaliza bien a especies no vistas.
+
+=== ABLACIÓN (CV agrupada por especie, train + val) ===
+Solo textura     ( 81 features): accuracy=0.845±0.061  balanced_accuracy=0.847±0.053  f1_macro=0.836±0.060  auc=0.920±0.042
+Solo color       ( 66 features): accuracy=0.848±0.071  balanced_accuracy=0.848±0.072  f1_macro=0.838±0.074  auc=0.918±0.067
+Solo forma      : sin features disponibles
+Todas las features (147 features): accuracy=0.848±0.071  balanced_accuracy=0.850±0.065  f1_macro=0.839±0.071  auc=0.928±0.057
+
+=== TEST (una sola evaluación; modelo final entrenado con train + val) ===
+Test: 122 imágenes, 24 grupos de especie
+
+              precision    recall  f1-score   support
+
+Papilionidae      0.679     0.837     0.750        43
+    Pieridae      0.899     0.785     0.838        79
+
+    accuracy                          0.803       122
+   macro avg      0.789     0.811     0.794       122
+weighted avg      0.821     0.803     0.807       122
+
+Métricas: accuracy=0.803  balanced_accuracy=0.811  f1_macro=0.794  auc=0.887
+Intervalos de confianza al 95 % (bootstrap por especie, 1000 remuestreos):
+  balanced_accuracy  0.811  [0.674, 0.900]
+  f1_macro           0.794  [0.615, 0.893]
+  auc                0.887  [0.746, 0.972]
+(Un intervalo ancho es información útil: indica cuánto puede cambiar el resultado con otro conjunto de especies de prueba.)
+Referencia, siempre la familia mayoritaria: balanced_accuracy=0.500, accuracy=0.648
+
+Matriz de confusión (filas = real, columnas = predicho):
+                   pred Papilionidae  pred Pieridae
+real Papilionidae                 36              7
+real Pieridae                     17             62
+
+Imágenes de test mal clasificadas: 24 de 122 (detalle completo en test_predictions.csv)
+Especies con más errores:
+species_group
+archonias brassolis       7
+perrhybris lorena         4
+dismorphia theucharila    3
+parides orellana          2
+dismorphia medora         1
+dismorphia altis          1
+eurytides columbus        1
+heraclides isidorus       1
+leptophobia eleone        1
+heraclides thoas          1
+
+=== IMPORTANCIA DE FEATURES ===
+Por grupo (impureza, modelo final entrenado con train + val, suma = 1):
+Histograma HSV       0.433
+Momentos de color    0.279
+Gabor                0.113
+Haralick             0.096
+GLCM                 0.079
+
+Top 15 features por permutación, medida en val con el modelo entrenado solo con train (así el test no interviene en la interpretación):
+                  feature             group  perm_importance_mean  perm_importance_std
+                hist_v_01    Histograma HSV                0.0173               0.0141
+        gabor_f0.2_t0_std             Gabor                0.0135               0.0086
+        gabor_f0.1_t0_std             Gabor                0.0112               0.0131
+                hist_v_00    Histograma HSV                0.0101               0.0125
+glcm_dissimilarity_d3_std              GLCM                0.0063               0.0000
+                hist_v_11    Histograma HSV                0.0057               0.0060
+        moment_bgr_g_mean Momentos de color                0.0050               0.0099
+                hist_v_03    Histograma HSV                0.0038               0.0031
+                hist_v_12    Histograma HSV                0.0038               0.0042
+                hist_v_13    Histograma HSV                0.0038               0.0042
+                hist_v_02    Histograma HSV                0.0034               0.0060
+                hist_s_01    Histograma HSV                0.0032               0.0032
+                hist_v_04    Histograma HSV                0.0032               0.0032
+        haralick_variance          Haralick                0.0032               0.0032
+                hist_s_00    Histograma HSV                0.0032               0.0032
+(Con features muy correlacionadas, como GLCM a distintas distancias, la importancia por permutación se reparte entre ellas y cada una puede verse baja; interpreta mejor por grupo.)
+
+=== ARCHIVOS GENERADOS ===
+  D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\rf\model_family_rf.joblib
+  D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\rf\cv_results.csv
+  D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\rf\cv_grid_results.csv
+  D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\rf\test_predictions.csv
+  D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\rf\feature_importance.csv
+  D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\rf\feature_importance.png
+  D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\rf\confusion_matrix.png
+  D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\resultados\rf\metrics_report.txt
