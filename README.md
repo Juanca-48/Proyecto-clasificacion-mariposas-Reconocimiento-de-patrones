@@ -34,31 +34,23 @@ Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones/
 │   ├── Pieridae/                      # fotos originales, familia Pieridae
 │   ├── Papilionidae.csv               # etiquetas: photo_number, filename, label, genus
 │   └── Pieridae.csv
-├── scripts/                           # todos los scripts
-│   ├── rutas.py                       # rutas del proyecto (las usan todos los scripts)
-│   ├── orquestador.py                 # motor común de preprocesar.py y entrenar.py
-│   ├── preprocesar.py                 # ejecuta todo el preprocesamiento en orden (pasos 1 a 4)
-│   ├── entrenar.py                    # ejecuta división, entrenamiento y modelo final (pasos 5 a 10)
-│   ├── Segmentacion.py
-│   ├── texturas.py
-│   ├── color_features.py
-│   ├── formas.py
-│   ├── prepare_dataset.py
-│   ├── Split_dataset.py
-│   ├── Train_random_forest.py
-│   ├── Standardize_features.py
-│   ├── Train_models.py
-│   ├── Train_final.py
-│   ├── viabilidad_genero.py           # estudio de viabilidad de clasificar por género
-│   ├── inferencia.py                  # clasifica una imagen y rechaza lo que no parece una mariposa
-│   ├── calibrar_rechazo.py            # calibra los umbrales de rechazo (resultados/rechazo/)
-│   ├── probar_carpeta.py              # pasa las fotos de una carpeta por el clasificador de la app
-│   ├── validar_escala.py              # valida la normalización de escala de las fotos (resultados/escala/)
-│   ├── validar_segmentador.py         # compara GrabCut con rembg en la inferencia (resultados/segmentador/)
-│   └── exportar_app.py                # copia a app/ lo que necesita el Space
+├── scripts/                           # una carpeta por proceso; los orquestadores quedan en la raíz
+│   ├── rutas.py                       # rutas del proyecto; agrega al path la carpeta de cada proceso
+│   ├── orquestador.py                 # motor común de los tres orquestadores
+│   ├── preprocesar.py                 # orquestador: segmentación -> características -> vector (pasos 1 a 4)
+│   ├── entrenar.py                    # orquestador: partición, entrenamiento y modelo final clásico (pasos 5 a 10)
+│   ├── pipeline_embeddings.py         # orquestador: embeddings, evaluación y modelo ConvNeXt (paso 12)
+│   ├── segmentacion/                  # Segmentacion_rembg.py (la del flujo) y Segmentacion.py (GrabCut, el método anterior)
+│   ├── caracteristicas/               # texturas.py, color_features.py, formas.py, prepare_dataset.py
+│   ├── preparacion/                   # Split_dataset.py, Standardize_features.py
+│   ├── entrenamiento/                 # Train_random_forest.py, Train_models.py, Train_final.py (modelo clásico)
+│   ├── redes_preentrenadas/           # embeddings.py, evaluar_embeddings.py, entrenar_embeddings.py (y el fine-tuning, pendiente)
+│   ├── prediccion/                    # inferencia.py, inferencia_embeddings.py, calibrar_rechazo.py, probar_carpeta.py
+│   ├── despliegue/                    # exportar_app.py: copia a app/ lo que necesita el Space
+│   └── estudios/                      # validar_escala.py, validar_segmentador.py, viabilidad_genero.py (experimentos)
 ├── app/                               # Space de Hugging Face (Gradio): app.py, requirements.txt, README.md, modelo/
 ├── resultados/                        # salida de los scripts, una subcarpeta por etapa
-│   ├── segmentacion/                  # Segmentacion.py, texturas.py, color_features.py, formas.py, prepare_dataset.py
+│   ├── segmentacion/                  # Segmentacion_rembg.py, texturas.py, color_features.py, formas.py, prepare_dataset.py
 │   │   ├── Dataset_papilionidae/      #   masks/, segmented/, preview/, texture_features.csv, color_features.csv
 │   │   ├── Dataset_pieridae/
 │   │   ├── texture_features_all.csv / color_features_all.csv / shape_features_all.csv
@@ -85,15 +77,17 @@ Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones/
 ## Pipeline general
 
 El preprocesamiento completo se lanza con `python scripts/preprocesar.py`. Los scripts se
-ejecutan desde cualquier directorio (`python scripts/<nombre>.py`): las rutas
+ejecutan desde cualquier directorio (`python scripts/<proceso>/<nombre>.py`): las rutas
 se calculan desde la ubicación del propio script en `scripts/rutas.py`, así que el repo se
-puede clonar en cualquier carpeta.
+puede clonar en cualquier carpeta. Cada script empieza con un bloque que localiza `rutas.py`, y `rutas.py` agrega al path la
+carpeta de cada proceso; por eso los módulos se importan por su nombre y funcionan igual ejecutados directamente que desde
+un orquestador.
 
 ```
 dataset/Papilionidae , dataset/Pieridae   (fotos originales, nombradas NNN_Genero_especie.png)
         │
         ▼
-Segmentacion.py           → máscara binaria + recorte sobre fondo blanco (GrabCut)
+Segmentacion_rembg.py     → máscara binaria + recorte sobre fondo blanco (rembg)
         │
         ├──► texturas.py         → GLCM + Haralick + Gabor  (~81 features/imagen)
         ├──► color_features.py  → histogramas + momentos HSV/BGR (~66 features/imagen)
@@ -120,11 +114,12 @@ Train_final.py            → modelo final (pipeline completo, sin estandarizar 
 Cada etapa escribe su salida a disco (imágenes, máscaras, CSVs) de forma independiente,
 para poder revisar la calidad en cada paso antes de avanzar al siguiente.
 
-> **Segmentación usada:** el proyecto trabaja con la segmentación de `Segmentacion.py`, que a
-> veces deja dedos, pétalos o sombras dentro de la máscara. Se probó una variante con una
-> segunda pasada de GrabCut para quitarlos, pero recortaba partes del ala (el detector de
-> color confundía alas amarillas, crema o con manchas rojas con intrusos), así que se
-> descartó y se eliminó del repo.
+> **Segmentación:** `preprocesar.py` usa **rembg** (`Segmentacion_rembg.py`). El método anterior, GrabCut
+> (`Segmentacion.py`), a veces deja dedos, pétalos, hojas o sombras dentro de la máscara; se conserva y puede ejecutarse
+> aparte, pero ya no forma parte del flujo. Ambos escriben en `resultados/segmentacion/`, así que **cambiar de método
+> exige regenerar todo lo que sale de las máscaras**: `preprocesar.py`, `entrenar.py`, `calibrar_rechazo.py` y
+> `exportar_app.py`. Mientras no se haga, el modelo guardado y la app siguen siendo los entrenados con GrabCut. Una
+> variante anterior con segunda pasada de GrabCut se descartó porque recortaba partes del ala.
 
 ## Requisitos
 
@@ -187,13 +182,18 @@ correr por separado, como se describe a continuación.
 ### 1. Segmentación
 
 ```bash
-python scripts/Segmentacion.py
+python scripts/segmentacion/Segmentacion_rembg.py
 ```
 
-Lee `dataset/Papilionidae` y `dataset/Pieridae` y separa la mariposa del fondo con
-**GrabCut** (OpenCV): inicializa con un rectángulo que cubre casi toda la imagen, itera
-para refinar los modelos de color de fondo/frente, y limpia el resultado (morfología,
-relleno de huecos, componente conexo principal). Admite también `--method otsu`.
+Lee `dataset/Papilionidae` y `dataset/Pieridae` y separa la mariposa del fondo con **rembg** (red U2-Net, requiere
+`pip install rembg onnxruntime`; la primera vez descarga su modelo de 176 MB). La máscara pasa por la misma limpieza
+que la de GrabCut (morfología, relleno de huecos, componente conexo principal). Es determinista y quita bien hojas,
+flores y sombras. `preprocesar.py` instala las dependencias que falten. `--selftest` comprueba el método con una foto.
+
+El método anterior, **GrabCut** (`python scripts/segmentacion/Segmentacion.py`, también con `--method otsu`), inicializa con un
+rectángulo que cubre casi toda la imagen e itera para refinar los modelos de color. Escribe en las mismas carpetas, por
+lo que reemplaza las máscaras de rembg. Su código lo reutilizan `Segmentacion_rembg.py` e `inferencia.py`, por eso no
+está en otra carpeta.
 
 Salida en `resultados/segmentacion/Dataset_papilionidae` y `Dataset_pieridae`: `masks/`,
 `segmented/` (recorte sobre fondo blanco) y `preview/` (collage original|máscara|recorte
@@ -203,7 +203,7 @@ de la columna `dataset` en todos los CSV de features, por lo que no deben cambia
 ### 2. Extracción de características de textura
 
 ```bash
-python scripts/texturas.py
+python scripts/caracteristicas/texturas.py
 ```
 
 Autodetecta los datasets dentro de `resultados/segmentacion/` y extrae, por imagen
@@ -220,7 +220,7 @@ Genera un CSV por dataset más `texture_features_all.csv` combinado.
 ### 3. Extracción de características de color
 
 ```bash
-python scripts/color_features.py
+python scripts/caracteristicas/color_features.py
 ```
 
 Mismo patrón que `texturas.py`, pero en espacio **HSV**: histogramas normalizados
@@ -230,7 +230,7 @@ HSV y BGR). Genera `color_features_all.csv`.
 ### 4. Preparación del dataset final
 
 ```bash
-python scripts/prepare_dataset.py
+python scripts/caracteristicas/prepare_dataset.py
 ```
 
 Une textura + color por `(filename, dataset)`, audita calidad (filas con NaN o con muy
@@ -247,7 +247,7 @@ del conjunto de prueba.
 ### 5. División train / val / test
 
 ```bash
-python scripts/Split_dataset.py
+python scripts/preparacion/Split_dataset.py
 ```
 
 Divide las imágenes de `Dataset_papilionidae` y `Dataset_pieridae` en
@@ -272,7 +272,7 @@ Opciones útiles: `--also masks original` (copiar también máscaras/originales)
 ### 6. Entrenamiento y evaluación (Random Forest)
 
 ```bash
-python scripts/Train_random_forest.py
+python scripts/entrenamiento/Train_random_forest.py
 ```
 
 Entrena un **Random Forest** para distinguir la familia (Papilionidae vs Pieridae); la
@@ -309,7 +309,7 @@ Resultado en test: balanced accuracy 0.811 (IC 95 % [0.674, 0.900]), AUC 0.887.
 ### 7. Estandarización de features
 
 ```bash
-python scripts/Standardize_features.py
+python scripts/preparacion/Standardize_features.py
 ```
 
 Lee `features_{train,val,test}.csv`, imputa los NaN con la mediana de **train** y aplica
@@ -326,7 +326,7 @@ mismas 147 features y están muy correlacionadas con ellas.
 ### 8. Comparación de modelos
 
 ```bash
-python scripts/Train_models.py
+python scripts/entrenamiento/Train_models.py
 ```
 
 Compara regresión logística, SVM (kernel RBF), kNN y Random Forest (referencia) sobre las
@@ -341,7 +341,7 @@ con 150 especies en train + val y 24 en test, no hay base para distinguirlos.
 ### 9. Modelo final
 
 ```bash
-python scripts/Train_final.py
+python scripts/entrenamiento/Train_final.py
 ```
 
 Entrena el modelo elegido (por defecto la **regresión logística**, el más simple dentro de
@@ -361,18 +361,18 @@ Los errores del modelo se concentran en especies cuyo color y textura se parecen
 otra familia (mimetismo), así que se probó agregar la **forma de la silueta**.
 
 ```bash
-python scripts/formas.py                           # resultados/segmentacion/shape_features_all.csv
-python scripts/prepare_dataset.py --shape-csv resultados/segmentacion/shape_features_all.csv --output resultados/features_forma
-python scripts/Split_dataset.py --features-csv resultados/features_forma/features_dataset_ready.csv --output resultados/dataset_split_forma --no-copy
-python scripts/Standardize_features.py --split-dir resultados/dataset_split_forma
-python scripts/Train_models.py --std-dir resultados/dataset_split_forma/standardized --output resultados/modelos_forma
-python scripts/Train_final.py --split-dir resultados/dataset_split_forma --output resultados/final_forma
+python scripts/caracteristicas/formas.py                           # resultados/segmentacion/shape_features_all.csv
+python scripts/caracteristicas/prepare_dataset.py --shape-csv resultados/segmentacion/shape_features_all.csv --output resultados/features_forma
+python scripts/preparacion/Split_dataset.py --features-csv resultados/features_forma/features_dataset_ready.csv --output resultados/dataset_split_forma --no-copy
+python scripts/preparacion/Standardize_features.py --split-dir resultados/dataset_split_forma
+python scripts/entrenamiento/Train_models.py --std-dir resultados/dataset_split_forma/standardized --output resultados/modelos_forma
+python scripts/entrenamiento/Train_final.py --split-dir resultados/dataset_split_forma --output resultados/final_forma
 ```
 
 `formas.py` calcula 16 descriptores sobre las máscaras, invariantes a escala y traslación:
 solidez, extensión, relación de aspecto, circularidad, convexidad, excentricidad, 7 momentos
 de Hu y la cantidad y profundidad de las muescas del contorno (colas y lóbulos). No incluye
-el área absoluta, que depende del tamaño de la foto. `python scripts/formas.py --selftest`
+el área absoluta, que depende del tamaño de la foto. `python scripts/caracteristicas/formas.py --selftest`
 comprueba los descriptores con figuras sintéticas. La textura es la misma de antes.
 
 La partición es idéntica a la del vector sin forma, por lo que los resultados se comparan
@@ -399,12 +399,12 @@ clasifica con el modelo final (`resultados/final`) y muestra la familia, las pro
 Gradio y no Static, porque el modelo necesita Python en cada imagen (GrabCut, mahotas, scikit-image, scikit-learn).
 
 ```bash
-python scripts/calibrar_rechazo.py    # calibra los umbrales de rechazo -> resultados/rechazo/
-python scripts/exportar_app.py        # copia módulos y modelos a app/ y comprueba que funciona aislada
+python scripts/prediccion/calibrar_rechazo.py    # calibra los umbrales de rechazo -> resultados/rechazo/
+python scripts/despliegue/exportar_app.py        # copia módulos y modelos a app/ y comprueba que funciona aislada
 cd app && python app.py               # probar en local (http://127.0.0.1:7860)
 ```
 
-**Rechazo de lo que no parece una mariposa**, en tres capas (`scripts/inferencia.py`), calibradas solo con
+**Rechazo de lo que no parece una mariposa**, en tres capas (`scripts/prediccion/inferencia.py`), calibradas solo con
 train + val:
 1. **Segmentación:** el área de la máscara debe estar en el rango visto en el entrenamiento.
 2. **Distancia al conjunto de entrenamiento:** Mahalanobis (covarianza Ledoit-Wolf) en el espacio estandarizado
@@ -422,18 +422,18 @@ silueta, y distinguirlas exigiría una tercera clase con datos que no hay.
 semilla (`cv2.setRNGSeed(0)`) para que sea reproducible. `Segmentacion.py` no lo hace, así que volver a segmentar el
 dataset cambiaría un poco las máscaras y, con ellas, las features.
 
-**Probar con fotos propias:** `python scripts/probar_carpeta.py --carpeta <carpeta>` pasa las fotos por el mismo
+**Probar con fotos propias:** `python scripts/prediccion/probar_carpeta.py --carpeta <carpeta>` pasa las fotos por el mismo
 código de la app y las compara con la familia real, que se lee del nombre (`Papilionidae3.jpg`, `pieridae1.webp`).
 
 **Fotos de internet.** Con 8 fotos de internet, la app acertó 2, marcó 1 como incierta, rechazó 2 y se equivocó en 3.
 Cuatro de los seis fallos vienen de la segmentación (una hoja, una flor o una sombra dentro de la máscara), el defecto
 de GrabCut con fondos más ricos que los del catálogo. Una **normalización de la escala** (llevar siempre el lado mayor
-a 640 px) se probó con las 122 fotos de test reducidas a 450 y 330 px (`scripts/validar_escala.py`) y **se descartó**: no
+a 640 px) se probó con las 122 fotos de test reducidas a 450 y 330 px (`scripts/estudios/validar_escala.py`) y **se descartó**: no
 mejora la balanced accuracy (-0,014 y -0,057, con IC que incluyen el cero) y sesga las predicciones hacia Pieridae,
 aunque sí mejora el AUC y reduce los falsos rechazos. La app sigue con la política original: reducir solo lo que pase
 de 800 px.
 
-**Segmentador `rembg`** (`scripts/validar_segmentador.py`, requiere `pip install rembg onnxruntime` y descarga un modelo de
+**Segmentador `rembg`** (`scripts/estudios/validar_segmentador.py`, requiere `pip install rembg onnxruntime` y descarga un modelo de
 176 MB). Solo en la inferencia, sin reentrenar, quita las hojas, flores y sombras de las fotos de internet (en las 8 fotos,
 las aceptadas y correctas pasan de 2 a 3), pero en el catálogo baja algo la precisión (balanced accuracy -0,018, IC
 [-0,064, +0,015]) y sube el rechazo (de 1,6 % a 4,9 %) y la incertidumbre (de 5,7 % a 11,5 %), porque el modelo y los umbrales
@@ -455,6 +455,41 @@ Se sube solo `app/` (código y modelos, unos 400 KB), nunca el dataset: las foto
 `opencv-python-headless==5.0.0.93` para que GrabCut se comporte igual que en el entrenamiento. El Space usa Python 3.12
 (NumPy 2.5 lo exige). No se ha probado la construcción en Hugging Face: lo probado es la app en local y su carpeta aislada.
 Tras reentrenar o recalibrar, hay que volver a ejecutar `exportar_app.py` y volver a subir.
+
+### 12. Segundo modelo: ConvNeXt-Tiny preentrenada, y selector en la app
+
+Además del modelo clásico se probaron **embeddings** de redes preentrenadas (BioCLIP, DINOv2 y ConvNeXt-Tiny), sin afinarlas
+(sus pesos no cambian), clasificados con la misma regresión logística y el mismo protocolo: partición agrupada por especie y
+test una sola vez. Las tres superan con holgura al modelo clásico (CV agrupada 0,967 a 0,985 contra 0,893). Para el segundo
+modelo de la app se eligió **ConvNeXt-Tiny sobre recortes segmentados**: es la más ligera (unos 110 MB), no necesita
+`open_clip` y fue estable con las fotos de internet.
+
+```bash
+python scripts/pipeline_embeddings.py          # extraer -> evaluar -> modelo (afinar: pendiente); tarda menos de 1 minuto
+python scripts/pipeline_embeddings.py --estado
+python scripts/despliegue/exportar_app.py --sin-clasico   # copia a app/ los dos modelos sin tocar el clásico
+```
+
+El orquestador ejecuta `redes_preentrenadas/embeddings.py` (extrae los embeddings de los recortes), `evaluar_embeddings.py`
+(CV de las combinaciones, con el clásico como referencia, y test de la mejor por CV) y `entrenar_embeddings.py` (modelo final
+y calibración del rechazo). La etapa **`afinar`** (fine-tuning de la red) está **reservada pero sin implementar**: todavía no
+se ha decidido cómo hacerlo, y mientras tanto se muestra como "sin implementar" y se omite. Con ConvNeXt-Tiny sobre recortes:
+balanced accuracy 0,962 y AUC 0,997 en el test (24 especies), con 8 de 8 aciertos en las fotos de internet de `Pruebas/`
+(el clásico, 2 de 8). Resultados en `resultados/embeddings/` y `resultados/modelo_embeddings/`.
+
+`prediccion/inferencia_embeddings.py` es el segundo motor de la app: devuelve el mismo `Resultado` que el clásico, con las
+mismas tres capas de rechazo (área de la máscara, distancia de Mahalanobis en el espacio del embedding, confianza). La app
+(`app/app.py`) tiene un selector: el **clásico** es el predeterminado y el de **embeddings** aparece solo si existe
+`app/modelo/modelo_embeddings.joblib`. Nada del trabajo anterior se reemplaza.
+
+Necesita `torch`, `torchvision` y `timm`; el orquestador instala lo que falte. En este equipo no hay GPU utilizable con PyTorch
+(la RX 6600 de AMD no tiene soporte oficial en Windows y `torch-directml` no existe para Python 3.14), pero la extracción de
+embeddings de las 812 imágenes es cuestión de minutos en CPU; el fine-tuning probablemente requiera Colab o Kaggle.
+
+**Cautela con las cifras:** ConvNeXt se entrenó con ImageNet, que incluye clases de mariposas, así que no es un modelo
+"ingenuo". La comparación con el modelo clásico es justa en el protocolo, pero no en los datos de preentrenamiento. Las dos
+familias vienen de catálogos distintos: con la foto completa en vez del recorte, una red puede aprender el fondo o la
+iluminación de cada catálogo, y por eso se prefirió el recorte.
 
 ## Fuente de datos
 
@@ -493,7 +528,7 @@ rango de distribución y localidad de cada ejemplar.
 - [x] Estandarización y comparación de modelos
 - [x] Modelo final (regresión logística)
 - [ ] Otros descriptores para los mimetismos (patrón de venas, LBP)
-- [x] Estudio de viabilidad de la clasificación por género (`scripts/viabilidad_genero.py`): **descartada**.
+- [x] Estudio de viabilidad de la clasificación por género (`scripts/estudios/viabilidad_genero.py`): **descartada**.
       Solo 17 de 38 géneros tienen 3 o más especies, y en el piloto (CV agrupada, sin usar el test) la
       balanced accuracy es 0.30 a 0.43 (3 a 5 veces el azar, pero por debajo de la mitad); por familia
       es 0.87 a 0.89. El alcance del proyecto queda en la clasificación por familia.

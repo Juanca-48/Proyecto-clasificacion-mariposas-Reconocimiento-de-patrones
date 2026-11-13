@@ -18,10 +18,17 @@ Pieridae.csv guarda rutas en la columna filename y no coincide con las fotos.
 Salida en resultados/genero_viabilidad/: tabla_generos.csv, recall_por_genero.csv y resumen.txt.
 
 Uso:
-    python scripts/viabilidad_genero.py
-    python scripts/viabilidad_genero.py --min-especies 2 --min-imagenes 5
+    python scripts/estudios/viabilidad_genero.py
+    python scripts/estudios/viabilidad_genero.py --min-especies 2 --min-imagenes 5
 """
 from __future__ import annotations
+
+# Localiza rutas.py (en scripts/, o junto a este archivo en la app) y agrega al path la carpeta de cada proceso
+import sys
+from pathlib import Path
+sys.path[:0] = [str(p) for p in (Path(__file__).resolve().parent, Path(__file__).resolve().parents[1]) if (p / "rutas.py").exists()][:1]
+import rutas  # noqa: E402,F401
+
 
 import argparse
 import sys

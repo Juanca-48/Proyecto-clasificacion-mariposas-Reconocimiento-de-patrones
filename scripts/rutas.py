@@ -1,9 +1,10 @@
 """Rutas del proyecto, calculadas desde la ubicación de este archivo (no dependen de dónde se clone el repo).
 
     dataset/                       fotos originales (Papilionidae/, Pieridae/) y sus CSV de etiquetas
-    scripts/                       todos los scripts
+    scripts/<proceso>/             los scripts, una carpeta por proceso; los orquestadores quedan en scripts/
     resultados/<etapa>/            la salida de cada script, una subcarpeta por etapa
 """
+import sys
 from pathlib import Path
 
 REPO_DIR = Path(__file__).resolve().parents[1]
@@ -17,3 +18,8 @@ MODELS_DIR = RESULTS_DIR / "modelos"               # Train_models.py
 FINAL_DIR = RESULTS_DIR / "final"                  # Train_final.py
 REJECT_DIR = RESULTS_DIR / "rechazo"               # calibrar_rechazo.py
 APP_DIR = REPO_DIR / "app"                         # Space de Hugging Face (exportar_app.py)
+
+# Cada proceso tiene su carpeta dentro de scripts/. Se agregan al path para importar los módulos por su nombre, ejecutes el script directamente o desde un orquestador.
+for _d in sorted(Path(__file__).resolve().parent.iterdir()):
+    if _d.is_dir() and not _d.name.startswith(("_", ".")) and str(_d) not in sys.path:
+        sys.path.append(str(_d))

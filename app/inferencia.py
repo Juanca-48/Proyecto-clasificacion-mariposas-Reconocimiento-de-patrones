@@ -20,6 +20,13 @@ silueta, así que no se rechaza de forma fiable.
 """
 from __future__ import annotations
 
+# Localiza rutas.py (en scripts/, o junto a este archivo en la app) y agrega al path la carpeta de cada proceso
+import sys
+from pathlib import Path
+sys.path[:0] = [str(p) for p in (Path(__file__).resolve().parent, Path(__file__).resolve().parents[1]) if (p / "rutas.py").exists()][:1]
+import rutas  # noqa: E402,F401
+
+
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -30,6 +37,7 @@ import pandas as pd
 
 import color_features
 import Segmentacion
+import Segmentacion_rembg   # importa rembg solo al usarlo
 import texturas
 
 MAX_SIDE = 800   # lado mayor máximo de las fotos del catálogo (mediana 640)
@@ -59,12 +67,13 @@ def preparar(img_rgb: np.ndarray, lado: int | None = None) -> np.ndarray:
     return bgr
 
 
-def segmentar(img_bgr: np.ndarray):
-    """Máscara 0/255 y recorte de la mariposa sobre fondo blanco (como en Segmentacion.py)."""
+def segmentar(img_bgr: np.ndarray, segmentador: str = "grabcut"):
+    """Máscara 0/255 y recorte de la mariposa sobre fondo blanco (como en Segmentacion.py).
+    segmentador: "grabcut" (el del entrenamiento) o "rembg"."""
     # GrabCut usa el generador aleatorio global de OpenCV; sin fijar la semilla, la misma foto puede dar
     # máscaras distintas (IoU hasta 0,86 entre dos llamadas). Con semilla fija la salida es reproducible.
     cv2.setRNGSeed(0)
-    mask = Segmentacion.segment_grabcut(img_bgr)
+    mask = Segmentacion_rembg.segment_rembg(img_bgr) if segmentador == "rembg" else Segmentacion.segment_grabcut(img_bgr)
     cutout = np.full_like(img_bgr, 255)
     cutout[mask == 255] = img_bgr[mask == 255]
     return mask, cutout
@@ -102,12 +111,14 @@ class Clasificador:
         """Espacio en el que se mide la distancia: el mismo imputador y escalador del modelo."""
         return self.pipeline.named_steps["scaler"].transform(self.pipeline.named_steps["imputer"].transform(X))
 
-    def analizar(self, img_rgb: np.ndarray, lado: int | None = None) -> dict:
+    def analizar(self, img_rgb: np.ndarray, lado: int | None = None, segmentador: str | None = None) -> dict:
         """Segmenta, extrae features y mide distancia y probabilidades, SIN decidir si se rechaza.
         Útil para ver qué diría el modelo con y sin rechazo (la distancia y las probabilidades son None
         si la máscara es demasiado pequeña para calcular features)."""
+        # por defecto, el segmentador con el que se calibró el modelo (queda guardado en rechazo.joblib)
+        segmentador = segmentador or self.rechazo.get("segmentador", "grabcut")
         img = preparar(img_rgb, lado)
-        mask, cutout = segmentar(img)
+        mask, cutout = segmentar(img, segmentador)
         a = dict(area=float((mask > 0).mean()), mascara=mask, recorte_rgb=cv2.cvtColor(cutout, cv2.COLOR_BGR2RGB),
                  distancia=None, probabilidades=None)
         feats = extraer_features(img, mask)
@@ -138,5 +149,5 @@ class Clasificador:
                              f"{r['umbral_confianza']:.0%} de confianza.", familia, probs, **base)
         return Resultado("aceptada", "", familia, probs, **base)
 
-    def predecir(self, img_rgb: np.ndarray, lado: int | None = None) -> Resultado:
-        return self.decidir(self.analizar(img_rgb, lado))
+    def predecir(self, img_rgb: np.ndarray, lado: int | None = None, segmentador: str | None = None) -> Resultado:
+        return self.decidir(self.analizar(img_rgb, lado, segmentador))

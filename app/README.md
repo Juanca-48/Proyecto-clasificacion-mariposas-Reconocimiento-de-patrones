@@ -16,6 +16,18 @@ Proyecto de Reconocimiento de Patrones (Universidad Militar Nueva Granada). Dada
 mariposa del fondo con GrabCut, extrae características de **textura** (GLCM, Haralick, Gabor) y **color**
 (histogramas y momentos HSV/BGR) y las clasifica con una regresión logística entrenada con 690 fotos de catálogo.
 
+## Dos modelos, con selector
+
+La app ofrece dos formas de clasificar, que se alternan con el selector "Modelo":
+
+- **Clásico** (predeterminado): características de textura y color + regresión logística, como se describe arriba.
+- **Embeddings**: **ConvNeXt-Tiny** (una red de ImageNet, usada sin modificar sus pesos) sobre el recorte de la mariposa +
+  regresión logística. En el test de catálogo da una exactitud claramente mayor que el clásico, pero la red ya conoce
+  millones de imágenes (ImageNet incluye mariposas), así que la cifra puede ser optimista para fotos nuevas.
+
+La primera vez que arranca el Space descarga los pesos de la red (unos 110 MB) y el modelo de segmentación `rembg`
+(unos 170 MB), por lo que el arranque tarda; el selector solo aparece si el modelo de embeddings está disponible.
+
 ## Rendimiento
 
 En el conjunto de prueba (24 especies que el modelo no vio durante el entrenamiento): balanced accuracy 0,868

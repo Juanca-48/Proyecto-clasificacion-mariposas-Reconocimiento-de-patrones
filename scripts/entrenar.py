@@ -66,21 +66,21 @@ FOTOS_SEGMENTADAS = [SEGMENTATION_DIR / d / "segmented" for d in ("Dataset_papil
 
 # nombre, script, argumentos, datos que necesita, datos que produce
 STAGES = [
-    ("split", "Split_dataset.py", ["--overwrite"], [VECTOR] + FOTOS_SEGMENTADAS, particion(SPLIT_DIR)),
-    ("rf", "Train_random_forest.py", [], particion(SPLIT_DIR), [RF_DIR / "metrics_report.txt"]),
-    ("estandarizar", "Standardize_features.py", [], particion(SPLIT_DIR), estandarizados(SPLIT_DIR)),
-    ("modelos", "Train_models.py", [], estandarizados(SPLIT_DIR), [MODELS_DIR / "metrics_report.txt"]),
-    ("final", "Train_final.py", [], particion(SPLIT_DIR), [FINAL_DIR / "final_model.joblib"]),
+    ("split", "preparacion/Split_dataset.py", ["--overwrite"], [VECTOR] + FOTOS_SEGMENTADAS, particion(SPLIT_DIR)),
+    ("rf", "entrenamiento/Train_random_forest.py", [], particion(SPLIT_DIR), [RF_DIR / "metrics_report.txt"]),
+    ("estandarizar", "preparacion/Standardize_features.py", [], particion(SPLIT_DIR), estandarizados(SPLIT_DIR)),
+    ("modelos", "entrenamiento/Train_models.py", [], estandarizados(SPLIT_DIR), [MODELS_DIR / "metrics_report.txt"]),
+    ("final", "entrenamiento/Train_final.py", [], particion(SPLIT_DIR), [FINAL_DIR / "final_model.joblib"]),
 
-    ("split_forma", "Split_dataset.py",
+    ("split_forma", "preparacion/Split_dataset.py",
      ["--features-csv", str(VECTOR_FORMA), "--output", str(SPLIT_FORMA), "--no-copy"],
      [VECTOR_FORMA] + FOTOS_SEGMENTADAS, particion(SPLIT_FORMA)),
-    ("estandarizar_forma", "Standardize_features.py", ["--split-dir", str(SPLIT_FORMA)],
+    ("estandarizar_forma", "preparacion/Standardize_features.py", ["--split-dir", str(SPLIT_FORMA)],
      particion(SPLIT_FORMA), estandarizados(SPLIT_FORMA)),
-    ("modelos_forma", "Train_models.py",
+    ("modelos_forma", "entrenamiento/Train_models.py",
      ["--std-dir", str(SPLIT_FORMA / "standardized"), "--output", str(MODELOS_FORMA)],
      estandarizados(SPLIT_FORMA), [MODELOS_FORMA / "metrics_report.txt"]),
-    ("final_forma", "Train_final.py", ["--split-dir", str(SPLIT_FORMA), "--output", str(FINAL_FORMA)],
+    ("final_forma", "entrenamiento/Train_final.py", ["--split-dir", str(SPLIT_FORMA), "--output", str(FINAL_FORMA)],
      particion(SPLIT_FORMA), [FINAL_FORMA / "final_model.joblib"]),
 ]
 

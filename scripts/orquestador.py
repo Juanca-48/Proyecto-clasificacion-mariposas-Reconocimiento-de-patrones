@@ -2,7 +2,8 @@
 Motor común de preprocesar.py y entrenar.py: ejecuta una lista de etapas en orden, cada una en
 un proceso aparte, con selección de etapas, validación de entradas e instalación de dependencias.
 
-Una etapa es una tupla (nombre, script, argumentos, datos que necesita, datos que produce).
+Una etapa es una tupla (nombre, script, argumentos, datos que necesita, datos que produce). Con script None la etapa
+está reservada pero todavía sin implementar: se muestra como pendiente y se omite sin fallar.
 Sin argumentos, cada script usa sus rutas por defecto.
 """
 from __future__ import annotations
@@ -76,7 +77,10 @@ def validar_entradas(a_ejecutar: list, todas: list):
 
 def mostrar_estado(stages: list):
     print("Etapa               Estado        Resultado")
-    for name, _, _, _, produce in stages:
+    for name, script, _, _, produce in stages:
+        if script is None:
+            print(f"{name:<19} [-] sin implementar")
+            continue
         hecha = all(p.exists() for p in produce)
         print(f"{name:<19} {'[x] hecha    ' if hecha else '[ ] pendiente'} {_rel(produce[-1])}")
 
@@ -110,6 +114,9 @@ def correr(doc: str, stages: list, requisitos: dict, prog: str, cierre: str = ""
     env = {**os.environ, "PYTHONIOENCODING": "utf-8"}   # los scripts imprimen tildes
     t0 = time.time()
     for n, (name, script, extra, _, _) in enumerate(a_ejecutar, 1):
+        if script is None:
+            print(f"\n[{n}/{len(a_ejecutar)}] {name}: pendiente (todavía no está implementada), se omite")
+            continue
         cmd = [sys.executable, str(SCRIPTS / script), *extra]
         print(f"\n{'=' * 70}\n[{n}/{len(a_ejecutar)}] {name}: {script} {' '.join(extra)}\n{'=' * 70}", flush=True)
         if args.dry_run:
@@ -145,6 +152,7 @@ def selftest():
         except ValueError:
             continue
         raise AssertionError(f"debía fallar: {malo}")
+    assert [s[0] for s in seleccionar(st + [("p", None, [], [], [])], solo=["p"])] == ["p"]   # etapa pendiente
     validar_entradas(st[:2], st)                 # a produce lo que b necesita
     try:
         validar_entradas(st[1:2], st)            # b sin a: falta

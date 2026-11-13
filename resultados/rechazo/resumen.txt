@@ -1,55 +1,55 @@
 Modelo: Regresión logística (147 features). Calibración con train + val: 690 imágenes, 150 especies.
 
-[Capa 1] área de la máscara en train + val: mín 0.034, máx 0.574 -> rango aceptado [0.027, 0.632]
+[Capa 1] área de la máscara en train + val: mín 0.004, máx 0.710 -> rango aceptado [0.003, 0.781]
 
-[Capa 2] distancia de Mahalanobis^2 (mediana en el espacio estandarizado: 82)
-  imágenes de especies NO vistas (CV agrupada): mediana 82, p95 = 328  <- umbral
-  imágenes dentro del propio ajuste: mediana 70 (más cercanas, por eso no sirven para calibrar)
+[Capa 2] distancia de Mahalanobis^2 (mediana en el espacio estandarizado: 77)
+  imágenes de especies NO vistas (CV agrupada): mediana 77, p95 = 320  <- umbral
+  imágenes dentro del propio ajuste: mediana 66 (más cercanas, por eso no sirven para calibrar)
 
 [Capa 3] cobertura y exactitud de la CV agrupada según el umbral de confianza (solo imágenes que pasan la capa 2)
  umbral cobertura exactitud_aceptadas
-   0.50      100%               0.895
-   0.55       98%               0.901
-   0.60       95%               0.906
-   0.65       92%               0.910
-   0.70       89%               0.918
-   0.75       87%               0.924
-   0.80       84%               0.931
-   0.90       74%               0.959
+   0.50      100%               0.898
+   0.55       99%               0.904
+   0.60       97%               0.908
+   0.65       96%               0.909
+   0.70       95%               0.910
+   0.75       93%               0.918
+   0.80       92%               0.929
+   0.90       88%               0.934
   elegido: 0.65
 
 (a) TEST: 122 imágenes legítimas (24 especies; el test no intervino en la calibración)
-  rechazadas por capa 1: 0 | por capa 2: 2 (2%) | inciertas: 5 (4%) | aceptadas: 115 (94%)
-  exactitud sin filtro: 0.877 | solo en las aceptadas: 0.896
+  rechazadas por capa 1: 0 | por capa 2: 1 (1%) | inciertas: 4 (3%) | aceptadas: 117 (96%)
+  exactitud sin filtro: 0.861 | solo en las aceptadas: 0.889
 
 (b) PUNTA A PUNTA: 12 fotos originales de test, con segmentación GrabCut incluida
-  214_Parides_orellana.png               real Papil -> aceptada  Papilionidae d2=   107  área=0.31
-  196_Parides_lysander_brissonius.png    real Papil -> aceptada  Papilionidae d2=    53  área=0.32
-  197_Parides_lysander_brissonius.png    real Papil -> incierta  Papilionidae d2=    84  área=0.28
-  213_Parides_orellana.png               real Papil -> aceptada  Papilionidae d2=    62  área=0.35
-  211_Parides_orellana.png               real Papil -> aceptada  Papilionidae d2=    46  área=0.27
-  253_Protesilaus_protesilaus_archesilau real Papil -> aceptada  Pieridae     d2=   114  área=0.23
-  439_Leptophobia_eleone_eleone.png      real Pieri -> aceptada  Pieridae     d2=    48  área=0.35
-  448_Leptophobia_eleusis_eleusis.png    real Pieri -> aceptada  Pieridae     d2=   105  área=0.25
-  250_Pyrisitia_venusta_venusta.png      real Pieri -> aceptada  Pieridae     d2=    83  área=0.35
-  081_Dismorphia_theucharila_xanthone.pn real Pieri -> aceptada  Pieridae     d2=    75  área=0.21
-  262_Archonias_brassolis_approximata.pn real Pieri -> aceptada  Papilionidae d2=    92  área=0.37
-  443_Leptophobia_eleusis_eleusis.png    real Pieri -> aceptada  Pieridae     d2=    83  área=0.15
-  diferencia máxima de probabilidad con las predicciones guardadas: 3.03e-02 (no es cero porque GrabCut no es determinista: la máscara guardada y la recalculada tienen IoU de 0,86 a 0,99)
+  214_Parides_orellana.png               real Papil -> aceptada  Papilionidae d2=    37  área=0.21
+  196_Parides_lysander_brissonius.png    real Papil -> aceptada  Papilionidae d2=    51  área=0.30
+  197_Parides_lysander_brissonius.png    real Papil -> aceptada  Papilionidae d2=    69  área=0.21
+  213_Parides_orellana.png               real Papil -> aceptada  Papilionidae d2=    58  área=0.66
+  211_Parides_orellana.png               real Papil -> aceptada  Papilionidae d2=    58  área=0.45
+  253_Protesilaus_protesilaus_archesilau real Papil -> incierta  Pieridae     d2=   107  área=0.22
+  439_Leptophobia_eleone_eleone.png      real Pieri -> aceptada  Pieridae     d2=    42  área=0.38
+  448_Leptophobia_eleusis_eleusis.png    real Pieri -> aceptada  Pieridae     d2=    99  área=0.26
+  250_Pyrisitia_venusta_venusta.png      real Pieri -> aceptada  Pieridae     d2=    61  área=0.36
+  081_Dismorphia_theucharila_xanthone.pn real Pieri -> aceptada  Pieridae     d2=    70  área=0.24
+  262_Archonias_brassolis_approximata.pn real Pieri -> aceptada  Pieridae     d2=    87  área=0.37
+  443_Leptophobia_eleusis_eleusis.png    real Pieri -> aceptada  Pieridae     d2=    47  área=0.56
+  diferencia máxima de probabilidad con las predicciones guardadas: 6.66e-16 (no es cero porque GrabCut no es determinista: la máscara guardada y la recalculada tienen IoU de 0,86 a 0,99)
 
 (c) NO MARIPOSAS: imágenes de ejemplo de scikit-image (comprobación de cordura, 14 imágenes)
-  astronaut   -> aceptada  Papilionidae área=0.26 d2=277
-  camera      -> rechazada -            área=0.30 d2=533
-  chelsea     -> aceptada  Pieridae     área=0.34 d2=73
-  coffee      -> aceptada  Papilionidae área=0.46 d2=306
-  coins       -> rechazada -            área=0.02 d2=-
-  horse       -> rechazada -            área=0.34 d2=61734
-  moon        -> rechazada -            área=0.02 d2=-
-  page        -> rechazada -            área=0.00 d2=-
-  rocket      -> rechazada -            área=0.56 d2=540
+  astronaut   -> aceptada  Papilionidae área=0.54 d2=130
+  camera      -> rechazada -            área=0.30 d2=512
+  chelsea     -> aceptada  Pieridae     área=0.60 d2=64
+  coffee      -> aceptada  Pieridae     área=0.47 d2=270
+  coins       -> rechazada -            área=0.35 d2=387
+  horse       -> rechazada -            área=0.34 d2=68314
+  moon        -> rechazada -            área=0.01 d2=2220
+  page        -> rechazada -            área=0.00 d2=19320
+  rocket      -> rechazada -            área=0.01 d2=1643
   text        -> rechazada -            área=0.00 d2=-
-  brick       -> rechazada -            área=0.13 d2=1250
-  grass       -> rechazada -            área=0.00 d2=-
+  brick       -> rechazada -            área=0.00 d2=5954
+  grass       -> rechazada -            área=0.00 d2=2592
   gravel      -> rechazada -            área=0.00 d2=-
-  colorwheel  -> rechazada -            área=0.26 d2=1873
+  colorwheel  -> rechazada -            área=0.79 d2=695
   resumen: {'aceptada': 3, 'incierta': 0, 'rechazada': 11}

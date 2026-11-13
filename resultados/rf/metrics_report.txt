@@ -19,93 +19,93 @@ Features usadas: 147
 Malla: 18 configuraciones, métrica balanced_accuracy.
 Mejores 6 configuraciones:
 max_features  min_samples_leaf max_depth  balanced_acc  error_estandar
-      0.3000                 5      None        0.8556          0.0245
-      0.3000                 2      None        0.8530          0.0236
-      0.3000                 2         8        0.8527          0.0218
-      0.3000                 5         8        0.8524          0.0237
-      0.3000                 1      None        0.8487          0.0211
-      0.3000                 1         8        0.8484          0.0207
-Mejor: balanced_acc=0.8556. Umbral de 1 error estándar: 0.8311.
+      0.3000                 2      None        0.8706          0.0184
+      0.3000                 1      None        0.8676          0.0139
+      0.3000                 2         8        0.8660          0.0181
+      0.3000                 1         8        0.8648          0.0179
+        sqrt                 1      None        0.8635          0.0190
+        sqrt                 2      None        0.8623          0.0209
+Mejor: balanced_acc=0.8706. Umbral de 1 error estándar: 0.8522.
 Elegida (la más simple dentro del umbral): {'max_features': 0.3, 'min_samples_leaf': 5, 'max_depth': 8}
 
 === VALIDACIÓN (modelo entrenado solo con train, evaluado en val) ===
-accuracy=0.828  balanced_accuracy=0.846  f1_macro=0.822  auc=0.909   (n=122; con tan pocas imágenes, cada error pesa mucho)
+accuracy=0.844  balanced_accuracy=0.859  f1_macro=0.837  auc=0.901   (n=122; con tan pocas imágenes, cada error pesa mucho)
 
 === VALIDACIÓN CRUZADA SOBRE TRAIN + VAL ===
-Agrupada por especie : accuracy=0.848±0.071  balanced_accuracy=0.850±0.065  f1_macro=0.839±0.071  auc=0.928±0.057
-Aleatoria            : accuracy=0.872±0.023  balanced_accuracy=0.873±0.029  f1_macro=0.863±0.025  auc=0.941±0.025
--> Brecha de balanced_accuracy entre ambas: 0.023. Es pequeña: el modelo generaliza bien a especies no vistas.
+Agrupada por especie : accuracy=0.852±0.062  balanced_accuracy=0.858±0.051  f1_macro=0.844±0.061  auc=0.931±0.044
+Aleatoria            : accuracy=0.874±0.017  balanced_accuracy=0.876±0.025  f1_macro=0.865±0.019  auc=0.946±0.016
+-> Brecha de balanced_accuracy entre ambas: 0.018. Es pequeña: el modelo generaliza bien a especies no vistas.
 
 === ABLACIÓN (CV agrupada por especie, train + val) ===
-Solo textura     ( 81 features): accuracy=0.845±0.061  balanced_accuracy=0.847±0.053  f1_macro=0.836±0.060  auc=0.920±0.042
-Solo color       ( 66 features): accuracy=0.848±0.071  balanced_accuracy=0.848±0.072  f1_macro=0.838±0.074  auc=0.918±0.067
+Solo textura     ( 81 features): accuracy=0.836±0.051  balanced_accuracy=0.838±0.039  f1_macro=0.826±0.048  auc=0.922±0.030
+Solo color       ( 66 features): accuracy=0.841±0.075  balanced_accuracy=0.850±0.069  f1_macro=0.833±0.075  auc=0.923±0.059
 Solo forma      : sin features disponibles
-Todas las features (147 features): accuracy=0.848±0.071  balanced_accuracy=0.850±0.065  f1_macro=0.839±0.071  auc=0.928±0.057
+Todas las features (147 features): accuracy=0.852±0.062  balanced_accuracy=0.858±0.051  f1_macro=0.844±0.061  auc=0.931±0.044
 
 === TEST (una sola evaluación; modelo final entrenado con train + val) ===
 Test: 122 imágenes, 24 grupos de especie
 
               precision    recall  f1-score   support
 
-Papilionidae      0.679     0.837     0.750        43
-    Pieridae      0.899     0.785     0.838        79
+Papilionidae      0.692     0.837     0.758        43
+    Pieridae      0.900     0.797     0.846        79
 
-    accuracy                          0.803       122
-   macro avg      0.789     0.811     0.794       122
-weighted avg      0.821     0.803     0.807       122
+    accuracy                          0.811       122
+   macro avg      0.796     0.817     0.802       122
+weighted avg      0.827     0.811     0.815       122
 
-Métricas: accuracy=0.803  balanced_accuracy=0.811  f1_macro=0.794  auc=0.887
+Métricas: accuracy=0.811  balanced_accuracy=0.817  f1_macro=0.802  auc=0.892
 Intervalos de confianza al 95 % (bootstrap por especie, 1000 remuestreos):
-  balanced_accuracy  0.811  [0.674, 0.900]
-  f1_macro           0.794  [0.615, 0.893]
-  auc                0.887  [0.746, 0.972]
+  balanced_accuracy  0.817  [0.675, 0.919]
+  f1_macro           0.802  [0.606, 0.914]
+  auc                0.892  [0.747, 0.978]
 (Un intervalo ancho es información útil: indica cuánto puede cambiar el resultado con otro conjunto de especies de prueba.)
 Referencia, siempre la familia mayoritaria: balanced_accuracy=0.500, accuracy=0.648
 
 Matriz de confusión (filas = real, columnas = predicho):
                    pred Papilionidae  pred Pieridae
 real Papilionidae                 36              7
-real Pieridae                     17             62
+real Pieridae                     16             63
 
-Imágenes de test mal clasificadas: 24 de 122 (detalle completo en test_predictions.csv)
+Imágenes de test mal clasificadas: 23 de 122 (detalle completo en test_predictions.csv)
 Especies con más errores:
 species_group
-archonias brassolis       7
-perrhybris lorena         4
-dismorphia theucharila    3
-parides orellana          2
-dismorphia medora         1
-dismorphia altis          1
-eurytides columbus        1
-heraclides isidorus       1
-leptophobia eleone        1
-heraclides thoas          1
+archonias brassolis        7
+dismorphia theucharila     3
+perrhybris lorena          3
+parides orellana           3
+protesilaus protesilaus    2
+dismorphia medora          1
+leptophobia eleone         1
+heraclides thoas           1
+heraclides isidorus        1
+leptophobia penthica       1
 
 === IMPORTANCIA DE FEATURES ===
 Por grupo (impureza, modelo final entrenado con train + val, suma = 1):
-Histograma HSV       0.433
-Momentos de color    0.279
-Gabor                0.113
-Haralick             0.096
-GLCM                 0.079
+Momentos de color    0.352
+Histograma HSV       0.328
+Haralick             0.117
+Gabor                0.110
+GLCM                 0.093
 
 Top 15 features por permutación, medida en val con el modelo entrenado solo con train (así el test no interviene en la interpretación):
                   feature             group  perm_importance_mean  perm_importance_std
-                hist_v_01    Histograma HSV                0.0173               0.0141
-        gabor_f0.2_t0_std             Gabor                0.0135               0.0086
-        gabor_f0.1_t0_std             Gabor                0.0112               0.0131
-                hist_v_00    Histograma HSV                0.0101               0.0125
-glcm_dissimilarity_d3_std              GLCM                0.0063               0.0000
-                hist_v_11    Histograma HSV                0.0057               0.0060
-        moment_bgr_g_mean Momentos de color                0.0050               0.0099
-                hist_v_03    Histograma HSV                0.0038               0.0031
-                hist_v_12    Histograma HSV                0.0038               0.0042
-                hist_v_13    Histograma HSV                0.0038               0.0042
-                hist_v_02    Histograma HSV                0.0034               0.0060
-                hist_s_01    Histograma HSV                0.0032               0.0032
-                hist_v_04    Histograma HSV                0.0032               0.0032
-        haralick_variance          Haralick                0.0032               0.0032
-                hist_s_00    Histograma HSV                0.0032               0.0032
+        moment_bgr_g_mean Momentos de color                0.0229               0.0086
+        moment_bgr_r_skew Momentos de color                0.0159               0.0095
+        moment_hsv_v_skew Momentos de color                0.0141               0.0111
+glcm_dissimilarity_d3_std              GLCM                0.0120               0.0066
+                hist_v_00    Histograma HSV                0.0119               0.0045
+                hist_v_01    Histograma HSV                0.0089               0.0047
+       gabor_f0.1_t45_std             Gabor                0.0060               0.0050
+       gabor_f0.1_t0_mean             Gabor                0.0058               0.0058
+     haralick_sum_average          Haralick                0.0057               0.0071
+                hist_v_03    Histograma HSV                0.0051               0.0038
+        gabor_f0.1_t0_std             Gabor                0.0049               0.0062
+                hist_s_15    Histograma HSV                0.0032               0.0032
+                hist_v_02    Histograma HSV                0.0028               0.0054
+                hist_h_02    Histograma HSV                0.0013               0.0038
+     gabor_f0.1_t135_mean             Gabor                0.0000               0.0000
 (Con features muy correlacionadas, como GLCM a distintas distancias, la importancia por permutación se reparte entre ellas y cada una puede verse baja; interpreta mejor por grupo.)
 
 === ARCHIVOS GENERADOS ===

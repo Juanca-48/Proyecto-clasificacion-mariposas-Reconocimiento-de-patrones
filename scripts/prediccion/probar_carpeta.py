@@ -12,10 +12,17 @@ distancia al conjunto de entrenamiento, y guarda una imagen con la foto y la seg
 Salida en resultados/pruebas_app/: resumen.csv, informe.txt y una imagen por foto en segmentaciones/.
 
 Uso:
-    python scripts/probar_carpeta.py
-    python scripts/probar_carpeta.py --carpeta "ruta\\mis_fotos"
+    python scripts/prediccion/probar_carpeta.py
+    python scripts/prediccion/probar_carpeta.py --carpeta "ruta\\mis_fotos"
 """
 from __future__ import annotations
+
+# Localiza rutas.py (en scripts/, o junto a este archivo en la app) y agrega al path la carpeta de cada proceso
+import sys
+from pathlib import Path
+sys.path[:0] = [str(p) for p in (Path(__file__).resolve().parent, Path(__file__).resolve().parents[1]) if (p / "rutas.py").exists()][:1]
+import rutas  # noqa: E402,F401
+
 
 import argparse
 import sys

@@ -1,7 +1,7 @@
 === AUDITORÍA DE CALIDAD ===
 Total de filas: 812
 Filas con al menos un NaN en features: 0
-fg_pixels -> min=6292, mediana=87304, max=1298037
+fg_pixels -> min=1094, mediana=87004, max=2255897
 Filas con fg_pixels < 500 (posible segmentación fallida): 0
 TOTAL marcadas como low_quality (NaN o fg_pixels bajo): 0 / 812
 

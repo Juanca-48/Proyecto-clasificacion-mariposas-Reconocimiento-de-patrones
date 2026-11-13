@@ -4,15 +4,18 @@ preprocesar.py
 --------------
 Ejecuta el preprocesamiento en orden, cada etapa al terminar la anterior:
 
-  1. segmentacion    Segmentacion.py      máscaras y recortes           -> resultados/segmentacion/
+  1. segmentacion    Segmentacion_rembg.py  máscaras y recortes (rembg)  -> resultados/segmentacion/
   2. texturas        texturas.py          GLCM, Haralick, Gabor
   3. color           color_features.py    histogramas y momentos HSV/BGR
   4. formas          formas.py            descriptores de forma
   5. prepare         prepare_dataset.py   vector sin forma              -> resultados/segmentacion/features_dataset_ready.csv
   6. prepare_forma   prepare_dataset.py   vector con forma              -> resultados/features_forma/
 
+El método anterior (GrabCut, Segmentacion.py) ya no está en este flujo; sigue disponible aparte, pero escribe en las
+mismas carpetas. La primera vez, rembg descarga su modelo (176 MB).
+
 Antes de empezar comprueba las dependencias (opencv-python, numpy, pandas, scikit-image,
-mahotas, matplotlib) e instala con pip las que falten. Con --dry-run solo las lista.
+mahotas, matplotlib, rembg, onnxruntime) e instala con pip las que falten. Con --dry-run solo las lista.
 
 Cada etapa usa los valores por defecto de su script. Si una falla, se detiene y no ejecuta las
 siguientes (así no se mezclan features de una corrida con máscaras de otra).
@@ -43,6 +46,8 @@ REQUISITOS = {
     "skimage": "scikit-image",
     "mahotas": "mahotas",
     "matplotlib": "matplotlib",
+    "rembg": "rembg",
+    "onnxruntime": "onnxruntime",
 }
 
 DATASETS = ["Dataset_papilionidae", "Dataset_pieridae"]
@@ -57,12 +62,12 @@ VECTOR_FORMA = RESULTS_DIR / "features_forma" / "features_dataset_ready.csv"
 
 # nombre, script, argumentos, datos que necesita, datos que produce
 STAGES = [
-    ("segmentacion", "Segmentacion.py", [], FOTOS, SEGMENTADAS + MASCARAS),
-    ("texturas", "texturas.py", [], SEGMENTADAS + MASCARAS, [TEXTURA]),
-    ("color", "color_features.py", [], SEGMENTADAS + MASCARAS, [COLOR]),
-    ("formas", "formas.py", [], MASCARAS, [FORMA]),
-    ("prepare", "prepare_dataset.py", [], [TEXTURA, COLOR], [VECTOR]),
-    ("prepare_forma", "prepare_dataset.py", ["--shape-csv", str(FORMA), "--output", str(VECTOR_FORMA.parent)],
+    ("segmentacion", "segmentacion/Segmentacion_rembg.py", [], FOTOS, SEGMENTADAS + MASCARAS),
+    ("texturas", "caracteristicas/texturas.py", [], SEGMENTADAS + MASCARAS, [TEXTURA]),
+    ("color", "caracteristicas/color_features.py", [], SEGMENTADAS + MASCARAS, [COLOR]),
+    ("formas", "caracteristicas/formas.py", [], MASCARAS, [FORMA]),
+    ("prepare", "caracteristicas/prepare_dataset.py", [], [TEXTURA, COLOR], [VECTOR]),
+    ("prepare_forma", "caracteristicas/prepare_dataset.py", ["--shape-csv", str(FORMA), "--output", str(VECTOR_FORMA.parent)],
      [TEXTURA, COLOR, FORMA], [VECTOR_FORMA]),
 ]
 

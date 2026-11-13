@@ -19,10 +19,17 @@ con pocas imágenes, no una evaluación: las mariposas de otras familias NO se r
 Salida en resultados/rechazo/: rechazo.joblib (lo usa la app) y resumen.txt.
 
 Uso:
-    python scripts/calibrar_rechazo.py
-    python scripts/calibrar_rechazo.py --percentil 99 --umbral-confianza 0.7
+    python scripts/prediccion/calibrar_rechazo.py
+    python scripts/prediccion/calibrar_rechazo.py --percentil 99 --umbral-confianza 0.7
 """
 from __future__ import annotations
+
+# Localiza rutas.py (en scripts/, o junto a este archivo en la app) y agrega al path la carpeta de cada proceso
+import sys
+from pathlib import Path
+sys.path[:0] = [str(p) for p in (Path(__file__).resolve().parent, Path(__file__).resolve().parents[1]) if (p / "rutas.py").exists()][:1]
+import rutas  # noqa: E402,F401
+
 
 import argparse
 import sys
@@ -56,6 +63,9 @@ def main():
     ap.add_argument("--output", default=str(OUT_DIR))
     ap.add_argument("--percentil", type=float, default=95, help="Percentil de la CV agrupada que fija el umbral de distancia")
     ap.add_argument("--umbral-confianza", type=float, default=0.65)
+    ap.add_argument("--segmentador", choices=["grabcut", "rembg"], default="rembg",
+                    help="Segmentador con el que se generaron las features de entrenamiento (preprocesar.py usa rembg). "
+                         "Se guarda en rechazo.joblib y la inferencia lo usa por defecto")
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--seed", type=int, default=SEED)
     ap.add_argument("--fotos-punta-a-punta", type=int, default=12, help="Fotos de test para la comprobación completa")
@@ -113,7 +123,7 @@ def main():
 
     rechazo = {"area_min": float(area_min), "area_max": float(area_max), "covarianza": cov,
                "umbral_distancia": umbral_d2, "umbral_confianza": args.umbral_confianza,
-               "percentil": args.percentil, "modelo": str(args.modelo)}
+               "percentil": args.percentil, "modelo": str(args.modelo), "segmentador": args.segmentador}
     joblib.dump(rechazo, out / "rechazo.joblib")
 
     # --- (a) test: fracción de imágenes legítimas rechazadas ---

@@ -1,3 +1,9 @@
+# Localiza rutas.py (en scripts/, o junto a este archivo en la app) y agrega al path la carpeta de cada proceso
+import sys
+from pathlib import Path
+sys.path[:0] = [str(p) for p in (Path(__file__).resolve().parent, Path(__file__).resolve().parents[1]) if (p / "rutas.py").exists()][:1]
+import rutas  # noqa: E402,F401
+
 import argparse
 import sys
 from pathlib import Path
@@ -46,14 +52,14 @@ def clean_mask(mask_bin: np.ndarray) -> np.ndarray:
     mask_bin = cv2.morphologyEx(mask_bin, cv2.MORPH_CLOSE, kernel)
     mask_bin = keep_largest_component(mask_bin)
 
-    # Rellenar huecos internos (ej. el cuerpo separado de las alas por el flash)
-    filled = mask_bin.copy()
-    h, w = mask_bin.shape
-    flood_mask = np.zeros((h + 2, w + 2), np.uint8)
-    cv2.floodFill(filled, flood_mask, (0, 0), 255)
-    filled_inv = cv2.bitwise_not(filled)
-    mask_bin = mask_bin | filled_inv
-    return mask_bin
+    # Rellenar huecos internos (ej. el cuerpo separado de las alas por el flash). Se añade un borde de 1 px de
+    # fondo para que el relleno parta SIEMPRE del fondo exterior: sin él, si la máscara toca la esquina (0,0) o
+    # rodea ese rincón (rembg no fuerza el borde a fondo, GrabCut sí), todo el fondo se marca como hueco y la
+    # máscara cubre el 100 % de la imagen.
+    padded = cv2.copyMakeBorder(mask_bin, 1, 1, 1, 1, cv2.BORDER_CONSTANT, value=0)
+    filled = padded.copy()
+    cv2.floodFill(filled, np.zeros((padded.shape[0] + 2, padded.shape[1] + 2), np.uint8), (0, 0), 255)
+    return (padded | cv2.bitwise_not(filled))[1:-1, 1:-1]
 
 
 def segment_grabcut(img_bgr: np.ndarray) -> np.ndarray:
@@ -111,7 +117,7 @@ def dataset_name_from_path(images_dir: Path) -> str:
     return images_dir.name
 
 
-def segment_folder(images_dir: Path, output_dir: Path, method: str = METHOD):
+def segment_folder(images_dir: Path, output_dir: Path, method: str = METHOD, segment_fn=None):
     if not images_dir.exists():
         print(f"[ERROR] No se encontró la carpeta de imágenes: {images_dir}")
         return False
@@ -122,7 +128,8 @@ def segment_folder(images_dir: Path, output_dir: Path, method: str = METHOD):
     for d in (masks_dir, segmented_dir, preview_dir):
         d.mkdir(parents=True, exist_ok=True)
 
-    segment_fn = segment_grabcut if method == "grabcut" else segment_otsu
+    # segment_fn permite a otros métodos (Segmentacion_rembg.py) reutilizar este bucle y el formato de salida
+    segment_fn = segment_fn or (segment_grabcut if method == "grabcut" else segment_otsu)
 
     files = sorted(p for p in images_dir.iterdir() if p.suffix.lower() in VALID_EXTS)
     print(f"Procesando {len(files)} imágenes con método '{method}' ...")

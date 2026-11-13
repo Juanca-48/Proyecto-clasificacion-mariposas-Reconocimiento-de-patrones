@@ -1,3 +1,4 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 opencv-python-headless==5.0.0.93
 numpy
 pandas
@@ -5,3 +6,8 @@ scikit-learn==1.9.1
 scikit-image==0.26.0
 mahotas==1.4.19
 joblib
+rembg
+onnxruntime
+torch
+torchvision
+timm

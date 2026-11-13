@@ -16,9 +16,16 @@ entrenó con máscaras de GrabCut.
 Salida en resultados/segmentador/: resumen.txt, resultados.csv y montaje_<carpeta>.png.
 
 Uso:
-    python scripts/validar_segmentador.py
+    python scripts/estudios/validar_segmentador.py
 """
 from __future__ import annotations
+
+# Localiza rutas.py (en scripts/, o junto a este archivo en la app) y agrega al path la carpeta de cada proceso
+import sys
+from pathlib import Path
+sys.path[:0] = [str(p) for p in (Path(__file__).resolve().parent, Path(__file__).resolve().parents[1]) if (p / "rutas.py").exists()][:1]
+import rutas  # noqa: E402,F401
+
 
 import argparse
 import os
@@ -36,14 +43,12 @@ from sklearn.metrics import balanced_accuracy_score, roc_auc_score
 from rutas import DATASET_DIR, FINAL_DIR, REJECT_DIR, REPO_DIR, RESULTS_DIR, SPLIT_DIR
 from Train_random_forest import SEED, prepare_frame
 
-SCRIPTS = Path(__file__).resolve().parent
 OUT_DIR = RESULTS_DIR / "segmentador"
 SEGMENTADORES = ["grabcut", "rembg"]
 
 
 @lru_cache(maxsize=1)
 def _clasificador():
-    sys.path.insert(0, str(SCRIPTS))
     from inferencia import Clasificador
     return Clasificador(FINAL_DIR / "final_model.joblib", REJECT_DIR / "rechazo.joblib")
 
@@ -125,7 +130,6 @@ def main():
     carpeta = Path(args.carpeta)
     if carpeta.exists():
         from PIL import Image, ImageOps
-        sys.path.insert(0, str(SCRIPTS))
         from probar_carpeta import EXTS, familia_real
         clf = _clasificador()
         log(f"\n=== {carpeta.name}/: fotos de internet, comparación cualitativa ===")

@@ -19,9 +19,16 @@ No se puede simular el caso contrario (fotos más grandes que el catálogo): las
 Salida en resultados/escala/: resumen.txt y resultados.csv.
 
 Uso:
-    python scripts/validar_escala.py
+    python scripts/estudios/validar_escala.py
 """
 from __future__ import annotations
+
+# Localiza rutas.py (en scripts/, o junto a este archivo en la app) y agrega al path la carpeta de cada proceso
+import sys
+from pathlib import Path
+sys.path[:0] = [str(p) for p in (Path(__file__).resolve().parent, Path(__file__).resolve().parents[1]) if (p / "rutas.py").exists()][:1]
+import rutas  # noqa: E402,F401
+
 
 import argparse
 import os
@@ -39,7 +46,6 @@ from sklearn.metrics import balanced_accuracy_score, roc_auc_score
 from rutas import DATASET_DIR, FINAL_DIR, REJECT_DIR, REPO_DIR, RESULTS_DIR, SPLIT_DIR
 from Train_random_forest import SEED, prepare_frame
 
-SCRIPTS = Path(__file__).resolve().parent
 OUT_DIR = RESULTS_DIR / "escala"
 CONDICIONES = {"original": None, "450 px": 450, "330 px": 330}      # lado mayor de la foto de entrada
 POLITICAS = {"actual (tope 800)": None, "normalizada 640": 640}     # lado al que se lleva en la app
@@ -47,7 +53,6 @@ POLITICAS = {"actual (tope 800)": None, "normalizada 640": 640}     # lado al qu
 
 @lru_cache(maxsize=1)
 def _clasificador():
-    sys.path.insert(0, str(SCRIPTS))   # los procesos de joblib no heredan siempre el path
     from inferencia import Clasificador
     return Clasificador(FINAL_DIR / "final_model.joblib", REJECT_DIR / "rechazo.joblib")
 
@@ -147,7 +152,6 @@ def main():
     if carpeta.exists():
         log(f"\n=== {carpeta.name}/: fotos de internet, comparación cualitativa (P(Pieridae) sin rechazo) ===")
         from PIL import Image, ImageOps
-        sys.path.insert(0, str(SCRIPTS))
         from probar_carpeta import EXTS, familia_real
         clf = _clasificador()
         log(f"{'foto':<22}{'real':<14}{'tamaño':>11} | {'actual':>8}{'estado':>11} | {'normalizada':>12}{'estado':>11}")
