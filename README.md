@@ -1,7 +1,7 @@
 # Clasificación de Mariposas Colombianas — Reconocimiento de Patrones
 
 Proyecto académico (Universidad Militar Nueva Granada — Reconocimiento de Patrones) para
-clasificar mariposas colombianas por **familia** (con expansión planeada a **género**),
+clasificar mariposas colombianas por **familia** (Papilionidae vs Pieridae),
 a partir de fotografías de catálogo, usando características clásicas de **textura**,
 **color** y **forma** como entrada a un modelo de machine learning.
 
@@ -48,7 +48,14 @@ Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones/
 │   ├── Train_random_forest.py
 │   ├── Standardize_features.py
 │   ├── Train_models.py
-│   └── Train_final.py
+│   ├── Train_final.py
+│   ├── viabilidad_genero.py           # estudio de viabilidad de clasificar por género
+│   ├── inferencia.py                  # clasifica una imagen y rechaza lo que no parece una mariposa
+│   ├── calibrar_rechazo.py            # calibra los umbrales de rechazo (resultados/rechazo/)
+│   ├── probar_carpeta.py              # pasa las fotos de una carpeta por el clasificador de la app
+│   ├── validar_escala.py              # valida la normalización de escala de las fotos (resultados/escala/)
+│   └── exportar_app.py                # copia a app/ lo que necesita el Space
+├── app/                               # Space de Hugging Face (Gradio): app.py, requirements.txt, README.md, modelo/
 ├── resultados/                        # salida de los scripts, una subcarpeta por etapa
 │   ├── segmentacion/                  # Segmentacion.py, texturas.py, color_features.py, formas.py, prepare_dataset.py
 │   │   ├── Dataset_papilionidae/      #   masks/, segmented/, preview/, texture_features.csv, color_features.csv
@@ -64,7 +71,11 @@ Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones/
 │   ├── modelos/                       # Train_models.py (ignorado en git)
 │   ├── modelos_forma/                 # (ignorado en git)
 │   ├── final/                         # Train_final.py: final_model.joblib
-│   └── final_forma/
+│   ├── final_forma/
+│   ├── genero_viabilidad/             # viabilidad_genero.py: tabla de géneros, cobertura, piloto
+│   ├── rechazo/                       # calibrar_rechazo.py: rechazo.joblib y resumen.txt
+│   ├── pruebas_app/                   # probar_carpeta.py: resultado por foto y segmentaciones
+│   └── escala/                        # validar_escala.py: comparación de políticas de escala
 ├── mariposas_analisis.xlsx            # análisis exploratorio del dataset
 └── README.md
 ```
@@ -379,6 +390,61 @@ regresión logística pasa de 0.868 a 0.890 de balanced accuracy y de 15 a 14 er
 pero cambian 11 predicciones (6 corregidas y 5 nuevas, 4 de ellas de *Dismorphia
 theucharila*), así que la mejora no se distingue del ruido de un test de 24 especies.
 
+### 11. App en Hugging Face (con rechazo de imágenes)
+
+La carpeta `app/` es un Space de Gradio listo para subir: el usuario sube una foto, la app la segmenta, la
+clasifica con el modelo final (`resultados/final`) y muestra la familia, las probabilidades y la segmentación.
+Gradio y no Static, porque el modelo necesita Python en cada imagen (GrabCut, mahotas, scikit-image, scikit-learn).
+
+```bash
+python scripts/calibrar_rechazo.py    # calibra los umbrales de rechazo -> resultados/rechazo/
+python scripts/exportar_app.py        # copia módulos y modelos a app/ y comprueba que funciona aislada
+cd app && python app.py               # probar en local (http://127.0.0.1:7860)
+```
+
+**Rechazo de lo que no parece una mariposa**, en tres capas (`scripts/inferencia.py`), calibradas solo con
+train + val:
+1. **Segmentación:** el área de la máscara debe estar en el rango visto en el entrenamiento.
+2. **Distancia al conjunto de entrenamiento:** Mahalanobis (covarianza Ledoit-Wolf) en el espacio estandarizado
+   del modelo. El umbral es el percentil 95 de una CV **agrupada por especie**, así no se rechazan especies nuevas
+   legítimas.
+3. **Confianza:** si ninguna familia supera el 65 %, el resultado es "incierto".
+
+Resultados (`resultados/rechazo/resumen.txt`): sobre las 122 fotos legítimas del test, 2 % rechazadas, 4 % inciertas
+y 94 % aceptadas, con exactitud 0,896 en las aceptadas (0,877 sin filtro). Con 14 imágenes que no son mariposas (las de
+ejemplo de scikit-image) rechazó 11 y dejó pasar 3: un gato, un café y un astronauta. Es una comprobación de cordura, no
+una evaluación. **Las mariposas de otra familia no se rechazan de forma fiable**: se parecen a estas en color, textura y
+silueta, y distinguirlas exigiría una tercera clase con datos que no hay.
+
+`GrabCut` es aleatorio: la misma foto puede dar máscaras distintas entre ejecuciones (IoU hasta 0,86). La app fija la
+semilla (`cv2.setRNGSeed(0)`) para que sea reproducible. `Segmentacion.py` no lo hace, así que volver a segmentar el
+dataset cambiaría un poco las máscaras y, con ellas, las features.
+
+**Probar con fotos propias:** `python scripts/probar_carpeta.py --carpeta <carpeta>` pasa las fotos por el mismo
+código de la app y las compara con la familia real, que se lee del nombre (`Papilionidae3.jpg`, `pieridae1.webp`).
+
+**Fotos de internet.** Con 8 fotos de internet, la app acertó 2, marcó 1 como incierta, rechazó 2 y se equivocó en 3.
+Cuatro de los seis fallos vienen de la segmentación (una hoja, una flor o una sombra dentro de la máscara), el defecto
+de GrabCut con fondos más ricos que los del catálogo. Una **normalización de la escala** (llevar siempre el lado mayor
+a 640 px) se probó con las 122 fotos de test reducidas a 450 y 330 px (`scripts/validar_escala.py`) y **se descartó**: no
+mejora la balanced accuracy (-0,014 y -0,057, con IC que incluyen el cero) y sesga las predicciones hacia Pieridae,
+aunque sí mejora el AUC y reduce los falsos rechazos. La app sigue con la política original: reducir solo lo que pase
+de 800 px.
+
+**Subir el Space** (requiere una cuenta en Hugging Face; no se ha hecho desde este repositorio):
+
+```bash
+hf auth login
+hf repos create <usuario>/<nombre> --type space --sdk gradio
+hf upload <usuario>/<nombre> app . --type space --exclude "**/__pycache__/**"
+```
+
+Se sube solo `app/` (código y modelos, unos 400 KB), nunca el dataset: las fotos son de los catálogos de BioButterfly.
+`app/requirements.txt` fija `scikit-learn==1.9.1` porque el modelo es un pickle sensible a la versión, y
+`opencv-python-headless==5.0.0.93` para que GrabCut se comporte igual que en el entrenamiento. El Space usa Python 3.12
+(NumPy 2.5 lo exige). No se ha probado la construcción en Hugging Face: lo probado es la app en local y su carpeta aislada.
+Tras reentrenar o recalibrar, hay que volver a ejecutar `exportar_app.py` y volver a subir.
+
 ## Fuente de datos
 
 Catálogos fotográficos de **BioButterfly Database** —
@@ -416,4 +482,7 @@ rango de distribución y localidad de cada ejemplar.
 - [x] Estandarización y comparación de modelos
 - [x] Modelo final (regresión logística)
 - [ ] Otros descriptores para los mimetismos (patrón de venas, LBP)
-- [ ] Expansión a clasificación por género
+- [x] Estudio de viabilidad de la clasificación por género (`scripts/viabilidad_genero.py`): **descartada**.
+      Solo 17 de 38 géneros tienen 3 o más especies, y en el piloto (CV agrupada, sin usar el test) la
+      balanced accuracy es 0.30 a 0.43 (3 a 5 veces el azar, pero por debajo de la mitad); por familia
+      es 0.87 a 0.89. El alcance del proyecto queda en la clasificación por familia.

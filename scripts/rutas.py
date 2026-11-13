@@ -15,3 +15,5 @@ SPLIT_DIR = RESULTS_DIR / "dataset_split"          # Split_dataset.py, Standardi
 RF_DIR = RESULTS_DIR / "rf"                        # Train_random_forest.py
 MODELS_DIR = RESULTS_DIR / "modelos"               # Train_models.py
 FINAL_DIR = RESULTS_DIR / "final"                  # Train_final.py
+REJECT_DIR = RESULTS_DIR / "rechazo"               # calibrar_rechazo.py
+APP_DIR = REPO_DIR / "app"                         # Space de Hugging Face (exportar_app.py)

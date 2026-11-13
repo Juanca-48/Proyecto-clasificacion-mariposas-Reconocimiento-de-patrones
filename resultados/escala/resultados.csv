@@ -1,0 +1,733 @@
+cond,pol,p_pier,distancia,area,estado,alto,ancho,real,species_group,archivo
+original,actual (tope 800),0.24865685853067748,64.78749406638892,0.18003255208333332,aceptada,480,640,Papilionidae,eurytides columbus,029_Eurytides_columbus.png
+original,actual (tope 800),0.5256671148736666,46.09419843911307,0.3355093333333333,incierta,375,500,Papilionidae,eurytides columbus,030_Eurytides_columbus.png
+original,actual (tope 800),0.023943152991769114,23.370348629022363,0.35229333333333335,aceptada,375,500,Papilionidae,eurytides columbus,031_Eurytides_columbus.png
+original,actual (tope 800),0.24862393088594195,27.808673965940955,0.381201171875,aceptada,480,640,Papilionidae,eurytides columbus,032_Eurytides_columbus.png
+original,actual (tope 800),0.20468038240886124,65.63977075405205,0.4493326822916667,aceptada,480,640,Papilionidae,heraclides garleppi,071_Heraclides_garleppi_interruptus.png
+original,actual (tope 800),0.33948929462987026,48.74366998615056,0.45029296875,aceptada,480,640,Papilionidae,heraclides garleppi,072_Heraclides_garleppi_interruptus.png
+original,actual (tope 800),0.5419575258600707,103.09380144623064,0.33727864583333333,incierta,480,640,Papilionidae,heraclides isidorus,073_Heraclides_isidorus_flavencens.png
+original,actual (tope 800),0.02558611434379349,66.64606567761537,0.287998046875,aceptada,480,640,Papilionidae,heraclides isidorus,074_Heraclides_isidorus_flavencens.png
+original,actual (tope 800),0.0015195460455323128,85.0229818008168,0.21473307291666666,aceptada,480,640,Papilionidae,heraclides isidorus,075_Heraclides_isidorus_flavencens.png
+original,actual (tope 800),0.0027155745652429923,80.37270802401564,0.3230436197916667,aceptada,480,640,Papilionidae,heraclides thoas,079_Heraclides_thoas_cinyras.png
+original,actual (tope 800),0.0013501270186296968,82.66869539302222,0.2828190104166667,aceptada,480,640,Papilionidae,heraclides thoas,080_Heraclides_thoas_cinyras.png
+original,actual (tope 800),0.020110472091025938,140.85418036698877,0.3063248697916667,aceptada,480,640,Papilionidae,heraclides thoas,081_Heraclides_thoas_cinyras.png
+original,actual (tope 800),7.910248066308463e-05,146.15862470787394,0.31853333333333333,aceptada,375,500,Papilionidae,heraclides thoas,082_Heraclides_thoas_cinyras.png
+original,actual (tope 800),0.0015975169084237759,164.99989305358355,0.28530133333333335,aceptada,375,500,Papilionidae,heraclides thoas,083_Heraclides_thoas_cinyras.png
+original,actual (tope 800),0.15177978379628046,66.99713786738762,0.2574772135416667,aceptada,480,640,Papilionidae,heraclides thoas,084_Heraclides_thoas_cinyras.png
+original,actual (tope 800),0.04729815722448262,103.5668630853279,0.20360252079002078,aceptada,481,640,Papilionidae,heraclides thoas,085_Heraclides_thoas_cinyras.png
+original,actual (tope 800),0.0028882966250251925,74.59139486531275,0.41818684895833336,aceptada,480,640,Papilionidae,heraclides thoas,086_Heraclides_thoas_nealces.png
+original,actual (tope 800),0.011032403687781583,52.10995533780218,0.255361328125,aceptada,480,640,Papilionidae,heraclides thoas,087_Heraclides_thoas_nealces.png
+original,actual (tope 800),0.001186493597515144,82.87550316622129,0.3395052083333333,aceptada,480,640,Papilionidae,heraclides thoas,088_Heraclides_thoas_nealces.png
+original,actual (tope 800),0.7144560785666969,67.005952174943,0.28961263020833333,aceptada,480,640,Papilionidae,heraclides thoas,089_Heraclides_thoas_nealces.png
+original,actual (tope 800),0.14080172779389302,116.39118368470258,0.21706380208333334,aceptada,480,640,Papilionidae,heraclides thoas,090_Heraclides_thoas_nealces.png
+original,actual (tope 800),0.15476644134996048,78.74516851939974,0.31136393229166665,aceptada,480,640,Papilionidae,heraclides thoas,091_Heraclides_thoas_nealces.png
+original,actual (tope 800),0.012434411414972583,47.86863957642062,0.3389388020833333,aceptada,480,640,Papilionidae,mimoides xeniades,121_Mimoides_xeniades_halex.png
+original,actual (tope 800),0.8397145938609664,40.93296238257653,0.34338216145833333,aceptada,480,640,Papilionidae,mimoides xeniades,122_Mimoides_xeniades_halex.png
+original,actual (tope 800),0.01728403880723949,53.25404683205696,0.3150358072916667,aceptada,480,640,Papilionidae,parides lysander,196_Parides_lysander_brissonius.png
+original,actual (tope 800),0.4119711784321693,84.33267655447186,0.275576171875,incierta,480,640,Papilionidae,parides lysander,197_Parides_lysander_brissonius.png
+original,actual (tope 800),0.00824135922015772,97.16534730992443,0.477578125,aceptada,480,640,Papilionidae,parides lysander,198_Parides_lysander_brissonius.png
+original,actual (tope 800),0.00475100718507001,83.54564086059057,0.2920703125,aceptada,480,640,Papilionidae,parides lysander,199_Parides_lysander_brissonius.png
+original,actual (tope 800),0.0036042074964351533,110.40970197127999,0.4772493489583333,aceptada,480,640,Papilionidae,parides lysander,200_Parides_lysander_brissonius.png
+original,actual (tope 800),9.756899224890348e-07,128.52276160425458,0.23032552083333332,aceptada,480,640,Papilionidae,parides lysander,201_Parides_lysander_brissonius.png
+original,actual (tope 800),0.4396361765484412,100.29737337953134,0.28932083333333336,incierta,960,1280,Papilionidae,parides lysander,202_Parides_lysander_orinocoensis.png
+original,actual (tope 800),2.3758293571923876e-05,100.44132688394167,0.46155365566037737,aceptada,530,640,Papilionidae,parides lysander,203_Parides_lysander_orinocoensis.png
+original,actual (tope 800),0.0029534191185776274,100.59148283480391,0.219475,aceptada,960,1280,Papilionidae,parides lysander,204_Parides_lysander_orinocoensis.png
+original,actual (tope 800),6.063847403499998e-05,112.33154787095971,0.46283854166666666,aceptada,480,640,Papilionidae,parides lysander,205_Parides_lysander_orinocoensis.png
+original,actual (tope 800),0.0024359504358843756,46.034011434041574,0.2671875,aceptada,480,640,Papilionidae,parides orellana,211_Parides_orellana.png
+original,actual (tope 800),0.07553263034667808,243.51002615383814,0.25630533854166665,aceptada,480,640,Papilionidae,parides orellana,212_Parides_orellana.png
+original,actual (tope 800),0.018325324826592423,62.140101830591895,0.3511653645833333,aceptada,480,640,Papilionidae,parides orellana,213_Parides_orellana.png
+original,actual (tope 800),0.08421074613296674,107.27582960261348,0.3129654947916667,aceptada,480,640,Papilionidae,parides orellana,214_Parides_orellana.png
+original,actual (tope 800),0.07441729001250037,112.69124723981933,0.35670572916666665,aceptada,480,640,Papilionidae,protesilaus protesilaus,252_Protesilaus_protesilaus_archesilaus.png
+original,actual (tope 800),0.7675606291422273,114.24491342507712,0.23122721354166667,aceptada,480,640,Papilionidae,protesilaus protesilaus,253_Protesilaus_protesilaus_archesilaus.png
+original,actual (tope 800),0.29569364527641956,38.25041802489568,0.23312174479166667,aceptada,480,640,Papilionidae,protesilaus protesilaus,254_Protesilaus_protesilaus_dariensis.png
+original,actual (tope 800),0.7898064739468151,82.3393783963959,0.17325846354166666,aceptada,480,640,Papilionidae,protesilaus protesilaus,255_Protesilaus_protesilaus_protesilaus.png
+original,actual (tope 800),0.8486984003667444,79.66760818676666,0.266192,aceptada,375,500,Papilionidae,protesilaus protesilaus,256_Protesilaus_protesilaus_protesilaus.png
+original,actual (tope 800),0.48246028883042247,24.03440669472669,0.4042578125,incierta,480,640,Pieridae,dismorphia altis,001_Dismorphia_altis_altis.png
+original,actual (tope 800),0.9527319710542429,60.87188446296911,0.26738932291666667,aceptada,480,640,Pieridae,dismorphia altis,002_Dismorphia_altis_altis.png
+original,actual (tope 800),0.9995833667673022,53.955169186805506,0.22189778645833333,aceptada,480,640,Pieridae,dismorphia altis,003_Dismorphia_altis_sophia.png
+original,actual (tope 800),0.9867396242410746,43.30298811354819,0.246767578125,aceptada,480,640,Pieridae,dismorphia arcadia,007_Dismorphia_arcadia_arcadia.png
+original,actual (tope 800),0.9959428698774512,48.37511092491089,0.3217545572916667,aceptada,480,640,Pieridae,dismorphia arcadia,008_Dismorphia_arcadia_lucilla.png
+original,actual (tope 800),0.245551553907195,56.124250341132694,0.3097786458333333,aceptada,480,640,Pieridae,dismorphia medora,056_Dismorphia_medora_medora.png
+original,actual (tope 800),0.9923811147690245,42.33045437736311,0.206064,aceptada,375,500,Pieridae,dismorphia medora,057_Dismorphia_medora_medora.png
+original,actual (tope 800),0.9817883000328916,73.64876156666884,0.26373697916666666,aceptada,480,640,Pieridae,dismorphia theucharila,069_Dismorphia_theucharila_avonia.png
+original,actual (tope 800),0.8753238524643226,67.90238669782133,0.20977864583333333,aceptada,480,640,Pieridae,dismorphia theucharila,070_Dismorphia_theucharila_avonia.png
+original,actual (tope 800),0.9504346192693941,53.54724165045571,0.26076822916666664,aceptada,480,640,Pieridae,dismorphia theucharila,071_Dismorphia_theucharila_avonia.png
+original,actual (tope 800),0.9799077465151435,79.29322839318672,0.22751953125,aceptada,480,640,Pieridae,dismorphia theucharila,072_Dismorphia_theucharila_avonia.png
+original,actual (tope 800),0.8383006368656369,57.07382656925631,0.27162109375,aceptada,480,640,Pieridae,dismorphia theucharila,073_Dismorphia_theucharila_leuconoe.png
+original,actual (tope 800),0.9301629629259858,122.18967702647177,0.3553873697916667,aceptada,480,640,Pieridae,dismorphia theucharila,074_Dismorphia_theucharila_leuconoe.png
+original,actual (tope 800),0.8173243381681764,56.31337091979113,0.2711490885416667,aceptada,480,640,Pieridae,dismorphia theucharila,075_Dismorphia_theucharila_leuconoe.png
+original,actual (tope 800),0.8880540590727019,114.38884050497657,0.18671466666666667,aceptada,375,500,Pieridae,dismorphia theucharila,076_Dismorphia_theucharila_lysionides.png
+original,actual (tope 800),0.6590043876066446,105.23106713928766,0.197607421875,aceptada,480,640,Pieridae,dismorphia theucharila,077_Dismorphia_theucharila_lysionides.png
+original,actual (tope 800),0.9538660117998622,99.65282395579092,0.30194133333333334,aceptada,375,500,Pieridae,dismorphia theucharila,078_Dismorphia_theucharila_lysionides.png
+original,actual (tope 800),0.9207489746969575,58.22959362143653,0.2986666666666667,aceptada,375,500,Pieridae,dismorphia theucharila,079_Dismorphia_theucharila_lysionides.png
+original,actual (tope 800),0.22888432520882238,149.48107707601585,0.307294921875,aceptada,480,640,Pieridae,dismorphia theucharila,080_Dismorphia_theucharila_lysionides.png
+original,actual (tope 800),0.9767421050331596,75.40472964962505,0.21422200520833334,aceptada,480,640,Pieridae,dismorphia theucharila,081_Dismorphia_theucharila_xanthone.png
+original,actual (tope 800),0.9763445120816404,62.11740354819169,0.29986979166666666,aceptada,480,640,Pieridae,dismorphia theucharila,082_Dismorphia_theucharila_xanthone.png
+original,actual (tope 800),0.8713471102724433,50.513540242246656,0.43875,aceptada,480,640,Pieridae,eurema elathea,161_Eurema_elathea_vitellina.png
+original,actual (tope 800),0.9996398796377047,58.8861068541856,0.37551432291666664,aceptada,480,640,Pieridae,eurema elathea,162_Eurema_elathea_vitellina.png
+original,actual (tope 800),0.9999999648230168,221.563327890409,0.40908203125,aceptada,480,640,Pieridae,eurema elathea,163_Eurema_elathea_vitellina.png
+original,actual (tope 800),0.9999999376047505,694.8890606760402,0.337294921875,rechazada,480,640,Pieridae,eurema elathea,164_Eurema_elathea_vitellina.png
+original,actual (tope 800),0.9999983045482814,130.9795824099052,0.394336,aceptada,375,500,Pieridae,eurema paulina,184_Eurema_paulina.png
+original,actual (tope 800),0.9964565899531972,116.08841698144559,0.5148177083333333,aceptada,480,640,Pieridae,eurema phiale,185_Eurema_phiale_columbia.png
+original,actual (tope 800),0.9999990524514245,110.8082477378124,0.299755859375,aceptada,480,640,Pieridae,eurema phiale,186_Eurema_phiale_columbia.png
+original,actual (tope 800),0.999997387568927,117.31173747420164,0.33880533854166667,aceptada,480,640,Pieridae,eurema phiale,187_Eurema_phiale_columbia.png
+original,actual (tope 800),0.9869084524218168,41.13417013929995,0.435498046875,aceptada,480,640,Pieridae,pyrisitia venusta,247_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9997047191244546,85.41422329527032,0.438984375,aceptada,480,640,Pieridae,pyrisitia venusta,248_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9999539669544137,204.4536350046594,0.373564453125,aceptada,480,640,Pieridae,pyrisitia venusta,249_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9999746432546196,83.15483099559513,0.34720703125,aceptada,480,640,Pieridae,pyrisitia venusta,250_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9998874320201316,67.17306538924764,0.33203125,aceptada,480,640,Pieridae,pyrisitia venusta,251_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9770248107086563,100.2439954761603,0.45373697916666667,aceptada,480,640,Pieridae,pyrisitia venusta,252_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9986935177124058,41.52348264623271,0.367626953125,aceptada,480,640,Pieridae,pyrisitia venusta,253_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9999870435001026,85.59646457494316,0.472688,aceptada,375,500,Pieridae,pyrisitia venusta,254_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9999835110052571,322.69851710313264,0.37019205729166665,aceptada,480,640,Pieridae,pyrisitia venusta,255_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9999646703255125,113.26157261813486,0.30866875,aceptada,600,800,Pieridae,pyrisitia venusta,256_Pyrisitia_venusta_venusta.png
+original,actual (tope 800),0.9986253913730563,44.091390207143334,0.5761848958333333,aceptada,480,640,Pieridae,zerene cesonia,259_Zerene_cesonia_boyacensis.png
+original,actual (tope 800),0.9979654030990313,41.82746667166098,0.5379427083333334,aceptada,480,640,Pieridae,zerene cesonia,260_Zerene_cesonia_boyacensis.png
+original,actual (tope 800),0.22786165313807888,76.55238049102162,0.32710611979166665,aceptada,480,640,Pieridae,archonias brassolis,261_Archonias_brassolis_approximata.png
+original,actual (tope 800),0.24073524243698308,92.09096308032828,0.37258463541666664,aceptada,480,640,Pieridae,archonias brassolis,262_Archonias_brassolis_approximata.png
+original,actual (tope 800),0.788830104070372,69.62858778629555,0.28817916666666665,aceptada,600,800,Pieridae,archonias brassolis,263_Archonias_brassolis_approximata.png
+original,actual (tope 800),0.9995941403136333,217.36497605371693,0.33352864583333336,aceptada,480,640,Pieridae,archonias brassolis,264_Archonias_brassolis_approximata.png
+original,actual (tope 800),0.835590397910734,68.7671681081994,0.29652018229166666,aceptada,480,640,Pieridae,archonias brassolis,265_Archonias_brassolis_approximata.png
+original,actual (tope 800),0.6557935853735801,185.84610145489265,0.3163704427083333,aceptada,480,640,Pieridae,archonias brassolis,266_Archonias_brassolis_critias.png
+original,actual (tope 800),0.5386458014128621,76.59416074471079,0.29665690104166664,incierta,480,640,Pieridae,archonias brassolis,267_Archonias_brassolis_critias.png
+original,actual (tope 800),0.9990475377215263,108.46477714411589,0.2651733333333333,aceptada,375,500,Pieridae,catasticta apaturina,283_Catasticta_apaturina.png
+original,actual (tope 800),0.9973237396955333,64.3443380940088,0.303168,aceptada,375,500,Pieridae,catasticta apaturina,284_Catasticta_apaturina.png
+original,actual (tope 800),0.9325048258560081,64.14310305207428,0.4568912760416667,aceptada,480,640,Pieridae,leptophobia aripa,419_Leptophobia_aripa_aripa.png
+original,actual (tope 800),0.99524453258682,51.42066173098849,0.31784505208333336,aceptada,480,640,Pieridae,leptophobia aripa,420_Leptophobia_aripa_aripa.png
+original,actual (tope 800),0.9997330053127913,93.64601507575627,0.34619140625,aceptada,480,640,Pieridae,leptophobia aripa,421_Leptophobia_aripa_aripa.png
+original,actual (tope 800),0.9992101189710264,68.87642636827354,0.31664713541666667,aceptada,480,640,Pieridae,leptophobia aripa,422_Leptophobia_aripa_aripa.png
+original,actual (tope 800),0.3157421209298001,58.27515801213458,0.22695638020833334,aceptada,480,640,Pieridae,leptophobia eleone,435_Leptophobia_eleone_denigrata.png
+original,actual (tope 800),0.9999993667440765,105.72014037516215,0.2560677083333333,aceptada,480,640,Pieridae,leptophobia eleone,436_Leptophobia_eleone_denigrata.png
+original,actual (tope 800),0.9737975277757545,62.55382859423009,0.330544,aceptada,375,500,Pieridae,leptophobia eleone,437_Leptophobia_eleone_eleone.png
+original,actual (tope 800),0.9978742613452681,121.71393425122301,0.137568,aceptada,375,500,Pieridae,leptophobia eleone,438_Leptophobia_eleone_eleone.png
+original,actual (tope 800),0.9748123389272346,48.37776762521253,0.353904,aceptada,375,500,Pieridae,leptophobia eleone,439_Leptophobia_eleone_eleone.png
+original,actual (tope 800),0.9793234627382867,124.16963002433516,0.24648,aceptada,375,500,Pieridae,leptophobia eleone,440_Leptophobia_eleone_eleone.png
+original,actual (tope 800),0.999747458584757,68.39702784585751,0.4190169270833333,aceptada,480,640,Pieridae,leptophobia eleone,441_Leptophobia_eleone_eleone.png
+original,actual (tope 800),0.9999975144520576,62.97136200991408,0.318736,aceptada,375,500,Pieridae,leptophobia eleone,442_Leptophobia_eleone_eleone.png
+original,actual (tope 800),0.9999260582672643,82.89854514182949,0.153310546875,aceptada,480,640,Pieridae,leptophobia eleusis,443_Leptophobia_eleusis_eleusis.png
+original,actual (tope 800),0.6200555303776439,66.64530526005741,0.3732743997912317,incierta,479,640,Pieridae,leptophobia eleusis,444_Leptophobia_eleusis_eleusis.png
+original,actual (tope 800),0.999285383551463,77.75601806743393,0.3380078125,aceptada,480,640,Pieridae,leptophobia eleusis,445_Leptophobia_eleusis_eleusis.png
+original,actual (tope 800),0.9999998906087619,96.67400605649993,0.33113932291666665,aceptada,480,640,Pieridae,leptophobia eleusis,446_Leptophobia_eleusis_eleusis.png
+original,actual (tope 800),0.999301578735318,59.742001080447004,0.3216861979166667,aceptada,480,640,Pieridae,leptophobia eleusis,447_Leptophobia_eleusis_eleusis.png
+original,actual (tope 800),0.9999992058769223,104.52670628098836,0.25298828125,aceptada,480,640,Pieridae,leptophobia eleusis,448_Leptophobia_eleusis_eleusis.png
+original,actual (tope 800),0.8860358154549408,91.54790817197915,0.263296,aceptada,375,500,Pieridae,leptophobia penthica,459_Leptophobia_penthica_penthica.png
+original,actual (tope 800),0.9972752618515817,87.35530308847946,0.27470933333333336,aceptada,375,500,Pieridae,leptophobia penthica,460_Leptophobia_penthica_penthica.png
+original,actual (tope 800),0.9847457320271777,103.24497431102168,0.30922666666666665,aceptada,375,500,Pieridae,leptophobia penthica,461_Leptophobia_penthica_penthica.png
+original,actual (tope 800),0.02628807030335891,809.4786545118,0.12703466666666666,rechazada,375,500,Pieridae,leptophobia penthica,462_Leptophobia_penthica_penthica.png
+original,actual (tope 800),0.9663990303531236,90.42512072319846,0.45061866666666667,aceptada,375,500,Pieridae,leptophobia penthica,463_Leptophobia_penthica_penthica.png
+original,actual (tope 800),0.9851644933462868,67.75394018433865,0.45375,aceptada,480,640,Pieridae,perrhybris lorena,522_Perrhybris_lorena_lorena.png
+original,actual (tope 800),0.9994527379295839,102.57533655736732,0.124052734375,aceptada,480,640,Pieridae,perrhybris lorena,523_Perrhybris_lorena_lorena.png
+original,actual (tope 800),0.006173948493351989,127.84896823297001,0.25955403645833336,aceptada,480,640,Pieridae,perrhybris lorena,524_Perrhybris_lorena_lorena.png
+original,actual (tope 800),0.8091017045897693,40.202652138186906,0.280771484375,aceptada,480,640,Pieridae,perrhybris lorena,525_Perrhybris_lorena_lorena.png
+original,actual (tope 800),0.12928391330476327,38.42161679230154,0.3277897135416667,aceptada,480,640,Pieridae,perrhybris lorena,526_Perrhybris_lorena_lorena.png
+original,actual (tope 800),0.9953464210194592,167.04276241645925,0.13138346354166666,aceptada,480,640,Pieridae,perrhybris lorena,527_Perrhybris_lorena_lorena.png
+original,normalizada 640,0.24865685853067748,64.78749406638892,0.18003255208333332,aceptada,480,640,Papilionidae,eurytides columbus,029_Eurytides_columbus.png
+original,normalizada 640,0.768908606068605,51.506489850024714,0.33875,aceptada,375,500,Papilionidae,eurytides columbus,030_Eurytides_columbus.png
+original,normalizada 640,0.046517514371957065,22.91095041316931,0.35007161458333336,aceptada,375,500,Papilionidae,eurytides columbus,031_Eurytides_columbus.png
+original,normalizada 640,0.24862393088594195,27.808673965940955,0.381201171875,aceptada,480,640,Papilionidae,eurytides columbus,032_Eurytides_columbus.png
+original,normalizada 640,0.20468038240886124,65.63977075405205,0.4493326822916667,aceptada,480,640,Papilionidae,heraclides garleppi,071_Heraclides_garleppi_interruptus.png
+original,normalizada 640,0.33948929462987026,48.74366998615056,0.45029296875,aceptada,480,640,Papilionidae,heraclides garleppi,072_Heraclides_garleppi_interruptus.png
+original,normalizada 640,0.5419575258600707,103.09380144623064,0.33727864583333333,incierta,480,640,Papilionidae,heraclides isidorus,073_Heraclides_isidorus_flavencens.png
+original,normalizada 640,0.02558611434379349,66.64606567761537,0.287998046875,aceptada,480,640,Papilionidae,heraclides isidorus,074_Heraclides_isidorus_flavencens.png
+original,normalizada 640,0.0015195460455323128,85.0229818008168,0.21473307291666666,aceptada,480,640,Papilionidae,heraclides isidorus,075_Heraclides_isidorus_flavencens.png
+original,normalizada 640,0.0027155745652429923,80.37270802401564,0.3230436197916667,aceptada,480,640,Papilionidae,heraclides thoas,079_Heraclides_thoas_cinyras.png
+original,normalizada 640,0.0013501270186296968,82.66869539302222,0.2828190104166667,aceptada,480,640,Papilionidae,heraclides thoas,080_Heraclides_thoas_cinyras.png
+original,normalizada 640,0.020110472091025938,140.85418036698877,0.3063248697916667,aceptada,480,640,Papilionidae,heraclides thoas,081_Heraclides_thoas_cinyras.png
+original,normalizada 640,0.0011758870553464982,102.60618431209087,0.32318359375,aceptada,375,500,Papilionidae,heraclides thoas,082_Heraclides_thoas_cinyras.png
+original,normalizada 640,0.005324798047761903,110.05878312324928,0.3319401041666667,aceptada,375,500,Papilionidae,heraclides thoas,083_Heraclides_thoas_cinyras.png
+original,normalizada 640,0.15177978379628046,66.99713786738762,0.2574772135416667,aceptada,480,640,Papilionidae,heraclides thoas,084_Heraclides_thoas_cinyras.png
+original,normalizada 640,0.04729815722448262,103.5668630853279,0.20360252079002078,aceptada,481,640,Papilionidae,heraclides thoas,085_Heraclides_thoas_cinyras.png
+original,normalizada 640,0.0028882966250251925,74.59139486531275,0.41818684895833336,aceptada,480,640,Papilionidae,heraclides thoas,086_Heraclides_thoas_nealces.png
+original,normalizada 640,0.011032403687781583,52.10995533780218,0.255361328125,aceptada,480,640,Papilionidae,heraclides thoas,087_Heraclides_thoas_nealces.png
+original,normalizada 640,0.001186493597515144,82.87550316622129,0.3395052083333333,aceptada,480,640,Papilionidae,heraclides thoas,088_Heraclides_thoas_nealces.png
+original,normalizada 640,0.7144560785666969,67.005952174943,0.28961263020833333,aceptada,480,640,Papilionidae,heraclides thoas,089_Heraclides_thoas_nealces.png
+original,normalizada 640,0.14080172779389302,116.39118368470258,0.21706380208333334,aceptada,480,640,Papilionidae,heraclides thoas,090_Heraclides_thoas_nealces.png
+original,normalizada 640,0.15476644134996048,78.74516851939974,0.31136393229166665,aceptada,480,640,Papilionidae,heraclides thoas,091_Heraclides_thoas_nealces.png
+original,normalizada 640,0.012434411414972583,47.86863957642062,0.3389388020833333,aceptada,480,640,Papilionidae,mimoides xeniades,121_Mimoides_xeniades_halex.png
+original,normalizada 640,0.8397145938609664,40.93296238257653,0.34338216145833333,aceptada,480,640,Papilionidae,mimoides xeniades,122_Mimoides_xeniades_halex.png
+original,normalizada 640,0.01728403880723949,53.25404683205696,0.3150358072916667,aceptada,480,640,Papilionidae,parides lysander,196_Parides_lysander_brissonius.png
+original,normalizada 640,0.4119711784321693,84.33267655447186,0.275576171875,incierta,480,640,Papilionidae,parides lysander,197_Parides_lysander_brissonius.png
+original,normalizada 640,0.00824135922015772,97.16534730992443,0.477578125,aceptada,480,640,Papilionidae,parides lysander,198_Parides_lysander_brissonius.png
+original,normalizada 640,0.00475100718507001,83.54564086059057,0.2920703125,aceptada,480,640,Papilionidae,parides lysander,199_Parides_lysander_brissonius.png
+original,normalizada 640,0.0036042074964351533,110.40970197127999,0.4772493489583333,aceptada,480,640,Papilionidae,parides lysander,200_Parides_lysander_brissonius.png
+original,normalizada 640,9.756899224890348e-07,128.52276160425458,0.23032552083333332,aceptada,480,640,Papilionidae,parides lysander,201_Parides_lysander_brissonius.png
+original,normalizada 640,0.21275464193230978,101.76622565123873,0.27313151041666667,aceptada,960,1280,Papilionidae,parides lysander,202_Parides_lysander_orinocoensis.png
+original,normalizada 640,2.3758293571923876e-05,100.44132688394167,0.46155365566037737,aceptada,530,640,Papilionidae,parides lysander,203_Parides_lysander_orinocoensis.png
+original,normalizada 640,0.0008457224730084291,108.75632981906482,0.21992513020833335,aceptada,960,1280,Papilionidae,parides lysander,204_Parides_lysander_orinocoensis.png
+original,normalizada 640,6.063847403499998e-05,112.33154787095971,0.46283854166666666,aceptada,480,640,Papilionidae,parides lysander,205_Parides_lysander_orinocoensis.png
+original,normalizada 640,0.0024359504358843756,46.034011434041574,0.2671875,aceptada,480,640,Papilionidae,parides orellana,211_Parides_orellana.png
+original,normalizada 640,0.07553263034667808,243.51002615383814,0.25630533854166665,aceptada,480,640,Papilionidae,parides orellana,212_Parides_orellana.png
+original,normalizada 640,0.018325324826592423,62.140101830591895,0.3511653645833333,aceptada,480,640,Papilionidae,parides orellana,213_Parides_orellana.png
+original,normalizada 640,0.08421074613296674,107.27582960261348,0.3129654947916667,aceptada,480,640,Papilionidae,parides orellana,214_Parides_orellana.png
+original,normalizada 640,0.07441729001250037,112.69124723981933,0.35670572916666665,aceptada,480,640,Papilionidae,protesilaus protesilaus,252_Protesilaus_protesilaus_archesilaus.png
+original,normalizada 640,0.7675606291422273,114.24491342507712,0.23122721354166667,aceptada,480,640,Papilionidae,protesilaus protesilaus,253_Protesilaus_protesilaus_archesilaus.png
+original,normalizada 640,0.29569364527641956,38.25041802489568,0.23312174479166667,aceptada,480,640,Papilionidae,protesilaus protesilaus,254_Protesilaus_protesilaus_dariensis.png
+original,normalizada 640,0.7898064739468151,82.3393783963959,0.17325846354166666,aceptada,480,640,Papilionidae,protesilaus protesilaus,255_Protesilaus_protesilaus_protesilaus.png
+original,normalizada 640,0.8840813985421383,60.97866271149155,0.266650390625,aceptada,375,500,Papilionidae,protesilaus protesilaus,256_Protesilaus_protesilaus_protesilaus.png
+original,normalizada 640,0.48246028883042247,24.03440669472669,0.4042578125,incierta,480,640,Pieridae,dismorphia altis,001_Dismorphia_altis_altis.png
+original,normalizada 640,0.9527319710542429,60.87188446296911,0.26738932291666667,aceptada,480,640,Pieridae,dismorphia altis,002_Dismorphia_altis_altis.png
+original,normalizada 640,0.9995833667673022,53.955169186805506,0.22189778645833333,aceptada,480,640,Pieridae,dismorphia altis,003_Dismorphia_altis_sophia.png
+original,normalizada 640,0.9867396242410746,43.30298811354819,0.246767578125,aceptada,480,640,Pieridae,dismorphia arcadia,007_Dismorphia_arcadia_arcadia.png
+original,normalizada 640,0.9959428698774512,48.37511092491089,0.3217545572916667,aceptada,480,640,Pieridae,dismorphia arcadia,008_Dismorphia_arcadia_lucilla.png
+original,normalizada 640,0.245551553907195,56.124250341132694,0.3097786458333333,aceptada,480,640,Pieridae,dismorphia medora,056_Dismorphia_medora_medora.png
+original,normalizada 640,0.9961085243353063,43.78818414578777,0.206328125,aceptada,375,500,Pieridae,dismorphia medora,057_Dismorphia_medora_medora.png
+original,normalizada 640,0.9817883000328916,73.64876156666884,0.26373697916666666,aceptada,480,640,Pieridae,dismorphia theucharila,069_Dismorphia_theucharila_avonia.png
+original,normalizada 640,0.8753238524643226,67.90238669782133,0.20977864583333333,aceptada,480,640,Pieridae,dismorphia theucharila,070_Dismorphia_theucharila_avonia.png
+original,normalizada 640,0.9504346192693941,53.54724165045571,0.26076822916666664,aceptada,480,640,Pieridae,dismorphia theucharila,071_Dismorphia_theucharila_avonia.png
+original,normalizada 640,0.9799077465151435,79.29322839318672,0.22751953125,aceptada,480,640,Pieridae,dismorphia theucharila,072_Dismorphia_theucharila_avonia.png
+original,normalizada 640,0.8383006368656369,57.07382656925631,0.27162109375,aceptada,480,640,Pieridae,dismorphia theucharila,073_Dismorphia_theucharila_leuconoe.png
+original,normalizada 640,0.9301629629259858,122.18967702647177,0.3553873697916667,aceptada,480,640,Pieridae,dismorphia theucharila,074_Dismorphia_theucharila_leuconoe.png
+original,normalizada 640,0.8173243381681764,56.31337091979113,0.2711490885416667,aceptada,480,640,Pieridae,dismorphia theucharila,075_Dismorphia_theucharila_leuconoe.png
+original,normalizada 640,0.9105327137462376,103.7525644190939,0.187255859375,aceptada,375,500,Pieridae,dismorphia theucharila,076_Dismorphia_theucharila_lysionides.png
+original,normalizada 640,0.6590043876066446,105.23106713928766,0.197607421875,aceptada,480,640,Pieridae,dismorphia theucharila,077_Dismorphia_theucharila_lysionides.png
+original,normalizada 640,0.9893185315394789,101.97003063631308,0.33924479166666666,aceptada,375,500,Pieridae,dismorphia theucharila,078_Dismorphia_theucharila_lysionides.png
+original,normalizada 640,0.9729635637259645,60.89089269296739,0.29944986979166666,aceptada,375,500,Pieridae,dismorphia theucharila,079_Dismorphia_theucharila_lysionides.png
+original,normalizada 640,0.22888432520882238,149.48107707601585,0.307294921875,aceptada,480,640,Pieridae,dismorphia theucharila,080_Dismorphia_theucharila_lysionides.png
+original,normalizada 640,0.9767421050331596,75.40472964962505,0.21422200520833334,aceptada,480,640,Pieridae,dismorphia theucharila,081_Dismorphia_theucharila_xanthone.png
+original,normalizada 640,0.9763445120816404,62.11740354819169,0.29986979166666666,aceptada,480,640,Pieridae,dismorphia theucharila,082_Dismorphia_theucharila_xanthone.png
+original,normalizada 640,0.8713471102724433,50.513540242246656,0.43875,aceptada,480,640,Pieridae,eurema elathea,161_Eurema_elathea_vitellina.png
+original,normalizada 640,0.9996398796377047,58.8861068541856,0.37551432291666664,aceptada,480,640,Pieridae,eurema elathea,162_Eurema_elathea_vitellina.png
+original,normalizada 640,0.9999999648230168,221.563327890409,0.40908203125,aceptada,480,640,Pieridae,eurema elathea,163_Eurema_elathea_vitellina.png
+original,normalizada 640,0.9999999376047505,694.8890606760402,0.337294921875,rechazada,480,640,Pieridae,eurema elathea,164_Eurema_elathea_vitellina.png
+original,normalizada 640,0.9999959956531118,123.16670689629952,0.39581705729166666,aceptada,375,500,Pieridae,eurema paulina,184_Eurema_paulina.png
+original,normalizada 640,0.9964565899531972,116.08841698144559,0.5148177083333333,aceptada,480,640,Pieridae,eurema phiale,185_Eurema_phiale_columbia.png
+original,normalizada 640,0.9999990524514245,110.8082477378124,0.299755859375,aceptada,480,640,Pieridae,eurema phiale,186_Eurema_phiale_columbia.png
+original,normalizada 640,0.999997387568927,117.31173747420164,0.33880533854166667,aceptada,480,640,Pieridae,eurema phiale,187_Eurema_phiale_columbia.png
+original,normalizada 640,0.9869084524218168,41.13417013929995,0.435498046875,aceptada,480,640,Pieridae,pyrisitia venusta,247_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9997047191244546,85.41422329527032,0.438984375,aceptada,480,640,Pieridae,pyrisitia venusta,248_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9999539669544137,204.4536350046594,0.373564453125,aceptada,480,640,Pieridae,pyrisitia venusta,249_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9999746432546196,83.15483099559513,0.34720703125,aceptada,480,640,Pieridae,pyrisitia venusta,250_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9998874320201316,67.17306538924764,0.33203125,aceptada,480,640,Pieridae,pyrisitia venusta,251_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9770248107086563,100.2439954761603,0.45373697916666667,aceptada,480,640,Pieridae,pyrisitia venusta,252_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9986935177124058,41.52348264623271,0.367626953125,aceptada,480,640,Pieridae,pyrisitia venusta,253_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9999936805646877,77.54307054648656,0.47369466145833333,aceptada,375,500,Pieridae,pyrisitia venusta,254_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9999835110052571,322.69851710313264,0.37019205729166665,aceptada,480,640,Pieridae,pyrisitia venusta,255_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9999793602754847,143.2665548684935,0.31050455729166665,aceptada,600,800,Pieridae,pyrisitia venusta,256_Pyrisitia_venusta_venusta.png
+original,normalizada 640,0.9986253913730563,44.091390207143334,0.5761848958333333,aceptada,480,640,Pieridae,zerene cesonia,259_Zerene_cesonia_boyacensis.png
+original,normalizada 640,0.9979654030990313,41.82746667166098,0.5379427083333334,aceptada,480,640,Pieridae,zerene cesonia,260_Zerene_cesonia_boyacensis.png
+original,normalizada 640,0.22786165313807888,76.55238049102162,0.32710611979166665,aceptada,480,640,Pieridae,archonias brassolis,261_Archonias_brassolis_approximata.png
+original,normalizada 640,0.24073524243698308,92.09096308032828,0.37258463541666664,aceptada,480,640,Pieridae,archonias brassolis,262_Archonias_brassolis_approximata.png
+original,normalizada 640,0.7964930191778892,77.93252639226749,0.294912109375,aceptada,600,800,Pieridae,archonias brassolis,263_Archonias_brassolis_approximata.png
+original,normalizada 640,0.9995941403136333,217.36497605371693,0.33352864583333336,aceptada,480,640,Pieridae,archonias brassolis,264_Archonias_brassolis_approximata.png
+original,normalizada 640,0.835590397910734,68.7671681081994,0.29652018229166666,aceptada,480,640,Pieridae,archonias brassolis,265_Archonias_brassolis_approximata.png
+original,normalizada 640,0.6557935853735801,185.84610145489265,0.3163704427083333,aceptada,480,640,Pieridae,archonias brassolis,266_Archonias_brassolis_critias.png
+original,normalizada 640,0.5386458014128621,76.59416074471079,0.29665690104166664,incierta,480,640,Pieridae,archonias brassolis,267_Archonias_brassolis_critias.png
+original,normalizada 640,0.9998539803613304,102.24079630942983,0.27394205729166665,aceptada,375,500,Pieridae,catasticta apaturina,283_Catasticta_apaturina.png
+original,normalizada 640,0.9989967813525185,62.082337905950645,0.310927734375,aceptada,375,500,Pieridae,catasticta apaturina,284_Catasticta_apaturina.png
+original,normalizada 640,0.9325048258560081,64.14310305207428,0.4568912760416667,aceptada,480,640,Pieridae,leptophobia aripa,419_Leptophobia_aripa_aripa.png
+original,normalizada 640,0.99524453258682,51.42066173098849,0.31784505208333336,aceptada,480,640,Pieridae,leptophobia aripa,420_Leptophobia_aripa_aripa.png
+original,normalizada 640,0.9997330053127913,93.64601507575627,0.34619140625,aceptada,480,640,Pieridae,leptophobia aripa,421_Leptophobia_aripa_aripa.png
+original,normalizada 640,0.9992101189710264,68.87642636827354,0.31664713541666667,aceptada,480,640,Pieridae,leptophobia aripa,422_Leptophobia_aripa_aripa.png
+original,normalizada 640,0.3157421209298001,58.27515801213458,0.22695638020833334,aceptada,480,640,Pieridae,leptophobia eleone,435_Leptophobia_eleone_denigrata.png
+original,normalizada 640,0.9999993667440765,105.72014037516215,0.2560677083333333,aceptada,480,640,Pieridae,leptophobia eleone,436_Leptophobia_eleone_denigrata.png
+original,normalizada 640,0.9552211038328887,60.62281286865658,0.3436783854166667,aceptada,375,500,Pieridae,leptophobia eleone,437_Leptophobia_eleone_eleone.png
+original,normalizada 640,0.9989342338664675,90.6414552880522,0.13776692708333332,aceptada,375,500,Pieridae,leptophobia eleone,438_Leptophobia_eleone_eleone.png
+original,normalizada 640,0.9819026442081691,43.52128269787868,0.37308919270833335,aceptada,375,500,Pieridae,leptophobia eleone,439_Leptophobia_eleone_eleone.png
+original,normalizada 640,0.927348260019034,97.67827942412109,0.32986002604166664,aceptada,375,500,Pieridae,leptophobia eleone,440_Leptophobia_eleone_eleone.png
+original,normalizada 640,0.999747458584757,68.39702784585751,0.4190169270833333,aceptada,480,640,Pieridae,leptophobia eleone,441_Leptophobia_eleone_eleone.png
+original,normalizada 640,0.9999980775174016,62.659250089605976,0.3187434895833333,aceptada,375,500,Pieridae,leptophobia eleone,442_Leptophobia_eleone_eleone.png
+original,normalizada 640,0.9999260582672643,82.89854514182949,0.153310546875,aceptada,480,640,Pieridae,leptophobia eleusis,443_Leptophobia_eleusis_eleusis.png
+original,normalizada 640,0.6200555303776439,66.64530526005741,0.3732743997912317,incierta,479,640,Pieridae,leptophobia eleusis,444_Leptophobia_eleusis_eleusis.png
+original,normalizada 640,0.999285383551463,77.75601806743393,0.3380078125,aceptada,480,640,Pieridae,leptophobia eleusis,445_Leptophobia_eleusis_eleusis.png
+original,normalizada 640,0.9999998906087619,96.67400605649993,0.33113932291666665,aceptada,480,640,Pieridae,leptophobia eleusis,446_Leptophobia_eleusis_eleusis.png
+original,normalizada 640,0.999301578735318,59.742001080447004,0.3216861979166667,aceptada,480,640,Pieridae,leptophobia eleusis,447_Leptophobia_eleusis_eleusis.png
+original,normalizada 640,0.9999992058769223,104.52670628098836,0.25298828125,aceptada,480,640,Pieridae,leptophobia eleusis,448_Leptophobia_eleusis_eleusis.png
+original,normalizada 640,0.9183951876967912,82.03827159348789,0.26280598958333334,aceptada,375,500,Pieridae,leptophobia penthica,459_Leptophobia_penthica_penthica.png
+original,normalizada 640,0.9996448592730285,66.50167196417527,0.2757161458333333,aceptada,375,500,Pieridae,leptophobia penthica,460_Leptophobia_penthica_penthica.png
+original,normalizada 640,0.9989675907635936,61.446033247634006,0.3106770833333333,aceptada,375,500,Pieridae,leptophobia penthica,461_Leptophobia_penthica_penthica.png
+original,normalizada 640,0.4054507496821875,472.20477798187284,0.12456380208333333,rechazada,375,500,Pieridae,leptophobia penthica,462_Leptophobia_penthica_penthica.png
+original,normalizada 640,0.9949094986516916,95.01466878065328,0.4278483072916667,aceptada,375,500,Pieridae,leptophobia penthica,463_Leptophobia_penthica_penthica.png
+original,normalizada 640,0.9851644933462868,67.75394018433865,0.45375,aceptada,480,640,Pieridae,perrhybris lorena,522_Perrhybris_lorena_lorena.png
+original,normalizada 640,0.9994527379295839,102.57533655736732,0.124052734375,aceptada,480,640,Pieridae,perrhybris lorena,523_Perrhybris_lorena_lorena.png
+original,normalizada 640,0.006173948493351989,127.84896823297001,0.25955403645833336,aceptada,480,640,Pieridae,perrhybris lorena,524_Perrhybris_lorena_lorena.png
+original,normalizada 640,0.8091017045897693,40.202652138186906,0.280771484375,aceptada,480,640,Pieridae,perrhybris lorena,525_Perrhybris_lorena_lorena.png
+original,normalizada 640,0.12928391330476327,38.42161679230154,0.3277897135416667,aceptada,480,640,Pieridae,perrhybris lorena,526_Perrhybris_lorena_lorena.png
+original,normalizada 640,0.9953464210194592,167.04276241645925,0.13138346354166666,aceptada,480,640,Pieridae,perrhybris lorena,527_Perrhybris_lorena_lorena.png
+450 px,actual (tope 800),0.9991269741607934,244.67184985451368,0.057731755424063114,aceptada,338,450,Papilionidae,eurytides columbus,029_Eurytides_columbus.png
+450 px,actual (tope 800),0.608813852070878,49.58826873559723,0.3354109138724523,incierta,338,450,Papilionidae,eurytides columbus,030_Eurytides_columbus.png
+450 px,actual (tope 800),0.04262148276542668,24.791185337008557,0.3469362261669954,aceptada,338,450,Papilionidae,eurytides columbus,031_Eurytides_columbus.png
+450 px,actual (tope 800),0.5216000127478198,43.91988804537419,0.3155292570677186,incierta,338,450,Papilionidae,eurytides columbus,032_Eurytides_columbus.png
+450 px,actual (tope 800),0.1000964854042955,81.67536182933729,0.4456607495069034,aceptada,338,450,Papilionidae,heraclides garleppi,071_Heraclides_garleppi_interruptus.png
+450 px,actual (tope 800),0.3076601598514315,77.21468498060507,0.44051282051282054,aceptada,338,450,Papilionidae,heraclides garleppi,072_Heraclides_garleppi_interruptus.png
+450 px,actual (tope 800),0.5523914896337997,121.6520610453453,0.33723865877712034,incierta,338,450,Papilionidae,heraclides isidorus,073_Heraclides_isidorus_flavencens.png
+450 px,actual (tope 800),0.01749829543128042,75.64064939431225,0.29154503616042077,aceptada,338,450,Papilionidae,heraclides isidorus,074_Heraclides_isidorus_flavencens.png
+450 px,actual (tope 800),0.000748940493499301,83.8431509343367,0.21516765285996056,aceptada,338,450,Papilionidae,heraclides isidorus,075_Heraclides_isidorus_flavencens.png
+450 px,actual (tope 800),0.002032866276567488,102.23958070589504,0.31907297830374753,aceptada,338,450,Papilionidae,heraclides thoas,079_Heraclides_thoas_cinyras.png
+450 px,actual (tope 800),0.00589122903429791,168.18037795398192,0.2400854700854701,aceptada,338,450,Papilionidae,heraclides thoas,080_Heraclides_thoas_cinyras.png
+450 px,actual (tope 800),0.03143500001640099,164.1433437830166,0.3006180144641683,aceptada,338,450,Papilionidae,heraclides thoas,081_Heraclides_thoas_cinyras.png
+450 px,actual (tope 800),0.0009117436262223989,150.39064444159197,0.3161143984220907,aceptada,338,450,Papilionidae,heraclides thoas,082_Heraclides_thoas_cinyras.png
+450 px,actual (tope 800),0.01069877989525732,176.45143635800696,0.2877514792899408,aceptada,338,450,Papilionidae,heraclides thoas,083_Heraclides_thoas_cinyras.png
+450 px,actual (tope 800),0.1772456126025047,120.32268596100494,0.26743589743589746,aceptada,338,450,Papilionidae,heraclides thoas,084_Heraclides_thoas_cinyras.png
+450 px,actual (tope 800),0.06679620061328018,118.82140659629677,0.20479289940828402,aceptada,338,450,Papilionidae,heraclides thoas,085_Heraclides_thoas_cinyras.png
+450 px,actual (tope 800),0.0016756149277932654,148.32030045794693,0.40525312294543064,aceptada,338,450,Papilionidae,heraclides thoas,086_Heraclides_thoas_nealces.png
+450 px,actual (tope 800),0.01316188098172197,98.33432085491208,0.25632478632478634,aceptada,338,450,Papilionidae,heraclides thoas,087_Heraclides_thoas_nealces.png
+450 px,actual (tope 800),0.0030194739076821655,139.15395029519235,0.3390138067061144,aceptada,338,450,Papilionidae,heraclides thoas,088_Heraclides_thoas_nealces.png
+450 px,actual (tope 800),0.14846598781103088,93.27967004192213,0.2893293885601578,aceptada,338,450,Papilionidae,heraclides thoas,089_Heraclides_thoas_nealces.png
+450 px,actual (tope 800),0.09496951293823297,148.9791983642892,0.2169559500328731,aceptada,338,450,Papilionidae,heraclides thoas,090_Heraclides_thoas_nealces.png
+450 px,actual (tope 800),0.09874270149575841,112.8388137035038,0.3106706114398422,aceptada,338,450,Papilionidae,heraclides thoas,091_Heraclides_thoas_nealces.png
+450 px,actual (tope 800),0.004070945016582351,53.44716086897677,0.34195923734385275,aceptada,338,450,Papilionidae,mimoides xeniades,121_Mimoides_xeniades_halex.png
+450 px,actual (tope 800),0.8075904222513668,43.70959395597443,0.35589086127547664,aceptada,338,450,Papilionidae,mimoides xeniades,122_Mimoides_xeniades_halex.png
+450 px,actual (tope 800),0.0034056753781229873,51.91470740153966,0.3156213017751479,aceptada,338,450,Papilionidae,parides lysander,196_Parides_lysander_brissonius.png
+450 px,actual (tope 800),0.21708557513756774,108.38529884395379,0.2745233399079553,aceptada,338,450,Papilionidae,parides lysander,197_Parides_lysander_brissonius.png
+450 px,actual (tope 800),0.008483363222183493,112.03996398930107,0.4762721893491124,aceptada,338,450,Papilionidae,parides lysander,198_Parides_lysander_brissonius.png
+450 px,actual (tope 800),0.001912858305993474,97.63779017306976,0.27536489151873766,aceptada,338,450,Papilionidae,parides lysander,199_Parides_lysander_brissonius.png
+450 px,actual (tope 800),0.0035237310021381503,132.53662637651007,0.4742472057856673,aceptada,338,450,Papilionidae,parides lysander,200_Parides_lysander_brissonius.png
+450 px,actual (tope 800),1.3540977655536545e-06,144.89830817739417,0.23011834319526628,aceptada,338,450,Papilionidae,parides lysander,201_Parides_lysander_brissonius.png
+450 px,actual (tope 800),0.08949406037071458,186.55092965615307,0.22396449704142013,aceptada,338,450,Papilionidae,parides lysander,202_Parides_lysander_orinocoensis.png
+450 px,actual (tope 800),1.976550546402368e-05,105.81740568327385,0.4626035150431933,aceptada,373,450,Papilionidae,parides lysander,203_Parides_lysander_orinocoensis.png
+450 px,actual (tope 800),0.0009715795176442135,127.03270416887086,0.22072978303747534,aceptada,338,450,Papilionidae,parides lysander,204_Parides_lysander_orinocoensis.png
+450 px,actual (tope 800),2.0611934883187625e-05,141.4088121128706,0.4658777120315582,aceptada,338,450,Papilionidae,parides lysander,205_Parides_lysander_orinocoensis.png
+450 px,actual (tope 800),0.00041310224512296933,56.04216403781064,0.2659303090072321,aceptada,338,450,Papilionidae,parides orellana,211_Parides_orellana.png
+450 px,actual (tope 800),0.03384212260913611,255.27721714521715,0.26053911900065746,aceptada,338,450,Papilionidae,parides orellana,212_Parides_orellana.png
+450 px,actual (tope 800),0.008491094078828441,81.13011624184091,0.34574621959237345,aceptada,338,450,Papilionidae,parides orellana,213_Parides_orellana.png
+450 px,actual (tope 800),0.047686074169023186,115.35574752412845,0.31307034845496384,aceptada,338,450,Papilionidae,parides orellana,214_Parides_orellana.png
+450 px,actual (tope 800),0.013725965823014212,200.8037639747171,0.34266929651545036,aceptada,338,450,Papilionidae,protesilaus protesilaus,252_Protesilaus_protesilaus_archesilaus.png
+450 px,actual (tope 800),0.7604560727292233,236.86625654563596,0.20645627876397107,aceptada,338,450,Papilionidae,protesilaus protesilaus,253_Protesilaus_protesilaus_archesilaus.png
+450 px,actual (tope 800),0.424599396928096,90.63029399051551,0.23705456936226166,incierta,338,450,Papilionidae,protesilaus protesilaus,254_Protesilaus_protesilaus_dariensis.png
+450 px,actual (tope 800),0.35169601867200967,94.1156217616553,0.1742077580539119,incierta,338,450,Papilionidae,protesilaus protesilaus,255_Protesilaus_protesilaus_protesilaus.png
+450 px,actual (tope 800),0.910322822333837,93.42695654784562,0.268698224852071,aceptada,338,450,Papilionidae,protesilaus protesilaus,256_Protesilaus_protesilaus_protesilaus.png
+450 px,actual (tope 800),0.30332416880093993,29.23943968760123,0.4034516765285996,aceptada,338,450,Pieridae,dismorphia altis,001_Dismorphia_altis_altis.png
+450 px,actual (tope 800),0.9994833807558933,123.25429630195615,0.20383300460223538,aceptada,338,450,Pieridae,dismorphia altis,002_Dismorphia_altis_altis.png
+450 px,actual (tope 800),0.9966562012186911,66.20734387411595,0.222077580539119,aceptada,338,450,Pieridae,dismorphia altis,003_Dismorphia_altis_sophia.png
+450 px,actual (tope 800),0.9911796175550571,54.448675669496396,0.2481525312294543,aceptada,338,450,Pieridae,dismorphia arcadia,007_Dismorphia_arcadia_arcadia.png
+450 px,actual (tope 800),0.9970056174764614,58.718652111154555,0.3217094017094017,aceptada,338,450,Pieridae,dismorphia arcadia,008_Dismorphia_arcadia_lucilla.png
+450 px,actual (tope 800),0.06982161455508894,64.98692203561775,0.3093030900723208,aceptada,338,450,Pieridae,dismorphia medora,056_Dismorphia_medora_medora.png
+450 px,actual (tope 800),0.9946780916983121,40.09051143170326,0.20593688362919133,aceptada,338,450,Pieridae,dismorphia medora,057_Dismorphia_medora_medora.png
+450 px,actual (tope 800),0.9607773424391909,105.44422965535712,0.2635371466140697,aceptada,338,450,Pieridae,dismorphia theucharila,069_Dismorphia_theucharila_avonia.png
+450 px,actual (tope 800),0.9754497689388023,95.06264280411918,0.20511505588428666,aceptada,338,450,Pieridae,dismorphia theucharila,070_Dismorphia_theucharila_avonia.png
+450 px,actual (tope 800),0.9471124253071924,91.83266993330763,0.2603024326101249,aceptada,338,450,Pieridae,dismorphia theucharila,071_Dismorphia_theucharila_avonia.png
+450 px,actual (tope 800),0.9507518468388386,116.35983643265182,0.22821827744904669,aceptada,338,450,Pieridae,dismorphia theucharila,072_Dismorphia_theucharila_avonia.png
+450 px,actual (tope 800),0.7380653940508709,77.70271779609709,0.27149243918474686,aceptada,338,450,Pieridae,dismorphia theucharila,073_Dismorphia_theucharila_leuconoe.png
+450 px,actual (tope 800),0.9387447656563545,129.55334244552955,0.29939513477975016,aceptada,338,450,Pieridae,dismorphia theucharila,074_Dismorphia_theucharila_leuconoe.png
+450 px,actual (tope 800),0.7062900015718991,77.42154277287872,0.2713083497698882,aceptada,338,450,Pieridae,dismorphia theucharila,075_Dismorphia_theucharila_leuconoe.png
+450 px,actual (tope 800),0.98504260947886,127.50035887134067,0.18692965154503616,aceptada,338,450,Pieridae,dismorphia theucharila,076_Dismorphia_theucharila_lysionides.png
+450 px,actual (tope 800),0.9464034676737175,159.5575362583225,0.19738987508218278,aceptada,338,450,Pieridae,dismorphia theucharila,077_Dismorphia_theucharila_lysionides.png
+450 px,actual (tope 800),0.9944936416417212,70.59616233216109,0.23836949375410915,aceptada,338,450,Pieridae,dismorphia theucharila,078_Dismorphia_theucharila_lysionides.png
+450 px,actual (tope 800),0.9751360477127993,66.73305746671778,0.29992767915844837,aceptada,338,450,Pieridae,dismorphia theucharila,079_Dismorphia_theucharila_lysionides.png
+450 px,actual (tope 800),0.9192434216469288,100.22463332555718,0.2036817882971729,aceptada,338,450,Pieridae,dismorphia theucharila,080_Dismorphia_theucharila_lysionides.png
+450 px,actual (tope 800),0.9971697426753386,106.00445706364653,0.20042735042735044,aceptada,338,450,Pieridae,dismorphia theucharila,081_Dismorphia_theucharila_xanthone.png
+450 px,actual (tope 800),0.998043314774181,109.21161283420167,0.23758053911900065,aceptada,338,450,Pieridae,dismorphia theucharila,082_Dismorphia_theucharila_xanthone.png
+450 px,actual (tope 800),0.7582975053250829,46.49359721166157,0.4668902038132807,aceptada,338,450,Pieridae,eurema elathea,161_Eurema_elathea_vitellina.png
+450 px,actual (tope 800),0.9982089321471822,69.24889954922683,0.37368836291913216,aceptada,338,450,Pieridae,eurema elathea,162_Eurema_elathea_vitellina.png
+450 px,actual (tope 800),0.999999501071029,173.77630420851148,0.4089677843523997,aceptada,338,450,Pieridae,eurema elathea,163_Eurema_elathea_vitellina.png
+450 px,actual (tope 800),0.9999998366883727,425.39563822786,0.3358053911900066,rechazada,338,450,Pieridae,eurema elathea,164_Eurema_elathea_vitellina.png
+450 px,actual (tope 800),0.9999965985769385,119.52912853162897,0.3952991452991453,aceptada,338,450,Pieridae,eurema paulina,184_Eurema_paulina.png
+450 px,actual (tope 800),0.9936985488001816,123.44970973451304,0.4449112426035503,aceptada,338,450,Pieridae,eurema phiale,185_Eurema_phiale_columbia.png
+450 px,actual (tope 800),0.9999987433850882,116.91057167467865,0.30090729783037473,aceptada,338,450,Pieridae,eurema phiale,186_Eurema_phiale_columbia.png
+450 px,actual (tope 800),0.9999962241859928,128.64928179959716,0.3387902695595003,aceptada,338,450,Pieridae,eurema phiale,187_Eurema_phiale_columbia.png
+450 px,actual (tope 800),0.9640685720596806,46.85374968508529,0.43567389875082185,aceptada,338,450,Pieridae,pyrisitia venusta,247_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.9995662856395497,92.01908703956289,0.42191321499013806,aceptada,338,450,Pieridae,pyrisitia venusta,248_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.9999220293151573,233.65160344453534,0.37176857330703483,aceptada,338,450,Pieridae,pyrisitia venusta,249_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.9999753924712438,76.19344236500591,0.3480802103879027,aceptada,338,450,Pieridae,pyrisitia venusta,250_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.9996674760839559,77.25390018292094,0.33354372123602893,aceptada,338,450,Pieridae,pyrisitia venusta,251_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.8790856023063324,101.55593908280936,0.45170282708744247,aceptada,338,450,Pieridae,pyrisitia venusta,252_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.9974293659242996,51.511183983574796,0.3667061143984221,aceptada,338,450,Pieridae,pyrisitia venusta,253_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.9999838269750834,79.51571330413232,0.47312952005259695,aceptada,338,450,Pieridae,pyrisitia venusta,254_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.9999942847212112,347.66993161131785,0.3714464168310322,rechazada,338,450,Pieridae,pyrisitia venusta,255_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.9999682925152933,152.480298234921,0.30595660749506903,aceptada,338,450,Pieridae,pyrisitia venusta,256_Pyrisitia_venusta_venusta.png
+450 px,actual (tope 800),0.9909562659086548,53.6981150810893,0.5729980276134122,aceptada,338,450,Pieridae,zerene cesonia,259_Zerene_cesonia_boyacensis.png
+450 px,actual (tope 800),0.9905295448464464,50.83573760217128,0.5358711374095989,aceptada,338,450,Pieridae,zerene cesonia,260_Zerene_cesonia_boyacensis.png
+450 px,actual (tope 800),0.03522030704288815,104.73842588712701,0.32761341222879686,aceptada,338,450,Pieridae,archonias brassolis,261_Archonias_brassolis_approximata.png
+450 px,actual (tope 800),0.012903788347171121,137.1471236837109,0.37051939513477977,aceptada,338,450,Pieridae,archonias brassolis,262_Archonias_brassolis_approximata.png
+450 px,actual (tope 800),0.2671099274656047,78.74196209046912,0.2832873109796187,aceptada,338,450,Pieridae,archonias brassolis,263_Archonias_brassolis_approximata.png
+450 px,actual (tope 800),0.9993840798413356,212.77952730315235,0.32961867192636424,aceptada,338,450,Pieridae,archonias brassolis,264_Archonias_brassolis_approximata.png
+450 px,actual (tope 800),0.3496661222677242,103.67645663255429,0.2969165023011177,aceptada,338,450,Pieridae,archonias brassolis,265_Archonias_brassolis_approximata.png
+450 px,actual (tope 800),0.5701201031310751,219.07836924103165,0.3176594345825115,incierta,338,450,Pieridae,archonias brassolis,266_Archonias_brassolis_critias.png
+450 px,actual (tope 800),0.5079036695960578,98.35608791746061,0.29425378040762656,incierta,338,450,Pieridae,archonias brassolis,267_Archonias_brassolis_critias.png
+450 px,actual (tope 800),0.9997089635815487,133.0510547780359,0.25805391190006577,aceptada,338,450,Pieridae,catasticta apaturina,283_Catasticta_apaturina.png
+450 px,actual (tope 800),0.9984851766705817,79.91424146549141,0.30039447731755425,aceptada,338,450,Pieridae,catasticta apaturina,284_Catasticta_apaturina.png
+450 px,actual (tope 800),0.8074156464528741,68.00017865934453,0.4474095989480605,aceptada,338,450,Pieridae,leptophobia aripa,419_Leptophobia_aripa_aripa.png
+450 px,actual (tope 800),0.9902149692521376,60.40995968745624,0.31874424720578565,aceptada,338,450,Pieridae,leptophobia aripa,420_Leptophobia_aripa_aripa.png
+450 px,actual (tope 800),0.9994850895945222,96.51305341399146,0.34690992767915846,aceptada,338,450,Pieridae,leptophobia aripa,421_Leptophobia_aripa_aripa.png
+450 px,actual (tope 800),0.998744953328264,90.60137379011668,0.3170611439842209,aceptada,338,450,Pieridae,leptophobia aripa,422_Leptophobia_aripa_aripa.png
+450 px,actual (tope 800),0.21128758890750812,97.66101682820498,0.22791584483892177,aceptada,338,450,Pieridae,leptophobia eleone,435_Leptophobia_eleone_denigrata.png
+450 px,actual (tope 800),0.9999998895759448,168.7759220506952,0.2486259040105194,aceptada,338,450,Pieridae,leptophobia eleone,436_Leptophobia_eleone_denigrata.png
+450 px,actual (tope 800),0.9693830946127828,67.9354681093301,0.31320841551610784,aceptada,338,450,Pieridae,leptophobia eleone,437_Leptophobia_eleone_eleone.png
+450 px,actual (tope 800),0.998277152060083,109.18180357979897,0.1370611439842209,aceptada,338,450,Pieridae,leptophobia eleone,438_Leptophobia_eleone_eleone.png
+450 px,actual (tope 800),0.9828780621768273,53.35372750295379,0.354792899408284,aceptada,338,450,Pieridae,leptophobia eleone,439_Leptophobia_eleone_eleone.png
+450 px,actual (tope 800),0.9829856103233566,144.4933631288008,0.24634451019066403,aceptada,338,450,Pieridae,leptophobia eleone,440_Leptophobia_eleone_eleone.png
+450 px,actual (tope 800),0.9997915061894337,77.32607973786543,0.43579881656804736,aceptada,338,450,Pieridae,leptophobia eleone,441_Leptophobia_eleone_eleone.png
+450 px,actual (tope 800),0.9999987780294628,68.65949251997961,0.3103550295857988,aceptada,338,450,Pieridae,leptophobia eleone,442_Leptophobia_eleone_eleone.png
+450 px,actual (tope 800),0.9999545519285581,94.29804843440296,0.14865220249835634,aceptada,338,450,Pieridae,leptophobia eleusis,443_Leptophobia_eleusis_eleusis.png
+450 px,actual (tope 800),0.2790067993253316,77.98806127579415,0.37032640949554896,aceptada,337,450,Pieridae,leptophobia eleusis,444_Leptophobia_eleusis_eleusis.png
+450 px,actual (tope 800),0.9971402187778203,77.40529566547592,0.3381525312294543,aceptada,338,450,Pieridae,leptophobia eleusis,445_Leptophobia_eleusis_eleusis.png
+450 px,actual (tope 800),0.9999999538680443,118.07997839043412,0.32979618671926364,aceptada,338,450,Pieridae,leptophobia eleusis,446_Leptophobia_eleusis_eleusis.png
+450 px,actual (tope 800),0.9987705798208533,78.80777577819084,0.3224194608809993,aceptada,338,450,Pieridae,leptophobia eleusis,447_Leptophobia_eleusis_eleusis.png
+450 px,actual (tope 800),0.9999993931203862,131.99084363521382,0.24908612754766601,aceptada,338,450,Pieridae,leptophobia eleusis,448_Leptophobia_eleusis_eleusis.png
+450 px,actual (tope 800),0.7865067133153568,96.93414203306222,0.264155161078238,aceptada,338,450,Pieridae,leptophobia penthica,459_Leptophobia_penthica_penthica.png
+450 px,actual (tope 800),0.9994073434406301,92.56923251155858,0.2760157790927022,aceptada,338,450,Pieridae,leptophobia penthica,460_Leptophobia_penthica_penthica.png
+450 px,actual (tope 800),0.9957760290588489,95.06035896007832,0.3097172912557528,aceptada,338,450,Pieridae,leptophobia penthica,461_Leptophobia_penthica_penthica.png
+450 px,actual (tope 800),0.28032301642005425,551.0483783949262,0.1271268902038133,rechazada,338,450,Pieridae,leptophobia penthica,462_Leptophobia_penthica_penthica.png
+450 px,actual (tope 800),0.9865858696809489,94.3784894116348,0.44025641025641027,aceptada,338,450,Pieridae,leptophobia penthica,463_Leptophobia_penthica_penthica.png
+450 px,actual (tope 800),0.9056312311253534,73.06344642221391,0.4543326758711374,aceptada,338,450,Pieridae,perrhybris lorena,522_Perrhybris_lorena_lorena.png
+450 px,actual (tope 800),0.9996810634695031,170.7924298406897,0.12006574621959237,aceptada,338,450,Pieridae,perrhybris lorena,523_Perrhybris_lorena_lorena.png
+450 px,actual (tope 800),0.006897188988018564,178.2892450640657,0.25673241288625903,aceptada,338,450,Pieridae,perrhybris lorena,524_Perrhybris_lorena_lorena.png
+450 px,actual (tope 800),0.48569334335005093,52.26686784281573,0.2864957264957265,incierta,338,450,Pieridae,perrhybris lorena,525_Perrhybris_lorena_lorena.png
+450 px,actual (tope 800),0.02098668830021936,59.0983846860359,0.32279421433267586,aceptada,338,450,Pieridae,perrhybris lorena,526_Perrhybris_lorena_lorena.png
+450 px,actual (tope 800),0.997928416430112,332.6026326531229,0.13111768573307034,rechazada,338,450,Pieridae,perrhybris lorena,527_Perrhybris_lorena_lorena.png
+450 px,normalizada 640,0.36000663855537485,80.00653172161141,0.17898258835758835,incierta,338,450,Papilionidae,eurytides columbus,029_Eurytides_columbus.png
+450 px,normalizada 640,0.900440409577755,59.07712166615455,0.3361356548856549,aceptada,338,450,Papilionidae,eurytides columbus,030_Eurytides_columbus.png
+450 px,normalizada 640,0.1288843626510663,27.373400346639787,0.3514260654885655,aceptada,338,450,Papilionidae,eurytides columbus,031_Eurytides_columbus.png
+450 px,normalizada 640,0.47616591328403896,41.237186111564306,0.35957640332640334,incierta,338,450,Papilionidae,eurytides columbus,032_Eurytides_columbus.png
+450 px,normalizada 640,0.6018880476643095,86.1809562078216,0.4476806133056133,incierta,338,450,Papilionidae,heraclides garleppi,071_Heraclides_garleppi_interruptus.png
+450 px,normalizada 640,0.7597707994496075,71.33385825715786,0.43712967775467776,aceptada,338,450,Papilionidae,heraclides garleppi,072_Heraclides_garleppi_interruptus.png
+450 px,normalizada 640,0.8471428233055568,125.28262239521464,0.33549571205821205,aceptada,338,450,Papilionidae,heraclides isidorus,073_Heraclides_isidorus_flavencens.png
+450 px,normalizada 640,0.07713420289812871,72.89430884697254,0.2883543399168399,aceptada,338,450,Papilionidae,heraclides isidorus,074_Heraclides_isidorus_flavencens.png
+450 px,normalizada 640,0.007278264242990174,51.961976544816956,0.21515722453222452,aceptada,338,450,Papilionidae,heraclides isidorus,075_Heraclides_isidorus_flavencens.png
+450 px,normalizada 640,0.034467799587770194,96.47851982705795,0.32283329002079003,aceptada,338,450,Papilionidae,heraclides thoas,079_Heraclides_thoas_cinyras.png
+450 px,normalizada 640,0.006178300851670454,94.85458422561885,0.2838974792099792,aceptada,338,450,Papilionidae,heraclides thoas,080_Heraclides_thoas_cinyras.png
+450 px,normalizada 640,0.23606627037192854,134.97762006813582,0.3172752079002079,aceptada,338,450,Papilionidae,heraclides thoas,081_Heraclides_thoas_cinyras.png
+450 px,normalizada 640,0.02102887894996244,118.85125881285121,0.3250747141372141,aceptada,338,450,Papilionidae,heraclides thoas,082_Heraclides_thoas_cinyras.png
+450 px,normalizada 640,0.044857110851185815,109.67887719151953,0.36154170997921,aceptada,338,450,Papilionidae,heraclides thoas,083_Heraclides_thoas_cinyras.png
+450 px,normalizada 640,0.1529956604578471,73.72572885774294,0.2579944126819127,aceptada,338,450,Papilionidae,heraclides thoas,084_Heraclides_thoas_cinyras.png
+450 px,normalizada 640,0.0755418063537265,76.96695696558882,0.2049246361746362,aceptada,338,450,Papilionidae,heraclides thoas,085_Heraclides_thoas_cinyras.png
+450 px,normalizada 640,0.014283398475108977,85.03814438154396,0.4223850051975052,aceptada,338,450,Papilionidae,heraclides thoas,086_Heraclides_thoas_nealces.png
+450 px,normalizada 640,0.03618023740819987,57.08751024585888,0.2575006496881497,aceptada,338,450,Papilionidae,heraclides thoas,087_Heraclides_thoas_nealces.png
+450 px,normalizada 640,0.006614448567032775,93.74953920065131,0.3674993503118503,aceptada,338,450,Papilionidae,heraclides thoas,088_Heraclides_thoas_nealces.png
+450 px,normalizada 640,0.9674747292340022,67.84079333109928,0.2899460758835759,aceptada,338,450,Papilionidae,heraclides thoas,089_Heraclides_thoas_nealces.png
+450 px,normalizada 640,0.23220714478731594,107.62342296251143,0.2174441268191268,aceptada,338,450,Papilionidae,heraclides thoas,090_Heraclides_thoas_nealces.png
+450 px,normalizada 640,0.6090370360318713,85.09396996614483,0.3102195945945946,incierta,338,450,Papilionidae,heraclides thoas,091_Heraclides_thoas_nealces.png
+450 px,normalizada 640,0.04118733324889051,62.52674067813428,0.3407127079002079,aceptada,338,450,Papilionidae,mimoides xeniades,121_Mimoides_xeniades_halex.png
+450 px,normalizada 640,0.9638759623708298,51.7673274826365,0.3460466476091476,aceptada,338,450,Papilionidae,mimoides xeniades,122_Mimoides_xeniades_halex.png
+450 px,normalizada 640,0.04833940087426786,34.13210219698554,0.35414176195426195,aceptada,338,450,Papilionidae,parides lysander,196_Parides_lysander_brissonius.png
+450 px,normalizada 640,0.7862028731559347,60.71683533387584,0.27663071725571725,aceptada,338,450,Papilionidae,parides lysander,197_Parides_lysander_brissonius.png
+450 px,normalizada 640,0.031436753005480184,129.61143353255866,0.47665995322245325,aceptada,338,450,Papilionidae,parides lysander,198_Parides_lysander_brissonius.png
+450 px,normalizada 640,0.038311211758986684,90.90302976091353,0.29337318087318087,aceptada,338,450,Papilionidae,parides lysander,199_Parides_lysander_brissonius.png
+450 px,normalizada 640,0.009114421364437927,141.03401590962895,0.4781997141372141,aceptada,338,450,Papilionidae,parides lysander,200_Parides_lysander_brissonius.png
+450 px,normalizada 640,9.756730596615476e-06,142.16375578881397,0.2325753638253638,aceptada,338,450,Papilionidae,parides lysander,201_Parides_lysander_brissonius.png
+450 px,normalizada 640,0.47381163245102575,108.77918256596818,0.2903066528066528,incierta,338,450,Papilionidae,parides lysander,202_Parides_lysander_orinocoensis.png
+450 px,normalizada 640,0.0002460544114398483,109.33219060487043,0.46306308962264153,aceptada,373,450,Papilionidae,parides lysander,203_Parides_lysander_orinocoensis.png
+450 px,normalizada 640,0.014986122783357423,82.58204118341871,0.22140722453222453,aceptada,338,450,Papilionidae,parides lysander,204_Parides_lysander_orinocoensis.png
+450 px,normalizada 640,8.856251233629165e-05,128.07255475608034,0.46573219854469855,aceptada,338,450,Papilionidae,parides lysander,205_Parides_lysander_orinocoensis.png
+450 px,normalizada 640,0.005765152366029092,45.90517615021092,0.2696335758835759,aceptada,338,450,Papilionidae,parides orellana,211_Parides_orellana.png
+450 px,normalizada 640,0.4752101901952419,232.3773560132237,0.27310615904365904,incierta,338,450,Papilionidae,parides orellana,212_Parides_orellana.png
+450 px,normalizada 640,0.040043256579122166,67.93952102418551,0.37509745322245325,aceptada,338,450,Papilionidae,parides orellana,213_Parides_orellana.png
+450 px,normalizada 640,0.15735094109047415,123.91726497053627,0.30176390332640335,aceptada,338,450,Papilionidae,parides orellana,214_Parides_orellana.png
+450 px,normalizada 640,0.09899293099067104,123.53405405799796,0.3527611746361746,aceptada,338,450,Papilionidae,protesilaus protesilaus,252_Protesilaus_protesilaus_archesilaus.png
+450 px,normalizada 640,0.9353636945830444,132.89316480247615,0.20821855509355508,aceptada,338,450,Papilionidae,protesilaus protesilaus,253_Protesilaus_protesilaus_archesilaus.png
+450 px,normalizada 640,0.7409968291269602,49.89169151180929,0.23692177754677754,aceptada,338,450,Papilionidae,protesilaus protesilaus,254_Protesilaus_protesilaus_dariensis.png
+450 px,normalizada 640,0.8370338602046574,45.832389234421385,0.1751364345114345,aceptada,338,450,Papilionidae,protesilaus protesilaus,255_Protesilaus_protesilaus_protesilaus.png
+450 px,normalizada 640,0.9467345649593832,67.21789640948892,0.2703872141372141,aceptada,338,450,Papilionidae,protesilaus protesilaus,256_Protesilaus_protesilaus_protesilaus.png
+450 px,normalizada 640,0.5643342078997402,33.84389397088263,0.4040183212058212,incierta,338,450,Pieridae,dismorphia altis,001_Dismorphia_altis_altis.png
+450 px,normalizada 640,0.9959619836041347,62.33491893943358,0.24705691268191268,aceptada,338,450,Pieridae,dismorphia altis,002_Dismorphia_altis_altis.png
+450 px,normalizada 640,0.9990727734540961,54.62997947094193,0.22303144490644491,aceptada,338,450,Pieridae,dismorphia altis,003_Dismorphia_altis_sophia.png
+450 px,normalizada 640,0.9972617221536927,55.54925486578729,0.24590046777546778,aceptada,338,450,Pieridae,dismorphia arcadia,007_Dismorphia_arcadia_arcadia.png
+450 px,normalizada 640,0.9967215688582315,60.384679363087564,0.32251819126819126,aceptada,338,450,Pieridae,dismorphia arcadia,008_Dismorphia_arcadia_lucilla.png
+450 px,normalizada 640,0.5287527197769644,105.10527051674875,0.3099174896049896,incierta,338,450,Pieridae,dismorphia medora,056_Dismorphia_medora_medora.png
+450 px,normalizada 640,0.9983730951446521,44.53782935236183,0.2070068866943867,aceptada,338,450,Pieridae,dismorphia medora,057_Dismorphia_medora_medora.png
+450 px,normalizada 640,0.9960396423454824,74.64637862904429,0.26547557172557174,aceptada,338,450,Pieridae,dismorphia theucharila,069_Dismorphia_theucharila_avonia.png
+450 px,normalizada 640,0.9664182733107544,70.72769981514317,0.22767346673596672,aceptada,338,450,Pieridae,dismorphia theucharila,070_Dismorphia_theucharila_avonia.png
+450 px,normalizada 640,0.9857948688610008,58.98847025783477,0.2655665280665281,aceptada,338,450,Pieridae,dismorphia theucharila,071_Dismorphia_theucharila_avonia.png
+450 px,normalizada 640,0.9952327213466977,74.83788630552269,0.23108432952182953,aceptada,338,450,Pieridae,dismorphia theucharila,072_Dismorphia_theucharila_avonia.png
+450 px,normalizada 640,0.9209360529963808,71.40163693773914,0.2715566528066528,aceptada,338,450,Pieridae,dismorphia theucharila,073_Dismorphia_theucharila_leuconoe.png
+450 px,normalizada 640,0.9872899010689458,147.10621908388566,0.318477130977131,aceptada,338,450,Pieridae,dismorphia theucharila,074_Dismorphia_theucharila_leuconoe.png
+450 px,normalizada 640,0.9151441242447262,70.87544561111078,0.2718879937629938,aceptada,338,450,Pieridae,dismorphia theucharila,075_Dismorphia_theucharila_leuconoe.png
+450 px,normalizada 640,0.9730327076526099,107.49144442562074,0.18774038461538461,aceptada,338,450,Pieridae,dismorphia theucharila,076_Dismorphia_theucharila_lysionides.png
+450 px,normalizada 640,0.9508299341480033,121.5548240740179,0.1974012474012474,aceptada,338,450,Pieridae,dismorphia theucharila,077_Dismorphia_theucharila_lysionides.png
+450 px,normalizada 640,0.9953840336614946,101.55893212210334,0.3068866943866944,aceptada,338,450,Pieridae,dismorphia theucharila,078_Dismorphia_theucharila_lysionides.png
+450 px,normalizada 640,0.9938670224449109,67.14110184352687,0.2998798076923077,aceptada,338,450,Pieridae,dismorphia theucharila,079_Dismorphia_theucharila_lysionides.png
+450 px,normalizada 640,0.9639002440178345,76.45811098488254,0.2035797817047817,aceptada,338,450,Pieridae,dismorphia theucharila,080_Dismorphia_theucharila_lysionides.png
+450 px,normalizada 640,0.9940704066673574,84.04287631698838,0.21319191787941788,aceptada,338,450,Pieridae,dismorphia theucharila,081_Dismorphia_theucharila_xanthone.png
+450 px,normalizada 640,0.9927532173286813,70.262973829894,0.3090988825363825,aceptada,338,450,Pieridae,dismorphia theucharila,082_Dismorphia_theucharila_xanthone.png
+450 px,normalizada 640,0.9257680125831452,50.13271144706063,0.4801682692307692,aceptada,338,450,Pieridae,eurema elathea,161_Eurema_elathea_vitellina.png
+450 px,normalizada 640,0.9996914170697242,69.16984069538394,0.3772739085239085,aceptada,338,450,Pieridae,eurema elathea,162_Eurema_elathea_vitellina.png
+450 px,normalizada 640,0.9999974703351951,112.88886335944798,0.4103008056133056,aceptada,338,450,Pieridae,eurema elathea,163_Eurema_elathea_vitellina.png
+450 px,normalizada 640,0.9999989098382959,254.4110453207638,0.33563864345114347,aceptada,338,450,Pieridae,eurema elathea,164_Eurema_elathea_vitellina.png
+450 px,normalizada 640,0.999996015889315,109.75174601877885,0.3969886954261954,aceptada,338,450,Pieridae,eurema paulina,184_Eurema_paulina.png
+450 px,normalizada 640,0.998810407390853,124.66446415239973,0.51875,aceptada,338,450,Pieridae,eurema phiale,185_Eurema_phiale_columbia.png
+450 px,normalizada 640,0.999999215353453,121.56121473114545,0.30239410083160084,aceptada,338,450,Pieridae,eurema phiale,186_Eurema_phiale_columbia.png
+450 px,normalizada 640,0.9999965179788579,152.65082881703404,0.33903326403326406,aceptada,338,450,Pieridae,eurema phiale,187_Eurema_phiale_columbia.png
+450 px,normalizada 640,0.9933194125200943,49.772089696651236,0.43839007276507275,aceptada,338,450,Pieridae,pyrisitia venusta,247_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.9998831373160163,102.42700922758766,0.43518386174636176,aceptada,338,450,Pieridae,pyrisitia venusta,248_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.999978485850473,234.13008317526953,0.37506821725571726,aceptada,338,450,Pieridae,pyrisitia venusta,249_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.9999964275369343,75.89561995086612,0.34679054054054054,aceptada,338,450,Pieridae,pyrisitia venusta,250_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.9999857479756367,75.33654392965994,0.334072895010395,aceptada,338,450,Pieridae,pyrisitia venusta,251_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.9882710885572374,101.93860278106962,0.454960369022869,aceptada,338,450,Pieridae,pyrisitia venusta,252_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.9995029245140611,54.6020562596844,0.3712837837837838,aceptada,338,450,Pieridae,pyrisitia venusta,253_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.9999956576170431,83.85692606605966,0.4739962318087318,aceptada,338,450,Pieridae,pyrisitia venusta,254_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.9999977581227644,359.2446199954583,0.3721121361746362,rechazada,338,450,Pieridae,pyrisitia venusta,255_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.9999911385127166,197.15926030386905,0.3010459979209979,aceptada,338,450,Pieridae,pyrisitia venusta,256_Pyrisitia_venusta_venusta.png
+450 px,normalizada 640,0.9977281551130792,40.9237817331955,0.5764682952182952,aceptada,338,450,Pieridae,zerene cesonia,259_Zerene_cesonia_boyacensis.png
+450 px,normalizada 640,0.9991801638493368,50.44677445603184,0.5388643451143451,aceptada,338,450,Pieridae,zerene cesonia,260_Zerene_cesonia_boyacensis.png
+450 px,normalizada 640,0.3846086351037731,106.52067534898498,0.3278553794178794,incierta,338,450,Pieridae,archonias brassolis,261_Archonias_brassolis_approximata.png
+450 px,normalizada 640,0.48421079515514853,111.32053894752428,0.3730087058212058,incierta,338,450,Pieridae,archonias brassolis,262_Archonias_brassolis_approximata.png
+450 px,normalizada 640,0.9040281443067585,87.37116718262781,0.2876071985446986,aceptada,338,450,Pieridae,archonias brassolis,263_Archonias_brassolis_approximata.png
+450 px,normalizada 640,0.999750339367873,223.19982758840666,0.3292359667359667,aceptada,338,450,Pieridae,archonias brassolis,264_Archonias_brassolis_approximata.png
+450 px,normalizada 640,0.9107306098555572,90.1652229220366,0.2967483108108108,aceptada,338,450,Pieridae,archonias brassolis,265_Archonias_brassolis_approximata.png
+450 px,normalizada 640,0.9397295317144841,308.8799819366391,0.31759030665280663,aceptada,338,450,Pieridae,archonias brassolis,266_Archonias_brassolis_critias.png
+450 px,normalizada 640,0.7200404822622795,105.72702812686816,0.29689449064449064,aceptada,338,450,Pieridae,archonias brassolis,267_Archonias_brassolis_critias.png
+450 px,normalizada 640,0.9999565085739381,116.10836392211614,0.272531185031185,aceptada,338,450,Pieridae,catasticta apaturina,283_Catasticta_apaturina.png
+450 px,normalizada 640,0.9995971478307693,73.73423280143908,0.30927754677754676,aceptada,338,450,Pieridae,catasticta apaturina,284_Catasticta_apaturina.png
+450 px,normalizada 640,0.9727564978240164,72.17327935234275,0.4577085498960499,aceptada,338,450,Pieridae,leptophobia aripa,419_Leptophobia_aripa_aripa.png
+450 px,normalizada 640,0.9985019697558285,64.85834735860298,0.3188474532224532,aceptada,338,450,Pieridae,leptophobia aripa,420_Leptophobia_aripa_aripa.png
+450 px,normalizada 640,0.9997677827302814,94.77431908197457,0.34603690228690226,aceptada,338,450,Pieridae,leptophobia aripa,421_Leptophobia_aripa_aripa.png
+450 px,normalizada 640,0.9998806410501705,80.4825805809331,0.3171615124740125,aceptada,338,450,Pieridae,leptophobia aripa,422_Leptophobia_aripa_aripa.png
+450 px,normalizada 640,0.28438731955833224,65.72268853718704,0.22817047817047817,aceptada,338,450,Pieridae,leptophobia eleone,435_Leptophobia_eleone_denigrata.png
+450 px,normalizada 640,0.999999934710937,113.868846381092,0.2533264033264033,aceptada,338,450,Pieridae,leptophobia eleone,436_Leptophobia_eleone_denigrata.png
+450 px,normalizada 640,0.9682244648879291,64.83852133209064,0.34495841995841997,aceptada,338,450,Pieridae,leptophobia eleone,437_Leptophobia_eleone_eleone.png
+450 px,normalizada 640,0.9994754581790846,83.45929586463865,0.1376591735966736,aceptada,338,450,Pieridae,leptophobia eleone,438_Leptophobia_eleone_eleone.png
+450 px,normalizada 640,0.9947847577370273,51.79254078210478,0.3605087058212058,aceptada,338,450,Pieridae,leptophobia eleone,439_Leptophobia_eleone_eleone.png
+450 px,normalizada 640,0.992271613130581,116.28036392310747,0.28709069646569646,aceptada,338,450,Pieridae,leptophobia eleone,440_Leptophobia_eleone_eleone.png
+450 px,normalizada 640,0.9998730401106628,81.37179860844704,0.43165930353430354,aceptada,338,450,Pieridae,leptophobia eleone,441_Leptophobia_eleone_eleone.png
+450 px,normalizada 640,0.9999993650299197,73.52323201439455,0.31295153326403324,aceptada,338,450,Pieridae,leptophobia eleone,442_Leptophobia_eleone_eleone.png
+450 px,normalizada 640,0.9999788948237114,103.13962097821637,0.14923011954261955,aceptada,338,450,Pieridae,leptophobia eleusis,443_Leptophobia_eleusis_eleusis.png
+450 px,normalizada 640,0.7334320022040766,80.28618095847561,0.3695426670146138,aceptada,337,450,Pieridae,leptophobia eleusis,444_Leptophobia_eleusis_eleusis.png
+450 px,normalizada 640,0.9982154534604808,78.69250882311472,0.3390072765072765,aceptada,338,450,Pieridae,leptophobia eleusis,445_Leptophobia_eleusis_eleusis.png
+450 px,normalizada 640,0.9999999754094423,126.1294993921148,0.33199064449064447,aceptada,338,450,Pieridae,leptophobia eleusis,446_Leptophobia_eleusis_eleusis.png
+450 px,normalizada 640,0.9998923909754465,68.1438847150907,0.3292067307692308,aceptada,338,450,Pieridae,leptophobia eleusis,447_Leptophobia_eleusis_eleusis.png
+450 px,normalizada 640,0.9999998792849533,112.08783768908305,0.25367723492723493,aceptada,338,450,Pieridae,leptophobia eleusis,448_Leptophobia_eleusis_eleusis.png
+450 px,normalizada 640,0.8792780422748605,85.87270779039731,0.26419568607068605,aceptada,338,450,Pieridae,leptophobia penthica,459_Leptophobia_penthica_penthica.png
+450 px,normalizada 640,0.999951284278934,69.59126402238275,0.27710823804573803,aceptada,338,450,Pieridae,leptophobia penthica,460_Leptophobia_penthica_penthica.png
+450 px,normalizada 640,0.9998891332929006,58.84489562786748,0.3099889553014553,aceptada,338,450,Pieridae,leptophobia penthica,461_Leptophobia_penthica_penthica.png
+450 px,normalizada 640,0.6045702548754541,323.2005722650149,0.12794308731808732,incierta,338,450,Pieridae,leptophobia penthica,462_Leptophobia_penthica_penthica.png
+450 px,normalizada 640,0.9964646957406122,100.16905222503085,0.44419178794178793,aceptada,338,450,Pieridae,leptophobia penthica,463_Leptophobia_penthica_penthica.png
+450 px,normalizada 640,0.991847158143184,69.80052533970944,0.45419698544698545,aceptada,338,450,Pieridae,perrhybris lorena,522_Perrhybris_lorena_lorena.png
+450 px,normalizada 640,0.9997524869154673,108.90106965357181,0.12465891372141372,aceptada,338,450,Pieridae,perrhybris lorena,523_Perrhybris_lorena_lorena.png
+450 px,normalizada 640,0.029635766619718236,137.6707076479237,0.2566950363825364,aceptada,338,450,Pieridae,perrhybris lorena,524_Perrhybris_lorena_lorena.png
+450 px,normalizada 640,0.8681410389168999,50.341807252981816,0.2890689968814969,aceptada,338,450,Pieridae,perrhybris lorena,525_Perrhybris_lorena_lorena.png
+450 px,normalizada 640,0.20420600812126155,52.208329903632105,0.3293756496881497,aceptada,338,450,Pieridae,perrhybris lorena,526_Perrhybris_lorena_lorena.png
+450 px,normalizada 640,0.9983645636177831,172.20392688693858,0.1314968814968815,aceptada,338,450,Pieridae,perrhybris lorena,527_Perrhybris_lorena_lorena.png
+330 px,actual (tope 800),0.9999819785074796,375.28701061776303,0.02661290322580645,rechazada,248,330,Papilionidae,eurytides columbus,029_Eurytides_columbus.png
+330 px,actual (tope 800),0.3897994331308723,61.950730693525706,0.3329178885630499,incierta,248,330,Papilionidae,eurytides columbus,030_Eurytides_columbus.png
+330 px,actual (tope 800),0.09340655712985561,47.267189307858786,0.3022360703812317,aceptada,248,330,Papilionidae,eurytides columbus,031_Eurytides_columbus.png
+330 px,actual (tope 800),,,0.0,rechazada,248,330,Papilionidae,eurytides columbus,032_Eurytides_columbus.png
+330 px,actual (tope 800),0.08990562522011891,112.84457226102649,0.4119134897360704,aceptada,248,330,Papilionidae,heraclides garleppi,071_Heraclides_garleppi_interruptus.png
+330 px,actual (tope 800),0.2839768946604709,102.79855528726443,0.4220674486803519,aceptada,248,330,Papilionidae,heraclides garleppi,072_Heraclides_garleppi_interruptus.png
+330 px,actual (tope 800),0.2891969420063155,141.63634261472922,0.33585043988269797,aceptada,248,330,Papilionidae,heraclides isidorus,073_Heraclides_isidorus_flavencens.png
+330 px,actual (tope 800),0.005338440362608889,102.07937883437917,0.2900293255131965,aceptada,248,330,Papilionidae,heraclides isidorus,074_Heraclides_isidorus_flavencens.png
+330 px,actual (tope 800),0.00025137808794490734,114.87059247358663,0.2141006842619746,aceptada,248,330,Papilionidae,heraclides isidorus,075_Heraclides_isidorus_flavencens.png
+330 px,actual (tope 800),0.0039003841329634517,271.48468571116035,0.20058651026392962,aceptada,248,330,Papilionidae,heraclides thoas,079_Heraclides_thoas_cinyras.png
+330 px,actual (tope 800),0.00707931950827434,376.3078133264389,0.2370112414467253,rechazada,248,330,Papilionidae,heraclides thoas,080_Heraclides_thoas_cinyras.png
+330 px,actual (tope 800),0.05155062126073395,221.75776561907776,0.2987047898338221,aceptada,248,330,Papilionidae,heraclides thoas,081_Heraclides_thoas_cinyras.png
+330 px,actual (tope 800),0.0036295745227134506,305.95020144999796,0.3143206256109482,aceptada,248,330,Papilionidae,heraclides thoas,082_Heraclides_thoas_cinyras.png
+330 px,actual (tope 800),0.01212809186132454,299.93024546933054,0.3294477028347996,aceptada,248,330,Papilionidae,heraclides thoas,083_Heraclides_thoas_cinyras.png
+330 px,actual (tope 800),0.17504433586373777,172.1688448785513,0.2639051808406647,aceptada,248,330,Papilionidae,heraclides thoas,084_Heraclides_thoas_cinyras.png
+330 px,actual (tope 800),0.37330119591834,171.32331907110722,0.2048631476050831,incierta,248,330,Papilionidae,heraclides thoas,085_Heraclides_thoas_cinyras.png
+330 px,actual (tope 800),0.0022703547208085474,301.09825097405457,0.37457233626588465,aceptada,248,330,Papilionidae,heraclides thoas,086_Heraclides_thoas_nealces.png
+330 px,actual (tope 800),0.017744951123039733,227.36936004216162,0.22469452590420333,aceptada,248,330,Papilionidae,heraclides thoas,087_Heraclides_thoas_nealces.png
+330 px,actual (tope 800),0.01429592533570957,218.97922877008398,0.36626344086021506,aceptada,248,330,Papilionidae,heraclides thoas,088_Heraclides_thoas_nealces.png
+330 px,actual (tope 800),0.02734190065586546,207.4318180774316,0.29634652981427173,aceptada,248,330,Papilionidae,heraclides thoas,089_Heraclides_thoas_nealces.png
+330 px,actual (tope 800),0.08407067703781222,217.87943357404282,0.2165811339198436,aceptada,248,330,Papilionidae,heraclides thoas,090_Heraclides_thoas_nealces.png
+330 px,actual (tope 800),0.20922509874120448,196.47756249993546,0.30773460410557185,aceptada,248,330,Papilionidae,heraclides thoas,091_Heraclides_thoas_nealces.png
+330 px,actual (tope 800),0.0009483588079386413,65.82459533986219,0.34192326490713587,aceptada,248,330,Papilionidae,mimoides xeniades,121_Mimoides_xeniades_halex.png
+330 px,actual (tope 800),0.6602388658280509,56.09469066371069,0.3550219941348974,aceptada,248,330,Papilionidae,mimoides xeniades,122_Mimoides_xeniades_halex.png
+330 px,actual (tope 800),0.002208560920891933,69.07903385464195,0.3161290322580645,aceptada,248,330,Papilionidae,parides lysander,196_Parides_lysander_brissonius.png
+330 px,actual (tope 800),0.1732042209080482,151.4308008345647,0.2754032258064516,aceptada,248,330,Papilionidae,parides lysander,197_Parides_lysander_brissonius.png
+330 px,actual (tope 800),0.0067513223413234276,114.06607513847062,0.4787267839687194,aceptada,248,330,Papilionidae,parides lysander,198_Parides_lysander_brissonius.png
+330 px,actual (tope 800),0.0008917996488448494,130.80511019894817,0.2528592375366569,aceptada,248,330,Papilionidae,parides lysander,199_Parides_lysander_brissonius.png
+330 px,actual (tope 800),0.002294645717615571,150.17655924274442,0.47294721407624635,aceptada,248,330,Papilionidae,parides lysander,200_Parides_lysander_brissonius.png
+330 px,actual (tope 800),3.20976009318697e-07,174.85392686939207,0.23258797653958943,aceptada,248,330,Papilionidae,parides lysander,201_Parides_lysander_brissonius.png
+330 px,actual (tope 800),0.06258661344668276,213.2497935868639,0.2279203323558162,aceptada,248,330,Papilionidae,parides lysander,202_Parides_lysander_orinocoensis.png
+330 px,actual (tope 800),1.0084097940356973e-05,145.1385230409963,0.46252636252636253,aceptada,273,330,Papilionidae,parides lysander,203_Parides_lysander_orinocoensis.png
+330 px,actual (tope 800),0.0018012767454170387,142.6693317502119,0.22226295210166178,aceptada,248,330,Papilionidae,parides lysander,204_Parides_lysander_orinocoensis.png
+330 px,actual (tope 800),1.6794175517659765e-05,158.36612238294376,0.46512707722385144,aceptada,248,330,Papilionidae,parides lysander,205_Parides_lysander_orinocoensis.png
+330 px,actual (tope 800),0.00029550071446999795,80.18517515790501,0.2586754643206256,aceptada,248,330,Papilionidae,parides orellana,211_Parides_orellana.png
+330 px,actual (tope 800),0.005391246684391204,298.99225007766313,0.26009286412512217,aceptada,248,330,Papilionidae,parides orellana,212_Parides_orellana.png
+330 px,actual (tope 800),0.0051731339776530235,101.67802856460173,0.3369379276637341,aceptada,248,330,Papilionidae,parides orellana,213_Parides_orellana.png
+330 px,actual (tope 800),0.008774078397505722,96.6073156325819,0.32453567937438904,aceptada,248,330,Papilionidae,parides orellana,214_Parides_orellana.png
+330 px,actual (tope 800),0.3989426219817497,708.3343528316731,0.20657380254154448,rechazada,248,330,Papilionidae,protesilaus protesilaus,252_Protesilaus_protesilaus_archesilaus.png
+330 px,actual (tope 800),0.8335002889240847,560.5306224187807,0.20472873900293256,rechazada,248,330,Papilionidae,protesilaus protesilaus,253_Protesilaus_protesilaus_archesilaus.png
+330 px,actual (tope 800),0.44218075931840256,219.0359858507726,0.22365591397849463,incierta,248,330,Papilionidae,protesilaus protesilaus,254_Protesilaus_protesilaus_dariensis.png
+330 px,actual (tope 800),0.617878875306033,213.42133276529813,0.16056940371456502,incierta,248,330,Papilionidae,protesilaus protesilaus,255_Protesilaus_protesilaus_protesilaus.png
+330 px,actual (tope 800),0.9809564561162738,236.29801445882103,0.22782258064516128,aceptada,248,330,Papilionidae,protesilaus protesilaus,256_Protesilaus_protesilaus_protesilaus.png
+330 px,actual (tope 800),0.17874299319728146,44.64355531191659,0.4044354838709677,aceptada,248,330,Pieridae,dismorphia altis,001_Dismorphia_altis_altis.png
+330 px,actual (tope 800),0.9994537115702203,205.27603865831313,0.20190615835777126,aceptada,248,330,Pieridae,dismorphia altis,002_Dismorphia_altis_altis.png
+330 px,actual (tope 800),0.9936941940125268,110.95199135892385,0.21997800586510263,aceptada,248,330,Pieridae,dismorphia altis,003_Dismorphia_altis_sophia.png
+330 px,actual (tope 800),0.9897164170915418,62.930193174480365,0.2460288367546432,aceptada,248,330,Pieridae,dismorphia arcadia,007_Dismorphia_arcadia_arcadia.png
+330 px,actual (tope 800),0.9940044338809647,76.32918878034926,0.3225562072336266,aceptada,248,330,Pieridae,dismorphia arcadia,008_Dismorphia_arcadia_lucilla.png
+330 px,actual (tope 800),0.005925149340089534,73.35658396983474,0.3085532746823069,aceptada,248,330,Pieridae,dismorphia medora,056_Dismorphia_medora_medora.png
+330 px,actual (tope 800),0.9905381122868215,70.07340561220458,0.20447214076246334,aceptada,248,330,Pieridae,dismorphia medora,057_Dismorphia_medora_medora.png
+330 px,actual (tope 800),0.9491031065291273,179.04400463444222,0.2654814271749756,aceptada,248,330,Pieridae,dismorphia theucharila,069_Dismorphia_theucharila_avonia.png
+330 px,actual (tope 800),0.9991242642562236,156.16790526239623,0.17530547409579667,aceptada,248,330,Pieridae,dismorphia theucharila,070_Dismorphia_theucharila_avonia.png
+330 px,actual (tope 800),0.9747568869931916,204.23719855194122,0.24661534701857282,aceptada,248,330,Pieridae,dismorphia theucharila,071_Dismorphia_theucharila_avonia.png
+330 px,actual (tope 800),0.9454536822474349,198.1012919854903,0.22849462365591397,aceptada,248,330,Pieridae,dismorphia theucharila,072_Dismorphia_theucharila_avonia.png
+330 px,actual (tope 800),0.5169674769982767,110.77909001780655,0.2713709677419355,incierta,248,330,Pieridae,dismorphia theucharila,073_Dismorphia_theucharila_leuconoe.png
+330 px,actual (tope 800),0.9491290523052113,126.1517807807152,0.24953567937438906,aceptada,248,330,Pieridae,dismorphia theucharila,074_Dismorphia_theucharila_leuconoe.png
+330 px,actual (tope 800),0.48162169882927164,111.44928270103762,0.2712243401759531,incierta,248,330,Pieridae,dismorphia theucharila,075_Dismorphia_theucharila_leuconoe.png
+330 px,actual (tope 800),0.995264110628931,207.84803391974935,0.1870478983382209,aceptada,248,330,Pieridae,dismorphia theucharila,076_Dismorphia_theucharila_lysionides.png
+330 px,actual (tope 800),0.9449175095255996,283.9212175165026,0.19995112414467253,aceptada,248,330,Pieridae,dismorphia theucharila,077_Dismorphia_theucharila_lysionides.png
+330 px,actual (tope 800),0.9804868034213525,120.04672529491747,0.2377932551319648,aceptada,248,330,Pieridae,dismorphia theucharila,078_Dismorphia_theucharila_lysionides.png
+330 px,actual (tope 800),0.9456644104337664,97.36674607814736,0.29843597262952104,aceptada,248,330,Pieridae,dismorphia theucharila,079_Dismorphia_theucharila_lysionides.png
+330 px,actual (tope 800),0.8942695579998624,162.58869681175895,0.204594330400782,aceptada,248,330,Pieridae,dismorphia theucharila,080_Dismorphia_theucharila_lysionides.png
+330 px,actual (tope 800),0.9986708098060886,160.35671805041204,0.19696969696969696,aceptada,248,330,Pieridae,dismorphia theucharila,081_Dismorphia_theucharila_xanthone.png
+330 px,actual (tope 800),0.9994367007810412,149.0242300171216,0.2342008797653959,aceptada,248,330,Pieridae,dismorphia theucharila,082_Dismorphia_theucharila_xanthone.png
+330 px,actual (tope 800),0.5984586489174505,50.62978628275776,0.45520527859237536,incierta,248,330,Pieridae,eurema elathea,161_Eurema_elathea_vitellina.png
+330 px,actual (tope 800),0.9929763870907004,81.03938382243423,0.3750733137829912,aceptada,248,330,Pieridae,eurema elathea,162_Eurema_elathea_vitellina.png
+330 px,actual (tope 800),0.9999985355340263,233.65677897935237,0.40873655913978496,aceptada,248,330,Pieridae,eurema elathea,163_Eurema_elathea_vitellina.png
+330 px,actual (tope 800),0.9999960273306921,468.07839322986035,0.33537390029325514,rechazada,248,330,Pieridae,eurema elathea,164_Eurema_elathea_vitellina.png
+330 px,actual (tope 800),0.9999819359535183,117.96970415363495,0.41392961876832846,aceptada,248,330,Pieridae,eurema paulina,184_Eurema_paulina.png
+330 px,actual (tope 800),0.9579713182821114,135.79562169794414,0.5141617790811339,aceptada,248,330,Pieridae,eurema phiale,185_Eurema_phiale_columbia.png
+330 px,actual (tope 800),0.9999978344661304,131.6910387076116,0.3009408602150538,aceptada,248,330,Pieridae,eurema phiale,186_Eurema_phiale_columbia.png
+330 px,actual (tope 800),0.9999973950528224,138.1333086126899,0.33763440860215055,aceptada,248,330,Pieridae,eurema phiale,187_Eurema_phiale_columbia.png
+330 px,actual (tope 800),0.9365837725256574,61.39365593805277,0.435386119257087,aceptada,248,330,Pieridae,pyrisitia venusta,247_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.9983685048078359,95.53108496887752,0.43213587487781036,aceptada,248,330,Pieridae,pyrisitia venusta,248_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.9998581239562531,266.73353152003295,0.3713954056695992,aceptada,248,330,Pieridae,pyrisitia venusta,249_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.9999416275813938,88.42286674204887,0.3487903225806452,aceptada,248,330,Pieridae,pyrisitia venusta,250_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.9997127952837666,93.52668065630816,0.33475073313782994,aceptada,248,330,Pieridae,pyrisitia venusta,251_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.64475652478733,161.08419078207447,0.36333088954056697,incierta,248,330,Pieridae,pyrisitia venusta,252_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.990504160609192,73.19651422318866,0.34547898338220917,aceptada,248,330,Pieridae,pyrisitia venusta,253_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.9999391294870082,79.96540391919196,0.47278836754643205,aceptada,248,330,Pieridae,pyrisitia venusta,254_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.999989849894536,370.59010945109645,0.3701124144672532,rechazada,248,330,Pieridae,pyrisitia venusta,255_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.9999582513023803,182.64019392500222,0.3030669599217986,aceptada,248,330,Pieridae,pyrisitia venusta,256_Pyrisitia_venusta_venusta.png
+330 px,actual (tope 800),0.9782503267373704,76.95514866716594,0.5748044965786901,aceptada,248,330,Pieridae,zerene cesonia,259_Zerene_cesonia_boyacensis.png
+330 px,actual (tope 800),0.9515852944724829,63.27449585690362,0.5331500488758554,aceptada,248,330,Pieridae,zerene cesonia,260_Zerene_cesonia_boyacensis.png
+330 px,actual (tope 800),0.012780729685675249,132.80544553563894,0.3269428152492669,aceptada,248,330,Pieridae,archonias brassolis,261_Archonias_brassolis_approximata.png
+330 px,actual (tope 800),0.0007407263337443167,149.4156106381701,0.3705034213098729,aceptada,248,330,Pieridae,archonias brassolis,262_Archonias_brassolis_approximata.png
+330 px,actual (tope 800),0.12187780967427915,103.55307703069084,0.28537390029325516,aceptada,248,330,Pieridae,archonias brassolis,263_Archonias_brassolis_approximata.png
+330 px,actual (tope 800),0.9990356303447323,226.7047459499771,0.3301930596285435,aceptada,248,330,Pieridae,archonias brassolis,264_Archonias_brassolis_approximata.png
+330 px,actual (tope 800),0.16593142248213588,137.97155400017147,0.29679863147605084,aceptada,248,330,Pieridae,archonias brassolis,265_Archonias_brassolis_approximata.png
+330 px,actual (tope 800),0.1513691398802612,241.93552342771224,0.31859726295210167,aceptada,248,330,Pieridae,archonias brassolis,266_Archonias_brassolis_critias.png
+330 px,actual (tope 800),0.3927117991797758,121.09408499374678,0.29281524926686214,incierta,248,330,Pieridae,archonias brassolis,267_Archonias_brassolis_critias.png
+330 px,actual (tope 800),0.9993349425502375,284.3936047568932,0.24652981427174975,aceptada,248,330,Pieridae,catasticta apaturina,283_Catasticta_apaturina.png
+330 px,actual (tope 800),0.9953192243652077,156.35566185183183,0.29960899315738027,aceptada,248,330,Pieridae,catasticta apaturina,284_Catasticta_apaturina.png
+330 px,actual (tope 800),0.5087172171166036,72.52667280463703,0.452113880742913,incierta,248,330,Pieridae,leptophobia aripa,419_Leptophobia_aripa_aripa.png
+330 px,actual (tope 800),0.9617950058215026,78.34373309976225,0.31724095796676444,aceptada,248,330,Pieridae,leptophobia aripa,420_Leptophobia_aripa_aripa.png
+330 px,actual (tope 800),0.9987558285725523,90.12196668570147,0.38481182795698926,aceptada,248,330,Pieridae,leptophobia aripa,421_Leptophobia_aripa_aripa.png
+330 px,actual (tope 800),0.9983161775156499,121.48475844770353,0.31747311827956987,aceptada,248,330,Pieridae,leptophobia aripa,422_Leptophobia_aripa_aripa.png
+330 px,actual (tope 800),0.1765243197127643,155.59324097692755,0.22750488758553275,aceptada,248,330,Pieridae,leptophobia eleone,435_Leptophobia_eleone_denigrata.png
+330 px,actual (tope 800),0.9999999687966515,248.35028733258147,0.2520405669599218,aceptada,248,330,Pieridae,leptophobia eleone,436_Leptophobia_eleone_denigrata.png
+330 px,actual (tope 800),0.9672335567246929,87.06346980008439,0.28228250244379277,aceptada,248,330,Pieridae,leptophobia eleone,437_Leptophobia_eleone_eleone.png
+330 px,actual (tope 800),0.9939558687087814,163.0231758443037,0.13559384164222874,aceptada,248,330,Pieridae,leptophobia eleone,438_Leptophobia_eleone_eleone.png
+330 px,actual (tope 800),0.9322669412470082,66.06763102852632,0.34305962854349953,aceptada,248,330,Pieridae,leptophobia eleone,439_Leptophobia_eleone_eleone.png
+330 px,actual (tope 800),0.9855323143912788,153.4421104020622,0.24558895405669598,aceptada,248,330,Pieridae,leptophobia eleone,440_Leptophobia_eleone_eleone.png
+330 px,actual (tope 800),0.9999958321150563,128.21622861472287,0.2845796676441838,aceptada,248,330,Pieridae,leptophobia eleone,441_Leptophobia_eleone_eleone.png
+330 px,actual (tope 800),0.9999971150542739,86.04658705001195,0.2924364613880743,aceptada,248,330,Pieridae,leptophobia eleone,442_Leptophobia_eleone_eleone.png
+330 px,actual (tope 800),0.9999807878992844,129.60495977886126,0.13212365591397848,aceptada,248,330,Pieridae,leptophobia eleusis,443_Leptophobia_eleusis_eleusis.png
+330 px,actual (tope 800),0.12109316364750818,93.02441137408613,0.3691080848975586,aceptada,247,330,Pieridae,leptophobia eleusis,444_Leptophobia_eleusis_eleusis.png
+330 px,actual (tope 800),0.9922741792974774,83.77021900508515,0.33726783968719454,aceptada,248,330,Pieridae,leptophobia eleusis,445_Leptophobia_eleusis_eleusis.png
+330 px,actual (tope 800),0.9999999818464754,136.74688514293481,0.3309995112414467,aceptada,248,330,Pieridae,leptophobia eleusis,446_Leptophobia_eleusis_eleusis.png
+330 px,actual (tope 800),0.9988488840886465,110.27993159459605,0.3221163245356794,aceptada,248,330,Pieridae,leptophobia eleusis,447_Leptophobia_eleusis_eleusis.png
+330 px,actual (tope 800),0.9999997131637542,233.39520853849382,0.24111681329423265,aceptada,248,330,Pieridae,leptophobia eleusis,448_Leptophobia_eleusis_eleusis.png
+330 px,actual (tope 800),0.6951522312335465,158.06228224110032,0.2639051808406647,aceptada,248,330,Pieridae,leptophobia penthica,459_Leptophobia_penthica_penthica.png
+330 px,actual (tope 800),0.9987667325998966,216.0117821887133,0.27608748778103614,aceptada,248,330,Pieridae,leptophobia penthica,460_Leptophobia_penthica_penthica.png
+330 px,actual (tope 800),0.9864831584479975,166.44243499062821,0.3098729227761486,aceptada,248,330,Pieridae,leptophobia penthica,461_Leptophobia_penthica_penthica.png
+330 px,actual (tope 800),0.5840977283045683,831.3315990292556,0.1288978494623656,rechazada,248,330,Pieridae,leptophobia penthica,462_Leptophobia_penthica_penthica.png
+330 px,actual (tope 800),0.9979085914000181,100.87018411037151,0.4096774193548387,aceptada,248,330,Pieridae,leptophobia penthica,463_Leptophobia_penthica_penthica.png
+330 px,actual (tope 800),0.7951577673982898,95.93851148860715,0.4219452590420332,aceptada,248,330,Pieridae,perrhybris lorena,522_Perrhybris_lorena_lorena.png
+330 px,actual (tope 800),0.9998988609776591,265.0891313688695,0.11907380254154448,aceptada,248,330,Pieridae,perrhybris lorena,523_Perrhybris_lorena_lorena.png
+330 px,actual (tope 800),0.0142950764219788,312.6670804466574,0.25391006842619745,aceptada,248,330,Pieridae,perrhybris lorena,524_Perrhybris_lorena_lorena.png
+330 px,actual (tope 800),0.20657059838152617,91.63270102469697,0.28526392961876834,aceptada,248,330,Pieridae,perrhybris lorena,525_Perrhybris_lorena_lorena.png
+330 px,actual (tope 800),0.0011327380937051158,127.7489948505502,0.3239613880742913,aceptada,248,330,Pieridae,perrhybris lorena,526_Perrhybris_lorena_lorena.png
+330 px,actual (tope 800),0.998533064430039,669.4375086833792,0.12914222873900294,rechazada,248,330,Pieridae,perrhybris lorena,527_Perrhybris_lorena_lorena.png
+330 px,normalizada 640,0.5577874691185192,79.3421059103781,0.17942112785862785,incierta,248,330,Papilionidae,eurytides columbus,029_Eurytides_columbus.png
+330 px,normalizada 640,0.9348697019571135,63.5299807850273,0.3362590956340956,aceptada,248,330,Papilionidae,eurytides columbus,030_Eurytides_columbus.png
+330 px,normalizada 640,0.23365554797878577,31.558363892958937,0.3566398128898129,aceptada,248,330,Papilionidae,eurytides columbus,031_Eurytides_columbus.png
+330 px,normalizada 640,0.6895983682739876,45.21190754492192,0.35900467775467776,aceptada,248,330,Papilionidae,eurytides columbus,032_Eurytides_columbus.png
+330 px,normalizada 640,0.8241687635727685,106.6307633438241,0.4436135654885655,aceptada,248,330,Papilionidae,heraclides garleppi,071_Heraclides_garleppi_interruptus.png
+330 px,normalizada 640,0.8504300054293085,77.42943423776963,0.4397739085239085,aceptada,248,330,Papilionidae,heraclides garleppi,072_Heraclides_garleppi_interruptus.png
+330 px,normalizada 640,0.9275153397810695,133.7381886973515,0.3367106288981289,aceptada,248,330,Papilionidae,heraclides isidorus,073_Heraclides_isidorus_flavencens.png
+330 px,normalizada 640,0.18367127617368303,80.0085687697082,0.2892866424116424,aceptada,248,330,Papilionidae,heraclides isidorus,074_Heraclides_isidorus_flavencens.png
+330 px,normalizada 640,0.022155214978077674,50.17608009214296,0.2154658264033264,aceptada,248,330,Papilionidae,heraclides isidorus,075_Heraclides_isidorus_flavencens.png
+330 px,normalizada 640,0.11036304576477238,111.0504521137236,0.3244152806652807,aceptada,248,330,Papilionidae,heraclides thoas,079_Heraclides_thoas_cinyras.png
+330 px,normalizada 640,0.01842142892515447,106.16963151142357,0.2836116164241164,aceptada,248,330,Papilionidae,heraclides thoas,080_Heraclides_thoas_cinyras.png
+330 px,normalizada 640,0.47891828555634114,168.67574979283944,0.3039403586278586,incierta,248,330,Papilionidae,heraclides thoas,081_Heraclides_thoas_cinyras.png
+330 px,normalizada 640,0.05124559335894013,131.00911605154715,0.32904430873180873,aceptada,248,330,Papilionidae,heraclides thoas,082_Heraclides_thoas_cinyras.png
+330 px,normalizada 640,0.12571053658144593,118.6248217423465,0.36040800415800417,aceptada,248,330,Papilionidae,heraclides thoas,083_Heraclides_thoas_cinyras.png
+330 px,normalizada 640,0.18342782296119334,85.65610557278686,0.25644815488565487,aceptada,248,330,Papilionidae,heraclides thoas,084_Heraclides_thoas_cinyras.png
+330 px,normalizada 640,0.08350157612412255,77.16976730187963,0.20450233887733887,aceptada,248,330,Papilionidae,heraclides thoas,085_Heraclides_thoas_cinyras.png
+330 px,normalizada 640,0.04364978597116258,98.26368243447064,0.4229047557172557,aceptada,248,330,Papilionidae,heraclides thoas,086_Heraclides_thoas_nealces.png
+330 px,normalizada 640,0.08654072309532099,72.26809802598609,0.2574324324324324,aceptada,248,330,Papilionidae,heraclides thoas,087_Heraclides_thoas_nealces.png
+330 px,normalizada 640,0.014002683796509997,83.0351145904636,0.4408881237006237,aceptada,248,330,Papilionidae,heraclides thoas,088_Heraclides_thoas_nealces.png
+330 px,normalizada 640,0.9907395409860927,74.22579327857919,0.29023843555093554,aceptada,248,330,Papilionidae,heraclides thoas,089_Heraclides_thoas_nealces.png
+330 px,normalizada 640,0.3379982987902238,108.04143179520608,0.21765202702702702,aceptada,248,330,Papilionidae,heraclides thoas,090_Heraclides_thoas_nealces.png
+330 px,normalizada 640,0.8188018167124862,91.25936802410664,0.31139877858627857,aceptada,248,330,Papilionidae,heraclides thoas,091_Heraclides_thoas_nealces.png
+330 px,normalizada 640,0.06025313798762989,67.68413583298164,0.3406964656964657,aceptada,248,330,Papilionidae,mimoides xeniades,121_Mimoides_xeniades_halex.png
+330 px,normalizada 640,0.9825458241937469,60.506528744554316,0.3411285083160083,aceptada,248,330,Papilionidae,mimoides xeniades,122_Mimoides_xeniades_halex.png
+330 px,normalizada 640,0.190298317092498,40.514207731731084,0.35328092515592513,aceptada,248,330,Papilionidae,parides lysander,196_Parides_lysander_brissonius.png
+330 px,normalizada 640,0.9282934123388358,69.59528297893733,0.27668918918918917,aceptada,248,330,Papilionidae,parides lysander,197_Parides_lysander_brissonius.png
+330 px,normalizada 640,0.0407118121454999,140.48441670545387,0.4777254417879418,aceptada,248,330,Papilionidae,parides lysander,198_Parides_lysander_brissonius.png
+330 px,normalizada 640,0.09775553199182807,93.66833690198217,0.29596218814968817,aceptada,248,330,Papilionidae,parides lysander,199_Parides_lysander_brissonius.png
+330 px,normalizada 640,0.014809976128344511,157.23639063002994,0.47902156964656967,aceptada,248,330,Papilionidae,parides lysander,200_Parides_lysander_brissonius.png
+330 px,normalizada 640,3.633786488365644e-05,155.4424871665814,0.23168529106029107,aceptada,248,330,Papilionidae,parides lysander,201_Parides_lysander_brissonius.png
+330 px,normalizada 640,0.5952204895327926,117.57453167583391,0.29419503638253636,incierta,248,330,Papilionidae,parides lysander,202_Parides_lysander_orinocoensis.png
+330 px,normalizada 640,0.0004955941331937602,103.71401386436642,0.4622991493383743,aceptada,273,330,Papilionidae,parides lysander,203_Parides_lysander_orinocoensis.png
+330 px,normalizada 640,0.09618865081094513,109.64162702827676,0.22067307692307692,aceptada,248,330,Papilionidae,parides lysander,204_Parides_lysander_orinocoensis.png
+330 px,normalizada 640,8.663899755937719e-05,131.62938832645787,0.46685940748440746,aceptada,248,330,Papilionidae,parides lysander,205_Parides_lysander_orinocoensis.png
+330 px,normalizada 640,0.013956457241021287,53.62301816132598,0.26791190228690226,aceptada,248,330,Papilionidae,parides orellana,211_Parides_orellana.png
+330 px,normalizada 640,0.8101361335385429,255.6627745631922,0.2639130717255717,aceptada,248,330,Papilionidae,parides orellana,212_Parides_orellana.png
+330 px,normalizada 640,0.09048227706128889,73.98695699002614,0.36854534823284824,aceptada,248,330,Papilionidae,parides orellana,213_Parides_orellana.png
+330 px,normalizada 640,0.2666748781371719,126.75150711609824,0.3029170997920998,aceptada,248,330,Papilionidae,parides orellana,214_Parides_orellana.png
+330 px,normalizada 640,0.17763190454332947,132.10680868718893,0.3566235706860707,aceptada,248,330,Papilionidae,protesilaus protesilaus,252_Protesilaus_protesilaus_archesilaus.png
+330 px,normalizada 640,0.9766692787859507,148.50700695357654,0.20925805613305612,aceptada,248,330,Papilionidae,protesilaus protesilaus,253_Protesilaus_protesilaus_archesilaus.png
+330 px,normalizada 640,0.8924211431074027,60.33876046159043,0.23330951143451142,aceptada,248,330,Papilionidae,protesilaus protesilaus,254_Protesilaus_protesilaus_dariensis.png
+330 px,normalizada 640,0.9319667478872418,56.99214642448422,0.17574389293139292,aceptada,248,330,Papilionidae,protesilaus protesilaus,255_Protesilaus_protesilaus_protesilaus.png
+330 px,normalizada 640,0.9738457012807558,75.82891663433533,0.2730866683991684,aceptada,248,330,Papilionidae,protesilaus protesilaus,256_Protesilaus_protesilaus_protesilaus.png
+330 px,normalizada 640,0.6774447910414951,39.296010318445944,0.4041872401247401,aceptada,248,330,Pieridae,dismorphia altis,001_Dismorphia_altis_altis.png
+330 px,normalizada 640,0.9977115809492608,61.616949612340896,0.24662487006237005,aceptada,248,330,Pieridae,dismorphia altis,002_Dismorphia_altis_altis.png
+330 px,normalizada 640,0.9995043838227482,60.58626192421868,0.22028651247401249,aceptada,248,330,Pieridae,dismorphia altis,003_Dismorphia_altis_sophia.png
+330 px,normalizada 640,0.9985712683828485,59.625782175366844,0.24832705301455302,aceptada,248,330,Pieridae,dismorphia arcadia,007_Dismorphia_arcadia_arcadia.png
+330 px,normalizada 640,0.9982147691048127,65.34108639721904,0.3239410083160083,aceptada,248,330,Pieridae,dismorphia arcadia,008_Dismorphia_arcadia_lucilla.png
+330 px,normalizada 640,0.6944872111674915,124.48088947874524,0.31013513513513513,aceptada,248,330,Pieridae,dismorphia medora,056_Dismorphia_medora_medora.png
+330 px,normalizada 640,0.9993459171323006,50.001010206043006,0.2044568607068607,aceptada,248,330,Pieridae,dismorphia medora,057_Dismorphia_medora_medora.png
+330 px,normalizada 640,0.9987657541798546,86.15641589947568,0.2647544178794179,aceptada,248,330,Pieridae,dismorphia theucharila,069_Dismorphia_theucharila_avonia.png
+330 px,normalizada 640,0.9854804056783909,78.55349200702021,0.22815098752598753,aceptada,248,330,Pieridae,dismorphia theucharila,070_Dismorphia_theucharila_avonia.png
+330 px,normalizada 640,0.9947706898808302,68.93810382535902,0.26879547817047816,aceptada,248,330,Pieridae,dismorphia theucharila,071_Dismorphia_theucharila_avonia.png
+330 px,normalizada 640,0.9987791172128334,88.32031778473625,0.22961278586278586,aceptada,248,330,Pieridae,dismorphia theucharila,072_Dismorphia_theucharila_avonia.png
+330 px,normalizada 640,0.9589340209941452,81.4260771492543,0.2723037941787942,aceptada,248,330,Pieridae,dismorphia theucharila,073_Dismorphia_theucharila_leuconoe.png
+330 px,normalizada 640,0.9924956907837997,170.8234270304449,0.33496946465696464,aceptada,248,330,Pieridae,dismorphia theucharila,074_Dismorphia_theucharila_leuconoe.png
+330 px,normalizada 640,0.957670721171817,80.99652840874427,0.27275532744282743,aceptada,248,330,Pieridae,dismorphia theucharila,075_Dismorphia_theucharila_leuconoe.png
+330 px,normalizada 640,0.9888431888673708,120.02570535758481,0.18806847713097713,aceptada,248,330,Pieridae,dismorphia theucharila,076_Dismorphia_theucharila_lysionides.png
+330 px,normalizada 640,0.9791875127364995,141.71237651455266,0.19687824844074844,aceptada,248,330,Pieridae,dismorphia theucharila,077_Dismorphia_theucharila_lysionides.png
+330 px,normalizada 640,0.9980652950964733,109.06614686472764,0.30805613305613305,aceptada,248,330,Pieridae,dismorphia theucharila,078_Dismorphia_theucharila_lysionides.png
+330 px,normalizada 640,0.9973385878090436,77.28514231114805,0.30042554573804575,aceptada,248,330,Pieridae,dismorphia theucharila,079_Dismorphia_theucharila_lysionides.png
+330 px,normalizada 640,0.984244935485941,90.55681959695816,0.20454132016632018,aceptada,248,330,Pieridae,dismorphia theucharila,080_Dismorphia_theucharila_lysionides.png
+330 px,normalizada 640,0.9961314423037648,88.7868767921139,0.21238305613305614,aceptada,248,330,Pieridae,dismorphia theucharila,081_Dismorphia_theucharila_xanthone.png
+330 px,normalizada 640,0.9964338954198099,76.88115137404198,0.30850116943866945,aceptada,248,330,Pieridae,dismorphia theucharila,082_Dismorphia_theucharila_xanthone.png
+330 px,normalizada 640,0.9509765807728501,53.56764911477214,0.4548954002079002,aceptada,248,330,Pieridae,eurema elathea,161_Eurema_elathea_vitellina.png
+330 px,normalizada 640,0.9998298273165467,75.76337857715966,0.3770725051975052,aceptada,248,330,Pieridae,eurema elathea,162_Eurema_elathea_vitellina.png
+330 px,normalizada 640,0.9999962657125595,108.54472436614493,0.40999870062370064,aceptada,248,330,Pieridae,eurema elathea,163_Eurema_elathea_vitellina.png
+330 px,normalizada 640,0.9999893015939831,182.8790947441259,0.3369672557172557,aceptada,248,330,Pieridae,eurema elathea,164_Eurema_elathea_vitellina.png
+330 px,normalizada 640,0.9999970684789339,105.82402779767756,0.3968814968814969,aceptada,248,330,Pieridae,eurema paulina,184_Eurema_paulina.png
+330 px,normalizada 640,0.9993329673347215,131.55434519240933,0.5110317047817048,aceptada,248,330,Pieridae,eurema phiale,185_Eurema_phiale_columbia.png
+330 px,normalizada 640,0.9999991745266346,140.06012008395226,0.30323544698544697,aceptada,248,330,Pieridae,eurema phiale,186_Eurema_phiale_columbia.png
+330 px,normalizada 640,0.9999984978575529,165.24355420183443,0.3414533523908524,aceptada,248,330,Pieridae,eurema phiale,187_Eurema_phiale_columbia.png
+330 px,normalizada 640,0.9949813876577809,55.39440846267067,0.43883510914760915,aceptada,248,330,Pieridae,pyrisitia venusta,247_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9998760359657086,108.4948664384752,0.438295867983368,aceptada,248,330,Pieridae,pyrisitia venusta,248_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9999954542471863,272.0994514965969,0.3739247661122661,aceptada,248,330,Pieridae,pyrisitia venusta,249_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9999982968977397,82.02723299485183,0.34921712577962577,aceptada,248,330,Pieridae,pyrisitia venusta,250_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9999939594384624,90.22240902310044,0.33444321725571724,aceptada,248,330,Pieridae,pyrisitia venusta,251_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9923409135349327,115.15595567200539,0.44949974012474014,aceptada,248,330,Pieridae,pyrisitia venusta,252_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9995454202254271,60.31554897718672,0.3685680873180873,aceptada,248,330,Pieridae,pyrisitia venusta,253_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9999969567651734,90.96144446236544,0.47347972972972974,aceptada,248,330,Pieridae,pyrisitia venusta,254_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9999938787859369,382.31034365276093,0.37253768191268194,rechazada,248,330,Pieridae,pyrisitia venusta,255_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9999691790832489,254.55959986631376,0.3074161902286902,aceptada,248,330,Pieridae,pyrisitia venusta,256_Pyrisitia_venusta_venusta.png
+330 px,normalizada 640,0.9986336389914194,46.51022901163264,0.5762668918918918,aceptada,248,330,Pieridae,zerene cesonia,259_Zerene_cesonia_boyacensis.png
+330 px,normalizada 640,0.9996621195553876,56.98891965984136,0.540485317047817,aceptada,248,330,Pieridae,zerene cesonia,260_Zerene_cesonia_boyacensis.png
+330 px,normalizada 640,0.5750917313067592,127.40236174745698,0.32682887214137213,incierta,248,330,Pieridae,archonias brassolis,261_Archonias_brassolis_approximata.png
+330 px,normalizada 640,0.7261639742940452,120.49248692911473,0.3710856288981289,aceptada,248,330,Pieridae,archonias brassolis,262_Archonias_brassolis_approximata.png
+330 px,normalizada 640,0.9696813145233802,93.43152307259541,0.2835856288981289,aceptada,248,330,Pieridae,archonias brassolis,263_Archonias_brassolis_approximata.png
+330 px,normalizada 640,0.9998150432423294,226.13802135272462,0.32929119022869024,aceptada,248,330,Pieridae,archonias brassolis,264_Archonias_brassolis_approximata.png
+330 px,normalizada 640,0.9705645572537531,104.90567537909257,0.2972095893970894,aceptada,248,330,Pieridae,archonias brassolis,265_Archonias_brassolis_approximata.png
+330 px,normalizada 640,0.9613003646725153,367.59896291239016,0.3172622141372141,rechazada,248,330,Pieridae,archonias brassolis,266_Archonias_brassolis_critias.png
+330 px,normalizada 640,0.8246329644654621,121.24660491779218,0.29688474532224535,aceptada,248,330,Pieridae,archonias brassolis,267_Archonias_brassolis_critias.png
+330 px,normalizada 640,0.9999748038836745,140.4805992164875,0.2704619282744283,aceptada,248,330,Pieridae,catasticta apaturina,283_Catasticta_apaturina.png
+330 px,normalizada 640,0.9998092340764149,91.40870484375048,0.31537162162162163,aceptada,248,330,Pieridae,catasticta apaturina,284_Catasticta_apaturina.png
+330 px,normalizada 640,0.9855310658204667,79.61479485827691,0.4548369282744283,aceptada,248,330,Pieridae,leptophobia aripa,419_Leptophobia_aripa_aripa.png
+330 px,normalizada 640,0.9987820193657563,70.64589101012686,0.3208095114345114,aceptada,248,330,Pieridae,leptophobia aripa,420_Leptophobia_aripa_aripa.png
+330 px,normalizada 640,0.9998872033858175,103.6760169340217,0.3460693866943867,aceptada,248,330,Pieridae,leptophobia aripa,421_Leptophobia_aripa_aripa.png
+330 px,normalizada 640,0.9999623002034436,88.93725895257892,0.3177072505197505,aceptada,248,330,Pieridae,leptophobia aripa,422_Leptophobia_aripa_aripa.png
+330 px,normalizada 640,0.39588434298711433,68.46521026539207,0.2283556392931393,incierta,248,330,Pieridae,leptophobia eleone,435_Leptophobia_eleone_denigrata.png
+330 px,normalizada 640,0.9999999890578454,117.66284184034537,0.251945816008316,aceptada,248,330,Pieridae,leptophobia eleone,436_Leptophobia_eleone_denigrata.png
+330 px,normalizada 640,0.9757915567562241,67.76570310626047,0.3441528066528067,aceptada,248,330,Pieridae,leptophobia eleone,437_Leptophobia_eleone_eleone.png
+330 px,normalizada 640,0.9996172712982013,79.20738749188513,0.13710369022869023,aceptada,248,330,Pieridae,leptophobia eleone,438_Leptophobia_eleone_eleone.png
+330 px,normalizada 640,0.9970371320510205,56.742292550372966,0.3612168659043659,aceptada,248,330,Pieridae,leptophobia eleone,439_Leptophobia_eleone_eleone.png
+330 px,normalizada 640,0.9963688278149285,123.48451031570131,0.2877696205821206,aceptada,248,330,Pieridae,leptophobia eleone,440_Leptophobia_eleone_eleone.png
+330 px,normalizada 640,0.9999443785004232,86.8889084437982,0.4294893451143451,aceptada,248,330,Pieridae,leptophobia eleone,441_Leptophobia_eleone_eleone.png
+330 px,normalizada 640,0.9999993749461996,78.19752034781513,0.32381431912681913,aceptada,248,330,Pieridae,leptophobia eleone,442_Leptophobia_eleone_eleone.png
+330 px,normalizada 640,0.9999806986422292,112.27336286361773,0.14802169958419958,aceptada,248,330,Pieridae,leptophobia eleusis,443_Leptophobia_eleusis_eleusis.png
+330 px,normalizada 640,0.8242914540436147,87.05699440499063,0.3697644832985386,aceptada,247,330,Pieridae,leptophobia eleusis,444_Leptophobia_eleusis_eleusis.png
+330 px,normalizada 640,0.9988682202228982,86.24385926669694,0.3386012214137214,aceptada,248,330,Pieridae,leptophobia eleusis,445_Leptophobia_eleusis_eleusis.png
+330 px,normalizada 640,0.9999999896138368,150.9804485014515,0.331633316008316,aceptada,248,330,Pieridae,leptophobia eleusis,446_Leptophobia_eleusis_eleusis.png
+330 px,normalizada 640,0.9999071884374756,68.47342743615843,0.3251559251559252,aceptada,248,330,Pieridae,leptophobia eleusis,447_Leptophobia_eleusis_eleusis.png
+330 px,normalizada 640,0.9999999434305505,126.88138777196384,0.2543983887733888,aceptada,248,330,Pieridae,leptophobia eleusis,448_Leptophobia_eleusis_eleusis.png
+330 px,normalizada 640,0.8840006998838028,92.23250104670785,0.26402027027027025,aceptada,248,330,Pieridae,leptophobia penthica,459_Leptophobia_penthica_penthica.png
+330 px,normalizada 640,0.9999877037583133,80.16416816045356,0.27704651767151767,aceptada,248,330,Pieridae,leptophobia penthica,460_Leptophobia_penthica_penthica.png
+330 px,normalizada 640,0.9999592670089102,60.29967624531476,0.31096023908523907,aceptada,248,330,Pieridae,leptophobia penthica,461_Leptophobia_penthica_penthica.png
+330 px,normalizada 640,0.8009881268177063,294.31734321804817,0.12893711018711018,aceptada,248,330,Pieridae,leptophobia penthica,462_Leptophobia_penthica_penthica.png
+330 px,normalizada 640,0.998115309803485,106.14824684946147,0.4430320945945946,aceptada,248,330,Pieridae,leptophobia penthica,463_Leptophobia_penthica_penthica.png
+330 px,normalizada 640,0.9957662021475845,77.142214923016,0.45466476091476093,aceptada,248,330,Pieridae,perrhybris lorena,522_Perrhybris_lorena_lorena.png
+330 px,normalizada 640,0.9998795576868477,148.74337448498838,0.06835044178794179,aceptada,248,330,Pieridae,perrhybris lorena,523_Perrhybris_lorena_lorena.png
+330 px,normalizada 640,0.053262845367568305,145.89009501404962,0.2529398388773389,aceptada,248,330,Pieridae,perrhybris lorena,524_Perrhybris_lorena_lorena.png
+330 px,normalizada 640,0.9133299141950106,57.00488593291351,0.2901864604989605,aceptada,248,330,Pieridae,perrhybris lorena,525_Perrhybris_lorena_lorena.png
+330 px,normalizada 640,0.38720539013471234,64.14586557038757,0.33008380977130974,incierta,248,330,Pieridae,perrhybris lorena,526_Perrhybris_lorena_lorena.png
+330 px,normalizada 640,0.9994035400915022,207.44809625748766,0.13190943347193348,aceptada,248,330,Pieridae,perrhybris lorena,527_Perrhybris_lorena_lorena.png

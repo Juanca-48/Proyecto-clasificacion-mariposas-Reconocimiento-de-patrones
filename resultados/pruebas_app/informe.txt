@@ -1,0 +1,14 @@
+8 imágenes de D:\Trabajos\Universidad\patrones\Proyecto_mariposas\Git_mariposas\Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones\Pruebas
+
+           archivo         real    estado     predicha  p_Papilionidae  p_Pieridae  area_mascara  distancia  alto  ancho
+Papilionidae1.jfif Papilionidae  aceptada Papilionidae            0.95        0.05          0.26         92   387    516
+papilionidae2.webp Papilionidae  aceptada     Pieridae            0.13        0.87          0.56        168   536    750
+ Papilionidae3.JPG Papilionidae  incierta     Pieridae            0.43        0.57          0.38         54  1172   1280
+papilionidae4.jfif Papilionidae  aceptada Papilionidae            0.92        0.08          0.39        112  2304   3072
+    Pieridae1.jpeg     Pieridae rechazada          NaN             NaN         NaN          0.15        431   375    500
+    Pieridae2.webp     Pieridae rechazada          NaN             NaN         NaN          0.15        375   427    580
+     Pieridae3.jpg     Pieridae  aceptada Papilionidae            0.97        0.03          0.44        201   262    330
+     Pieridae4.jpg     Pieridae  aceptada Papilionidae            0.84        0.16          0.41        175   251    330
+
+Coinciden con la familia real (aceptadas y correctas): 2 de 8
+  rechazadas: 2 | inciertas: 1 | aceptadas pero con la familia equivocada: 3

@@ -98,21 +98,29 @@ def moment_features(img_bgr: np.ndarray, mask: np.ndarray) -> dict:
 # Pipeline principal (misma estructura que texturas.py)
 # ----------------------------------------------------------------------
 
+def features_from_arrays(img_bgr: np.ndarray, mask: np.ndarray) -> dict | None:
+    """Features de color de una imagen (BGR) y su máscara 0/255. La usan process_image y la app."""
+    if (mask > 0).sum() < 50:
+        return None  # muy poca área de mariposa detectada, se descarta
+
+    feats = {"fg_pixels": int((mask > 0).sum())}
+    if ENABLE_HISTOGRAM:
+        feats.update(histogram_features(img_bgr, mask))
+    if ENABLE_MOMENTS:
+        feats.update(moment_features(img_bgr, mask))
+    return feats
+
+
 def process_image(img_path: Path, mask_path: Path | None) -> dict | None:
     img_bgr = cv2.imread(str(img_path))
     if img_bgr is None:
         return None
 
     mask = load_or_derive_mask(img_bgr, mask_path)
-    if (mask > 0).sum() < 50:
-        return None  # muy poca área de mariposa detectada, se descarta
-
-    feats = {"filename": img_path.name, "fg_pixels": int((mask > 0).sum())}
-    if ENABLE_HISTOGRAM:
-        feats.update(histogram_features(img_bgr, mask))
-    if ENABLE_MOMENTS:
-        feats.update(moment_features(img_bgr, mask))
-    return feats
+    feats = features_from_arrays(img_bgr, mask)
+    if feats is None:
+        return None
+    return {"filename": img_path.name, **feats}
 
 
 def load_labels(labels_csv: Path) -> dict:

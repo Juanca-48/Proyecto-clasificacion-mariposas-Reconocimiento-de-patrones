@@ -1,0 +1,55 @@
+Modelo: Regresión logística (147 features). Calibración con train + val: 690 imágenes, 150 especies.
+
+[Capa 1] área de la máscara en train + val: mín 0.034, máx 0.574 -> rango aceptado [0.027, 0.632]
+
+[Capa 2] distancia de Mahalanobis^2 (mediana en el espacio estandarizado: 82)
+  imágenes de especies NO vistas (CV agrupada): mediana 82, p95 = 328  <- umbral
+  imágenes dentro del propio ajuste: mediana 70 (más cercanas, por eso no sirven para calibrar)
+
+[Capa 3] cobertura y exactitud de la CV agrupada según el umbral de confianza (solo imágenes que pasan la capa 2)
+ umbral cobertura exactitud_aceptadas
+   0.50      100%               0.895
+   0.55       98%               0.901
+   0.60       95%               0.906
+   0.65       92%               0.910
+   0.70       89%               0.918
+   0.75       87%               0.924
+   0.80       84%               0.931
+   0.90       74%               0.959
+  elegido: 0.65
+
+(a) TEST: 122 imágenes legítimas (24 especies; el test no intervino en la calibración)
+  rechazadas por capa 1: 0 | por capa 2: 2 (2%) | inciertas: 5 (4%) | aceptadas: 115 (94%)
+  exactitud sin filtro: 0.877 | solo en las aceptadas: 0.896
+
+(b) PUNTA A PUNTA: 12 fotos originales de test, con segmentación GrabCut incluida
+  214_Parides_orellana.png               real Papil -> aceptada  Papilionidae d2=   107  área=0.31
+  196_Parides_lysander_brissonius.png    real Papil -> aceptada  Papilionidae d2=    53  área=0.32
+  197_Parides_lysander_brissonius.png    real Papil -> incierta  Papilionidae d2=    84  área=0.28
+  213_Parides_orellana.png               real Papil -> aceptada  Papilionidae d2=    62  área=0.35
+  211_Parides_orellana.png               real Papil -> aceptada  Papilionidae d2=    46  área=0.27
+  253_Protesilaus_protesilaus_archesilau real Papil -> aceptada  Pieridae     d2=   114  área=0.23
+  439_Leptophobia_eleone_eleone.png      real Pieri -> aceptada  Pieridae     d2=    48  área=0.35
+  448_Leptophobia_eleusis_eleusis.png    real Pieri -> aceptada  Pieridae     d2=   105  área=0.25
+  250_Pyrisitia_venusta_venusta.png      real Pieri -> aceptada  Pieridae     d2=    83  área=0.35
+  081_Dismorphia_theucharila_xanthone.pn real Pieri -> aceptada  Pieridae     d2=    75  área=0.21
+  262_Archonias_brassolis_approximata.pn real Pieri -> aceptada  Papilionidae d2=    92  área=0.37
+  443_Leptophobia_eleusis_eleusis.png    real Pieri -> aceptada  Pieridae     d2=    83  área=0.15
+  diferencia máxima de probabilidad con las predicciones guardadas: 3.03e-02 (no es cero porque GrabCut no es determinista: la máscara guardada y la recalculada tienen IoU de 0,86 a 0,99)
+
+(c) NO MARIPOSAS: imágenes de ejemplo de scikit-image (comprobación de cordura, 14 imágenes)
+  astronaut   -> aceptada  Papilionidae área=0.26 d2=277
+  camera      -> rechazada -            área=0.30 d2=533
+  chelsea     -> aceptada  Pieridae     área=0.34 d2=73
+  coffee      -> aceptada  Papilionidae área=0.46 d2=306
+  coins       -> rechazada -            área=0.02 d2=-
+  horse       -> rechazada -            área=0.34 d2=61734
+  moon        -> rechazada -            área=0.02 d2=-
+  page        -> rechazada -            área=0.00 d2=-
+  rocket      -> rechazada -            área=0.56 d2=540
+  text        -> rechazada -            área=0.00 d2=-
+  brick       -> rechazada -            área=0.13 d2=1250
+  grass       -> rechazada -            área=0.00 d2=-
+  gravel      -> rechazada -            área=0.00 d2=-
+  colorwheel  -> rechazada -            área=0.26 d2=1873
+  resumen: {'aceptada': 3, 'incierta': 0, 'rechazada': 11}

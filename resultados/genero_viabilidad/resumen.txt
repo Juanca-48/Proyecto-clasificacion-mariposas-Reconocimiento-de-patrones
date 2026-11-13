@@ -1,0 +1,71 @@
+=== GÉNEROS (38 en total, 812 imágenes) ===
+
+Papilionidae: 9 géneros
+      genus  imagenes  especies  max_imgs_una_especie
+    Parides       101        15                    16
+ Heraclides        54         9                    14
+   Mimoides        33         7                    11
+  Pterourus        27         9                     6
+     Battus        25         5                     7
+  Eurytides        14         5                     4
+Neographium        14         5                     4
+Protesilaus        12         5                     5
+    Papilio         5         2                     4
+
+Pieridae: 29 géneros
+        genus  imagenes  especies  max_imgs_una_especie
+   Catasticta        93        22                    15
+   Dismorphia        92        16                    20
+  Leptophobia        64        14                    12
+       Eurema        59        12                    12
+       Melete        25         4                    13
+      Phoebis        25         5                     8
+    Pyrisitia        22         4                    10
+    Itaballia        14         2                     9
+     Leodonta        14         4                     7
+      Pereute        13         3                     6
+        Ascia        12         2                    10
+   Perrhybris        11         2                     6
+       Anteos        10         2                     7
+       Colias         9         1                     9
+    Archonias         8         2                     7
+Hesperocharis         8         2                     5
+ Pseudopieris         8         2                     6
+      Lieinix         6         1                     6
+  Moschoneura         6         1                     6
+      Enantia         5         2                     3
+     Aphrissa         4         1                     4
+      Cunizza         4         1                     4
+ Glutophrissa         4         1                     4
+     Leucidia         3         1                     3
+  Rhabdodryas         2         1                     2
+    Tatochila         2         1                     2
+       Zerene         2         1                     2
+       Ganyra         1         1                     1
+     Nathalis         1         1                     1
+
+=== COBERTURA: géneros e imágenes que quedan según las especies mínimas exigidas ===
+ min_especies      familia  generos  de  pct_imagenes
+            2 Papilionidae        8   9            98
+            2     Pieridae       16  29            91
+            3 Papilionidae        8   9            98
+            3     Pieridae        9  29            77
+            4 Papilionidae        8   9            98
+            4     Pieridae        8  29            75
+            5 Papilionidae        8   9            98
+            5     Pieridae        5  29            63
+
+=== PILOTO (regresión logística, CV agrupada por especie, train + val; sin usar el test) ===
+Géneros elegibles (>= 3 especies y >= 8 imágenes): 17 de 38
+
+Papilionidae: 8 géneros, 237 imágenes, 4 folds
+  balanced_accuracy = 0.355 ± 0.049   (azar = 0.125)   f1_macro = 0.347   accuracy = 0.418
+  recall por género: Parides 0.60, Heraclides 0.19, Mimoides 0.42, Pterourus 0.41, Battus 0.28, Eurytides 0.30, Neographium 0.21, Protesilaus 0.43
+
+Pieridae: 9 géneros, 343 imágenes, 3 folds
+  balanced_accuracy = 0.429 ± 0.014   (azar = 0.111)   f1_macro = 0.427   accuracy = 0.513
+  recall por género: Catasticta 0.82, Dismorphia 0.49, Leptophobia 0.34, Eurema 0.41, Melete 0.16, Phoebis 0.44, Pyrisitia 0.08, Leodonta 0.57, Pereute 0.54
+
+Plano (ambas familias): 17 géneros, 580 imágenes, 3 folds
+  balanced_accuracy = 0.297 ± 0.029   (azar = 0.059)   f1_macro = 0.298   accuracy = 0.369
+  recall por género: Parides 0.46, Heraclides 0.19, Mimoides 0.35, Pterourus 0.26, Battus 0.24, Eurytides 0.20, Neographium 0.14, Protesilaus 0.29, Catasticta 0.63, Dismorphia 0.34, Leptophobia 0.29, Eurema 0.39, Melete 0.20, Phoebis 0.40, Pyrisitia 0.00, Leodonta 0.36, Pereute 0.31

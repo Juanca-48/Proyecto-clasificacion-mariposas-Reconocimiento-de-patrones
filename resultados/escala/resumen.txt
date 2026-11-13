@@ -1,0 +1,34 @@
+122 fotos de test x 6 combinaciones = 732 ejecuciones (6 procesos)
+  100/732
+  200/732
+  300/732
+  400/732
+  500/732
+  600/732
+  700/732
+  732/732
+
+=== TEST DE CATÁLOGO por condición de entrada y política (balanced accuracy con el modelo sin rechazo) ===
+ entrada          política  balanced_acc   auc  rechazadas  inciertas  exactitud_aceptadas  mediana_distancia
+original actual (tope 800)         0.862 0.951       0.016      0.057                0.894             80.020
+original   normalizada 640         0.862 0.954       0.016      0.041                0.887             77.844
+  450 px actual (tope 800)         0.843 0.927       0.033      0.066                0.873             97.998
+  450 px   normalizada 640         0.829 0.946       0.008      0.090                0.882             83.021
+  330 px actual (tope 800)         0.852 0.898       0.074      0.082                0.864            141.636
+  330 px   normalizada 640         0.795 0.940       0.016      0.049                0.868             90.390
+
+=== DIFERENCIA normalizada 640 - actual (balanced accuracy), IC 95 % por bootstrap de especies ===
+  entrada original : +0.000  IC [+0.000, +0.000]  | 0 de 122 predicciones cambian de familia
+  entrada 450 px   : -0.014  IC [-0.109, +0.097]  | 16 de 122 predicciones cambian de familia
+  entrada 330 px   : -0.057  IC [-0.157, +0.040]  | 22 de 122 predicciones cambian de familia
+
+=== Pruebas/: fotos de internet, comparación cualitativa (P(Pieridae) sin rechazo) ===
+foto                  real               tamaño |   actual     estado |  normalizada     estado
+Papilionidae1.jfif    Papilionidae  516x  387 |  0.05 OK    aceptada |     0.37 OK    incierta
+papilionidae2.webp    Papilionidae  750x  536 |  0.87 MAL   aceptada |     0.86 MAL   aceptada
+Papilionidae3.JPG     Papilionidae  1280x 1172 |  0.57 MAL   incierta |     0.18 OK    aceptada
+papilionidae4.jfif    Papilionidae  3072x 2304 |  0.08 OK    aceptada |     0.10 OK    aceptada
+Pieridae1.jpeg        Pieridae      500x  375 |  0.67 OK   rechazada |     0.40 MAL  rechazada
+Pieridae2.webp        Pieridae      580x  427 |  1.00 OK   rechazada |     1.00 OK   rechazada
+Pieridae3.jpg         Pieridae      330x  262 |  0.03 MAL   aceptada |     0.42 MAL   incierta
+Pieridae4.jpg         Pieridae      330x  251 |  0.16 MAL   aceptada |     0.93 OK    aceptada

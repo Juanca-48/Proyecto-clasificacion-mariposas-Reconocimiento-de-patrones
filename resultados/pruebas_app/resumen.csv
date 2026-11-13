@@ -1,0 +1,9 @@
+archivo,real,estado,predicha,p_Papilionidae,p_Pieridae,area_mascara,distancia,umbral_distancia,alto,ancho
+Papilionidae1.jfif,Papilionidae,aceptada,Papilionidae,0.9496515300150947,0.05034846998490531,0.257,92,328,387,516
+papilionidae2.webp,Papilionidae,aceptada,Pieridae,0.12506976011421056,0.8749302398857894,0.559,168,328,536,750
+Papilionidae3.JPG,Papilionidae,incierta,Pieridae,0.4327705429387416,0.5672294570612584,0.375,54,328,1172,1280
+papilionidae4.jfif,Papilionidae,aceptada,Papilionidae,0.9245052749338483,0.0754947250661517,0.394,112,328,2304,3072
+Pieridae1.jpeg,Pieridae,rechazada,,,,0.149,431,328,375,500
+Pieridae2.webp,Pieridae,rechazada,,,,0.149,375,328,427,580
+Pieridae3.jpg,Pieridae,aceptada,Papilionidae,0.9672399734477088,0.032760026552291106,0.443,201,328,262,330
+Pieridae4.jpg,Pieridae,aceptada,Papilionidae,0.8366270073355795,0.16337299266442046,0.41,175,328,251,330

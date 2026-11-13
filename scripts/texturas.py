@@ -165,24 +165,32 @@ def gabor_features(gray: np.ndarray, mask: np.ndarray) -> dict:
 # Pipeline principal
 # ----------------------------------------------------------------------
 
-def process_image(img_path: Path, mask_path: Path | None) -> dict | None:
-    img_bgr = cv2.imread(str(img_path))
-    if img_bgr is None:
-        return None
-
-    mask = load_or_derive_mask(img_bgr, mask_path)
+def features_from_arrays(img_bgr: np.ndarray, mask: np.ndarray) -> dict | None:
+    """Features de textura de una imagen (BGR) y su máscara 0/255. La usan process_image y la app."""
     gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
     gray, mask = crop_to_mask_bbox(gray, mask)
 
     if (mask > 0).sum() < 50:
         return None  # muy poca área de mariposa detectada, se descarta
 
-    feats = {"filename": img_path.name, "fg_pixels": int((mask > 0).sum())}
+    feats = {"fg_pixels": int((mask > 0).sum())}
     feats.update(glcm_features(gray, mask))
     feats.update(haralick_features(gray, mask))
     if ENABLE_GABOR:
         feats.update(gabor_features(gray, mask))
     return feats
+
+
+def process_image(img_path: Path, mask_path: Path | None) -> dict | None:
+    img_bgr = cv2.imread(str(img_path))
+    if img_bgr is None:
+        return None
+
+    mask = load_or_derive_mask(img_bgr, mask_path)
+    feats = features_from_arrays(img_bgr, mask)
+    if feats is None:
+        return None
+    return {"filename": img_path.name, **feats}
 
 
 def load_labels(labels_csv: Path) -> dict:
