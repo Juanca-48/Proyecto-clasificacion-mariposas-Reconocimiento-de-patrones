@@ -1,0 +1,25 @@
+122 fotos de test x 2 segmentadores (4 procesos)
+  60/244
+  120/244
+  180/244
+  240/244
+  244/244
+
+=== TEST DE CATÁLOGO por segmentador (el modelo y los umbrales son los mismos) ===
+segmentador  balanced_acc   auc  rechazadas  inciertas  exactitud_aceptadas  mediana_distancia  area_media
+    grabcut         0.862 0.951       0.016      0.057                0.894             80.020       0.316
+      rembg         0.844 0.940       0.049      0.115                0.892             78.648       0.333
+
+rembg - grabcut, balanced accuracy: -0.018  IC 95 % [-0.064, +0.015]  | 10 de 122 predicciones cambian de familia
+IoU entre las dos máscaras en el catálogo: mediana 0.901, p10 0.612, mín 0.272
+
+=== Pruebas/: fotos de internet, comparación cualitativa ===
+foto                  real           |            GrabCut             |             rembg             
+Papilionidae1.jfif    Papilionidae   | P(Pier)=0.05 OK   aceptada     | P(Pier)=0.05 OK   aceptada    
+papilionidae2.webp    Papilionidae   | P(Pier)=0.87 MAL  aceptada     | P(Pier)=0.06 OK   aceptada    
+Papilionidae3.JPG     Papilionidae   | P(Pier)=0.57 MAL  incierta     | P(Pier)=0.46 OK   incierta    
+papilionidae4.jfif    Papilionidae   | P(Pier)=0.08 OK   aceptada     | P(Pier)=0.08 OK   aceptada    
+Pieridae1.jpeg        Pieridae       | P(Pier)=0.67 OK  rechazada     | P(Pier)=1.00 OK  rechazada    
+Pieridae2.webp        Pieridae       | P(Pier)=1.00 OK  rechazada     | P(Pier)=1.00 OK  rechazada    
+Pieridae3.jpg         Pieridae       | P(Pier)=0.03 MAL  aceptada     | P(Pier)=0.06 MAL  aceptada    
+Pieridae4.jpg         Pieridae       | P(Pier)=0.16 MAL  aceptada     | P(Pier)=0.15 MAL  aceptada    

@@ -54,6 +54,7 @@ Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones/
 │   ├── calibrar_rechazo.py            # calibra los umbrales de rechazo (resultados/rechazo/)
 │   ├── probar_carpeta.py              # pasa las fotos de una carpeta por el clasificador de la app
 │   ├── validar_escala.py              # valida la normalización de escala de las fotos (resultados/escala/)
+│   ├── validar_segmentador.py         # compara GrabCut con rembg en la inferencia (resultados/segmentador/)
 │   └── exportar_app.py                # copia a app/ lo que necesita el Space
 ├── app/                               # Space de Hugging Face (Gradio): app.py, requirements.txt, README.md, modelo/
 ├── resultados/                        # salida de los scripts, una subcarpeta por etapa
@@ -75,7 +76,8 @@ Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones/
 │   ├── genero_viabilidad/             # viabilidad_genero.py: tabla de géneros, cobertura, piloto
 │   ├── rechazo/                       # calibrar_rechazo.py: rechazo.joblib y resumen.txt
 │   ├── pruebas_app/                   # probar_carpeta.py: resultado por foto y segmentaciones
-│   └── escala/                        # validar_escala.py: comparación de políticas de escala
+│   ├── escala/                        # validar_escala.py: comparación de políticas de escala
+│   └── segmentador/                   # validar_segmentador.py: GrabCut vs rembg, con montaje de segmentaciones
 ├── mariposas_analisis.xlsx            # análisis exploratorio del dataset
 └── README.md
 ```
@@ -430,6 +432,15 @@ a 640 px) se probó con las 122 fotos de test reducidas a 450 y 330 px (`scripts
 mejora la balanced accuracy (-0,014 y -0,057, con IC que incluyen el cero) y sesga las predicciones hacia Pieridae,
 aunque sí mejora el AUC y reduce los falsos rechazos. La app sigue con la política original: reducir solo lo que pase
 de 800 px.
+
+**Segmentador `rembg`** (`scripts/validar_segmentador.py`, requiere `pip install rembg onnxruntime` y descarga un modelo de
+176 MB). Solo en la inferencia, sin reentrenar, quita las hojas, flores y sombras de las fotos de internet (en las 8 fotos,
+las aceptadas y correctas pasan de 2 a 3), pero en el catálogo baja algo la precisión (balanced accuracy -0,018, IC
+[-0,064, +0,015]) y sube el rechazo (de 1,6 % a 4,9 %) y la incertidumbre (de 5,7 % a 11,5 %), porque el modelo y los umbrales
+se calibraron con máscaras de GrabCut. **No está adoptado en la app.** Hacerlo bien implicaría regenerar las máscaras con
+rembg y reentrenar y recalibrar todo. Dos de las fotos de internet se rechazan con ambos segmentadores aunque la
+segmentación sea limpia: son mariposas pequeñas en el encuadre (12 a 15 % del área, frente a la mediana del 32 % en el
+catálogo) y la capa de distancia las penaliza; sin rechazo, el modelo las clasifica bien.
 
 **Subir el Space** (requiere una cuenta en Hugging Face; no se ha hecho desde este repositorio):
 

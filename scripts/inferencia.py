@@ -59,12 +59,26 @@ def preparar(img_rgb: np.ndarray, lado: int | None = None) -> np.ndarray:
     return bgr
 
 
-def segmentar(img_bgr: np.ndarray):
-    """Máscara 0/255 y recorte de la mariposa sobre fondo blanco (como en Segmentacion.py)."""
+_SESION_REMBG = None
+
+
+def _mascara_rembg(img_bgr: np.ndarray) -> np.ndarray:
+    """Máscara 0/255 con rembg (red U2-Net), con la misma limpieza que usa GrabCut en Segmentacion.py."""
+    global _SESION_REMBG
+    from rembg import new_session, remove   # import perezoso: solo hace falta con segmentador="rembg"
+    if _SESION_REMBG is None:
+        _SESION_REMBG = new_session("u2net")
+    alfa = np.asarray(remove(cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB), session=_SESION_REMBG, only_mask=True))
+    return Segmentacion.clean_mask(np.where(alfa > 127, 255, 0).astype(np.uint8))
+
+
+def segmentar(img_bgr: np.ndarray, segmentador: str = "grabcut"):
+    """Máscara 0/255 y recorte de la mariposa sobre fondo blanco (como en Segmentacion.py).
+    segmentador: "grabcut" (el del entrenamiento) o "rembg"."""
     # GrabCut usa el generador aleatorio global de OpenCV; sin fijar la semilla, la misma foto puede dar
     # máscaras distintas (IoU hasta 0,86 entre dos llamadas). Con semilla fija la salida es reproducible.
     cv2.setRNGSeed(0)
-    mask = Segmentacion.segment_grabcut(img_bgr)
+    mask = _mascara_rembg(img_bgr) if segmentador == "rembg" else Segmentacion.segment_grabcut(img_bgr)
     cutout = np.full_like(img_bgr, 255)
     cutout[mask == 255] = img_bgr[mask == 255]
     return mask, cutout
@@ -102,12 +116,12 @@ class Clasificador:
         """Espacio en el que se mide la distancia: el mismo imputador y escalador del modelo."""
         return self.pipeline.named_steps["scaler"].transform(self.pipeline.named_steps["imputer"].transform(X))
 
-    def analizar(self, img_rgb: np.ndarray, lado: int | None = None) -> dict:
+    def analizar(self, img_rgb: np.ndarray, lado: int | None = None, segmentador: str = "grabcut") -> dict:
         """Segmenta, extrae features y mide distancia y probabilidades, SIN decidir si se rechaza.
         Útil para ver qué diría el modelo con y sin rechazo (la distancia y las probabilidades son None
         si la máscara es demasiado pequeña para calcular features)."""
         img = preparar(img_rgb, lado)
-        mask, cutout = segmentar(img)
+        mask, cutout = segmentar(img, segmentador)
         a = dict(area=float((mask > 0).mean()), mascara=mask, recorte_rgb=cv2.cvtColor(cutout, cv2.COLOR_BGR2RGB),
                  distancia=None, probabilidades=None)
         feats = extraer_features(img, mask)
@@ -138,5 +152,5 @@ class Clasificador:
                              f"{r['umbral_confianza']:.0%} de confianza.", familia, probs, **base)
         return Resultado("aceptada", "", familia, probs, **base)
 
-    def predecir(self, img_rgb: np.ndarray, lado: int | None = None) -> Resultado:
-        return self.decidir(self.analizar(img_rgb, lado))
+    def predecir(self, img_rgb: np.ndarray, lado: int | None = None, segmentador: str = "grabcut") -> Resultado:
+        return self.decidir(self.analizar(img_rgb, lado, segmentador))
