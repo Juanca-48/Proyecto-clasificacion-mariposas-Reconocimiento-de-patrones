@@ -1,0 +1,9 @@
+foto,real,clásico (desplegado): estado,clásico (desplegado): familia,clásico (desplegado): P(Pieridae),clásico (desplegado): acierta,afinado: estado,afinado: familia,afinado: P(Pieridae),afinado: acierta
+Papilionidae1.jfif,Papilionidae,aceptada,Papilionidae,0.05,True,aceptada,Papilionidae,0.016,True
+papilionidae2.webp,Papilionidae,aceptada,Pieridae,0.875,False,aceptada,Papilionidae,0.015,True
+Papilionidae3.JPG,Papilionidae,incierta,Pieridae,0.567,False,aceptada,Papilionidae,0.01,True
+papilionidae4.jfif,Papilionidae,aceptada,Papilionidae,0.075,True,aceptada,Papilionidae,0.016,True
+Pieridae1.jpeg,Pieridae,rechazada,-,,False,aceptada,Pieridae,0.905,True
+Pieridae2.webp,Pieridae,rechazada,-,,False,aceptada,Pieridae,0.913,True
+Pieridae3.jpg,Pieridae,aceptada,Papilionidae,0.033,False,aceptada,Pieridae,0.885,True
+Pieridae4.jpg,Pieridae,aceptada,Papilionidae,0.163,False,aceptada,Pieridae,0.873,True

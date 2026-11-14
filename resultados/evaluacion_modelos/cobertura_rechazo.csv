@@ -1,0 +1,4 @@
+modelo,rechazadas_area,rechazadas_distancia,inciertas,aceptadas,pct_aceptadas,exactitud_sin_filtro,exactitud_aceptadas,errores_que_se_filtran,errores_aceptados
+ConvNeXt embeddings,0,6,4,112,0.918,0.9508,0.9643,2,4
+ConvNeXt afinado,0,10,4,108,0.8852,0.9836,0.9907,1,1
+Clásico LogReg (rembg),0,1,4,117,0.959,0.8607,0.8889,4,13

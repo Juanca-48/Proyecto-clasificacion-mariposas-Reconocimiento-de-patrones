@@ -1,0 +1,11 @@
+modelo,clase,precision,recall,F1,soporte
+Clásico LogReg (rembg),Papilionidae,0.7955,0.814,0.8046,43
+Clásico LogReg (rembg),Pieridae,0.8974,0.8861,0.8917,79
+"Clásico LogReg (GrabCut, desplegado)",Papilionidae,0.8182,0.8372,0.8276,43
+"Clásico LogReg (GrabCut, desplegado)",Pieridae,0.9103,0.8987,0.9045,79
+Random Forest (rembg),Papilionidae,0.6923,0.8372,0.7579,43
+Random Forest (rembg),Pieridae,0.9,0.7975,0.8456,79
+ConvNeXt embeddings,Papilionidae,0.8776,1.0,0.9348,43
+ConvNeXt embeddings,Pieridae,1.0,0.9241,0.9605,79
+ConvNeXt afinado,Papilionidae,0.9556,1.0,0.9773,43
+ConvNeXt afinado,Pieridae,1.0,0.9747,0.9872,79

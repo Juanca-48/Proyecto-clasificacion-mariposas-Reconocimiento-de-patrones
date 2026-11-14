@@ -46,6 +46,7 @@ Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones/
 │   ├── entrenamiento/                 # Train_random_forest.py, Train_models.py, Train_final.py (modelo clásico)
 │   ├── redes_preentrenadas/           # embeddings.py, evaluar_embeddings.py, entrenar_embeddings.py, afinar.py (fine-tuning)
 │   ├── prediccion/                    # inferencia.py, inferencia_embeddings.py, calibrar_rechazo.py, probar_carpeta.py
+│   ├── evaluacion/                    # evaluar_modelos.py: métricas, matrices de confusión y comparaciones de todos los modelos
 │   ├── despliegue/                    # exportar_app.py: copia a app/ lo que necesita el Space
 │   └── estudios/                      # validar_escala.py, validar_segmentador.py, viabilidad_genero.py (experimentos)
 ├── app/                               # Space de Hugging Face (Gradio): app.py, requirements.txt, README.md, modelo/
@@ -498,6 +499,17 @@ python scripts/despliegue/exportar_app.py --sin-clasico   # copia a app/ los mod
 El orquestador ejecuta `redes_preentrenadas/embeddings.py` (extrae los embeddings de los recortes), `evaluar_embeddings.py`
 (CV de las combinaciones, con el clásico como referencia, y test de la mejor por CV), `entrenar_embeddings.py` (modelo final
 y calibración del rechazo) y `afinar.py`.
+
+### Evaluación comparada de los modelos
+
+```bash
+python scripts/evaluacion/evaluar_modelos.py    # ~1 min; no entrena nada, usa los modelos y resultados ya generados
+```
+
+Compara en las mismas 122 imágenes de test el clásico (rembg y GrabCut desplegado), Random Forest, ConvNeXt con embeddings y
+ConvNeXt afinada. Deja en `resultados/evaluacion_modelos/` el **`resumen.md`** (empezar por ahí) con matrices de confusión,
+precisión/recall/F1 por clase, F1 macro, MCC, AUC, calibración, intervalos de confianza (bootstrap por especies), McNemar y
+diferencias pareadas, errores por especie, cobertura del rechazo y CV frente a test, además de los CSV y PNG de cada tabla.
 
 **Afinado (`afinar.py`).** Ajusta **todos los pesos** de ConvNeXt-Tiny a partir de los de ImageNet, con tasa de aprendizaje por
 capa, AdamW, profundidad estocástica, suavizado de etiquetas, pesos por clase y aumentos moderados (sin alterar el matiz).

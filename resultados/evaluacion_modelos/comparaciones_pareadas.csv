@@ -1,0 +1,8 @@
+A,B,solo_A_acierta,solo_B_acierta,McNemar_p,dif_balanced_accuracy,dif_balanced_accuracy_ic_inf,dif_balanced_accuracy_ic_sup,dif_F1_macro,dif_F1_macro_ic_inf,dif_F1_macro_ic_sup,dif_MCC,dif_MCC_ic_inf,dif_MCC_ic_sup
+ConvNeXt afinado,ConvNeXt embeddings,5,1,0.2188,0.0253,0.0,0.0533,0.0346,0.0,0.0904,0.0646,0.0,0.1469
+ConvNeXt afinado,Clásico LogReg (rembg),16,1,0.0003,0.1373,0.0573,0.2865,0.1341,0.0562,0.2823,0.2686,0.1133,0.5553
+ConvNeXt afinado,"Clásico LogReg (GrabCut, desplegado)",14,1,0.001,0.1194,0.057,0.2375,0.1162,0.0625,0.2319,0.2329,0.1248,0.4571
+ConvNeXt embeddings,Clásico LogReg (rembg),15,4,0.0192,0.112,0.0244,0.2655,0.0995,0.0073,0.2423,0.204,0.0328,0.4765
+ConvNeXt embeddings,"Clásico LogReg (GrabCut, desplegado)",12,3,0.0352,0.0941,0.0297,0.2187,0.0816,0.0166,0.1889,0.1683,0.048,0.3787
+Clásico LogReg (rembg),"Clásico LogReg (GrabCut, desplegado)",3,5,0.7266,-0.018,-0.0565,0.0119,-0.0179,-0.0587,0.0154,-0.0357,-0.1147,0.0289
+Clásico LogReg (rembg),Random Forest (rembg),12,6,0.2379,0.0327,-0.0945,0.1687,0.0464,-0.0695,0.1782,0.0833,-0.1382,0.3225

@@ -1,0 +1,11 @@
+modelo,tipo,bal_acc_cv,desv,auc_cv
+SVM (RBF),clásico (textura y color),0.89,0.018,0.961
+Regresión logística,clásico (textura y color),0.889,0.015,0.955
+Random Forest (referencia),clásico (textura y color),0.858,0.052,0.929
+kNN,clásico (textura y color),0.838,0.017,0.924
+bioclip / original,red preentrenada,0.9852,0.0028,0.9993
+dinov2 / original,red preentrenada,0.9831,0.0009,0.9969
+convnext / original,red preentrenada,0.9795,0.0044,0.9984
+convnext / recorte,red preentrenada,0.9794,0.0021,0.9965
+bioclip / recorte,red preentrenada,0.9712,0.0009,0.997
+dinov2 / recorte,red preentrenada,0.9668,0.0025,0.9959

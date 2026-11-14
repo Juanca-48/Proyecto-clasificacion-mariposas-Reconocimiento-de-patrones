@@ -1,0 +1,11 @@
+modelo,clase_real,predicha_Papilionidae,predicha_Pieridae
+Clásico LogReg (rembg),Papilionidae,35,8
+Clásico LogReg (rembg),Pieridae,9,70
+"Clásico LogReg (GrabCut, desplegado)",Papilionidae,36,7
+"Clásico LogReg (GrabCut, desplegado)",Pieridae,8,71
+Random Forest (rembg),Papilionidae,36,7
+Random Forest (rembg),Pieridae,16,63
+ConvNeXt embeddings,Papilionidae,43,0
+ConvNeXt embeddings,Pieridae,6,73
+ConvNeXt afinado,Papilionidae,43,0
+ConvNeXt afinado,Pieridae,2,77
