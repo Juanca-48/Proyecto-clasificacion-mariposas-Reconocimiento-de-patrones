@@ -43,13 +43,33 @@ class ClasificadorEmbeddings:
 
     @property
     def descripcion(self) -> str:
-        return f"{self.b['red']} sobre {'recortes segmentados' if self.b['entrada'] == 'recorte' else 'la foto completa'}"
+        red = f"{self.b['red']} afinada" if self.b.get("tipo") == "afinado" else self.b["red"]
+        return f"{red} sobre {'recortes segmentados' if self.b['entrada'] == 'recorte' else 'la foto completa'}"
 
     def _embedder(self):
         if self._embed is None:
-            from embeddings import construir   # importa torch y la red solo al usar este motor
-            self._embed = construir(self.b["red"])
+            if self.b.get("tipo") == "afinado":
+                self._embed = self._construir_afinada()
+            else:
+                from embeddings import construir   # importa torch y la red solo al usar este motor
+                self._embed = construir(self.b["red"])
         return self._embed
+
+    def _construir_afinada(self):
+        """Red afinada (afinar.py): devuelve (embedding, logits) de una imagen PIL."""
+        import timm
+        import torch
+        b = self.b
+        m = timm.create_model(b["arch"], pretrained=False, num_classes=2)
+        m.load_state_dict({k: v.float() for k, v in b["pesos"].items()})
+        m.eval()
+        tf = timm.data.create_transform(**timm.data.resolve_data_config({}, model=m))
+
+        def f(img):
+            with torch.no_grad():   # el modo sin gradiente es por hilo y Gradio atiende cada petición en otro hilo
+                feats = m.forward_head(m.forward_features(tf(img).unsqueeze(0)), pre_logits=True)
+                return feats.numpy(), m.head.fc(feats).numpy()
+        return f
 
     def analizar(self, img_rgb: np.ndarray, lado: int | None = None, segmentador: str | None = None) -> dict:
         """Calcula el embedding, la distancia y las probabilidades SIN decidir si se rechaza."""
@@ -63,6 +83,12 @@ class ClasificadorEmbeddings:
             mask, area, rgb, vacia = None, None, cv2.cvtColor(img, cv2.COLOR_BGR2RGB), False
         a = dict(area=area, mascara=mask, recorte_rgb=rgb, distancia=None, probabilidades=None)
         if vacia:
+            return a
+        if b.get("tipo") == "afinado":   # la cabeza de la propia red da las probabilidades; la distancia se mide en su espacio
+            feats, logits = self._embedder()(Image.fromarray(rgb))
+            a["distancia"] = float(b["covarianza"].mahalanobis(feats)[0])
+            p = np.exp(logits[0] - logits[0].max())
+            a["probabilidades"] = {c: float(x) for c, x in zip(self.clases, p / p.sum())}
             return a
         e = normalize(self._embedder()([Image.fromarray(rgb)]))
         m = b["modelo"]

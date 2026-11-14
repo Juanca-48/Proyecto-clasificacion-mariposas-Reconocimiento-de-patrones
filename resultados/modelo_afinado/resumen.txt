@@ -1,0 +1,42 @@
+ConvNeXt-Tiny, toda la red: train 568, val 122, test 122 imágenes; 10 épocas x 3 semillas.
+  semilla 0 época  1/10: pérdida train 0.509 | val: bal_acc 0.970, auc 0.996, pérdida 0.147 (173 s)
+  semilla 0 época  2/10: pérdida train 0.317 | val: bal_acc 0.981, auc 0.999, pérdida 0.121 (165 s)
+  semilla 0 época  3/10: pérdida train 0.274 | val: bal_acc 0.981, auc 1.000, pérdida 0.117 (165 s)
+  semilla 0 época  4/10: pérdida train 0.270 | val: bal_acc 0.994, auc 1.000, pérdida 0.071 (165 s)
+  semilla 0 época  5/10: pérdida train 0.249 | val: bal_acc 0.987, auc 1.000, pérdida 0.075 (182 s)
+  semilla 0 época  6/10: pérdida train 0.253 | val: bal_acc 0.994, auc 1.000, pérdida 0.066 (170 s)
+  semilla 0 época  7/10: pérdida train 0.240 | val: bal_acc 0.994, auc 1.000, pérdida 0.069 (164 s)
+  semilla 0 época  8/10: pérdida train 0.240 | val: bal_acc 0.994, auc 1.000, pérdida 0.073 (165 s)
+  semilla 0 época  9/10: pérdida train 0.238 | val: bal_acc 0.994, auc 1.000, pérdida 0.072 (163 s)
+  semilla 0 época 10/10: pérdida train 0.239 | val: bal_acc 0.994, auc 1.000, pérdida 0.072 (163 s)
+  semilla 1 época  1/10: pérdida train 0.515 | val: bal_acc 0.911, auc 0.998, pérdida 0.237 (165 s)
+  semilla 1 época  2/10: pérdida train 0.323 | val: bal_acc 0.956, auc 0.999, pérdida 0.175 (163 s)
+  semilla 1 época  3/10: pérdida train 0.289 | val: bal_acc 0.994, auc 1.000, pérdida 0.067 (164 s)
+  semilla 1 época  4/10: pérdida train 0.270 | val: bal_acc 0.994, auc 1.000, pérdida 0.079 (166 s)
+  semilla 1 época  5/10: pérdida train 0.252 | val: bal_acc 0.994, auc 1.000, pérdida 0.079 (164 s)
+  semilla 1 época  6/10: pérdida train 0.243 | val: bal_acc 0.994, auc 1.000, pérdida 0.072 (166 s)
+  semilla 1 época  7/10: pérdida train 0.237 | val: bal_acc 0.994, auc 1.000, pérdida 0.080 (163 s)
+  semilla 1 época  8/10: pérdida train 0.238 | val: bal_acc 0.994, auc 1.000, pérdida 0.082 (166 s)
+  semilla 1 época  9/10: pérdida train 0.236 | val: bal_acc 0.994, auc 1.000, pérdida 0.080 (166 s)
+  semilla 1 época 10/10: pérdida train 0.237 | val: bal_acc 0.994, auc 1.000, pérdida 0.080 (164 s)
+  semilla 2 época  1/10: pérdida train 0.536 | val: bal_acc 0.968, auc 0.996, pérdida 0.156 (163 s)
+  semilla 2 época  2/10: pérdida train 0.326 | val: bal_acc 0.975, auc 1.000, pérdida 0.107 (164 s)
+  semilla 2 época  3/10: pérdida train 0.269 | val: bal_acc 0.994, auc 1.000, pérdida 0.076 (163 s)
+  semilla 2 época  4/10: pérdida train 0.256 | val: bal_acc 0.994, auc 1.000, pérdida 0.079 (163 s)
+  semilla 2 época  5/10: pérdida train 0.254 | val: bal_acc 0.987, auc 1.000, pérdida 0.086 (165 s)
+  semilla 2 época  6/10: pérdida train 0.244 | val: bal_acc 1.000, auc 1.000, pérdida 0.070 (165 s)
+  semilla 2 época  7/10: pérdida train 0.249 | val: bal_acc 0.994, auc 1.000, pérdida 0.077 (142 s)
+  semilla 2 época  8/10: pérdida train 0.246 | val: bal_acc 0.994, auc 1.000, pérdida 0.071 (121 s)
+  semilla 2 época  9/10: pérdida train 0.234 | val: bal_acc 0.994, auc 1.000, pérdida 0.071 (120 s)
+  semilla 2 época 10/10: pérdida train 0.239 | val: bal_acc 0.994, auc 1.000, pérdida 0.070 (110 s)
+
+=== RESULTADOS POR SEMILLA (modelo entrenado solo con train; el test no interviene en ninguna decisión) ===
+ semilla  val_bal_acc  val_auc  val_perdida  val_errores  test_bal_acc  test_auc  test_perdida  test_errores
+       0        0.994      1.0        0.072            1         0.981     0.999         0.110             3
+       1        0.994      1.0        0.080            1         0.981     0.999         0.114             3
+       2        0.994      1.0        0.070            1         0.987     0.999         0.103             2
+
+Media ± desviación entre semillas -> val: bal_acc 0.994 ± 0.000 | test: bal_acc 0.983 ± 0.003, auc 0.999, errores 2.7 de 122
+Se despliega la semilla 2 (mejor validación): val bal_acc 0.994; test bal_acc 0.987, AUC 0.999.
+
+Rechazo (umbral de distancia = p95 de la validación = 990): en test, rechazadas por distancia 10 (8%), inciertas 4 (3%), aceptadas 108; exactitud sin filtro 0.984, solo en las aceptadas 0.991

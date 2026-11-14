@@ -44,7 +44,7 @@ Proyecto-clasificacion-mariposas-Reconocimiento-de-patrones/
 │   ├── caracteristicas/               # texturas.py, color_features.py, formas.py, prepare_dataset.py
 │   ├── preparacion/                   # Split_dataset.py, Standardize_features.py
 │   ├── entrenamiento/                 # Train_random_forest.py, Train_models.py, Train_final.py (modelo clásico)
-│   ├── redes_preentrenadas/           # embeddings.py, evaluar_embeddings.py, entrenar_embeddings.py (y el fine-tuning, pendiente)
+│   ├── redes_preentrenadas/           # embeddings.py, evaluar_embeddings.py, entrenar_embeddings.py, afinar.py (fine-tuning)
 │   ├── prediccion/                    # inferencia.py, inferencia_embeddings.py, calibrar_rechazo.py, probar_carpeta.py
 │   ├── despliegue/                    # exportar_app.py: copia a app/ lo que necesita el Space
 │   └── estudios/                      # validar_escala.py, validar_segmentador.py, viabilidad_genero.py (experimentos)
@@ -442,54 +442,89 @@ rembg y reentrenar y recalibrar todo. Dos de las fotos de internet se rechazan c
 segmentación sea limpia: son mariposas pequeñas en el encuadre (12 a 15 % del área, frente a la mediana del 32 % en el
 catálogo) y la capa de distancia las penaliza; sin rechazo, el modelo las clasifica bien.
 
-**Subir el Space** (requiere una cuenta en Hugging Face; no se ha hecho desde este repositorio):
+**Subir el Space** (requiere una cuenta en Hugging Face; no se hace desde este repositorio). Si el Space ya existe, basta con
+actualizarlo:
 
 ```bash
+python scripts/despliegue/exportar_app.py --sin-clasico      # sincroniza app/ y comprueba que funciona aislada
 hf auth login
-hf repos create <usuario>/<nombre> --type space --sdk gradio
-hf upload <usuario>/<nombre> app . --type space --exclude "**/__pycache__/**"
+hf upload <usuario>/<space> app . --type space --exclude "**/__pycache__/**" --commit-message "Agrega los modelos de ConvNeXt y el selector"
+hf spaces wait <usuario>/<space>                             # espera a que termine de construirse
+hf spaces logs <usuario>/<space> --build                     # si falla, para ver por qué
 ```
 
-Se sube solo `app/` (código y modelos, unos 400 KB), nunca el dataset: las fotos son de los catálogos de BioButterfly.
-`app/requirements.txt` fija `scikit-learn==1.9.1` porque el modelo es un pickle sensible a la versión, y
-`opencv-python-headless==5.0.0.93` para que GrabCut se comporte igual que en el entrenamiento. El Space usa Python 3.12
-(NumPy 2.5 lo exige). No se ha probado la construcción en Hugging Face: lo probado es la app en local y su carpeta aislada.
-Tras reentrenar o recalibrar, hay que volver a ejecutar `exportar_app.py` y volver a subir.
+Si el Space no existe, antes del `hf upload`: `hf repos create <usuario>/<space> --type space --sdk gradio`.
 
-### 12. Segundo modelo: ConvNeXt-Tiny preentrenada, y selector en la app
+**Qué se sube:** solo `app/` (unos 63 MB): el código, la tarjeta del Space (`README.md`), `requirements.txt` y `modelo/` (el
+clásico y su rechazo, 0,4 MB; el de embeddings, 4,6 MB; el afinado, 59 MB). Nunca el dataset: las fotos son de los catálogos de
+BioButterfly. Los archivos que ya están en la versión anterior del Space se sobrescriben y no queda ninguno obsoleto, así que
+no hace falta `--delete`.
+
+**Verificado antes de subir:** los modelos de `app/` son byte a byte los entrenados; el modelo clásico es el mismo que ya
+estaba subido (sin cambios en git); cada librería que importa el código está en `requirements.txt` (`open_clip` y
+`transformers` solo se importan para BioCLIP y DINOv2, que la app no usa); y las dependencias se resuelven para Linux x86_64
+con Python 3.12 (instalación simulada). `requirements.txt` fija `scikit-learn==1.9.1` (el modelo es un pickle sensible a la
+versión) y `opencv-python-headless==5.0.0.93` (para que GrabCut se comporte igual que en el entrenamiento); PyTorch viene del
+índice de CPU.
+
+**Sin verificar:** la construcción real en Hugging Face, el tiempo de arranque (descarga unos 110 MB de ConvNeXt y 170 MB de
+`rembg`, y carga dos redes) y el consumo de memoria en el plan gratuito. Tras reentrenar o recalibrar, hay que volver a ejecutar
+`exportar_app.py` y volver a subir.
+
+### 12. Modelos con ConvNeXt-Tiny (embeddings y afinado) y selector en la app
 
 Además del modelo clásico se probaron **embeddings** de redes preentrenadas (BioCLIP, DINOv2 y ConvNeXt-Tiny), sin afinarlas
 (sus pesos no cambian), clasificados con la misma regresión logística y el mismo protocolo: partición agrupada por especie y
-test una sola vez. Las tres superan con holgura al modelo clásico (CV agrupada 0,967 a 0,985 contra 0,893). Para el segundo
-modelo de la app se eligió **ConvNeXt-Tiny sobre recortes segmentados**: es la más ligera (unos 110 MB), no necesita
-`open_clip` y fue estable con las fotos de internet.
+test una sola vez. Las tres superan con holgura al modelo clásico (CV agrupada 0,967 a 0,985 contra 0,893). Para los modelos
+de la app se eligió **ConvNeXt-Tiny sobre recortes segmentados**: es la más ligera (unos 110 MB), no necesita `open_clip` y
+fue estable con las fotos de internet.
 
 ```bash
-python scripts/pipeline_embeddings.py          # extraer -> evaluar -> modelo (afinar: pendiente); tarda menos de 1 minuto
+python scripts/pipeline_embeddings.py --hasta modelo   # extraer -> evaluar -> modelo; menos de 1 minuto
+python scripts/pipeline_embeddings.py --solo afinar    # fine-tuning completo; ~1,5 horas en CPU (3 semillas x 10 épocas)
 python scripts/pipeline_embeddings.py --estado
-python scripts/despliegue/exportar_app.py --sin-clasico   # copia a app/ los dos modelos sin tocar el clásico
+python scripts/despliegue/exportar_app.py --sin-clasico   # copia a app/ los modelos sin tocar el clásico
 ```
 
 El orquestador ejecuta `redes_preentrenadas/embeddings.py` (extrae los embeddings de los recortes), `evaluar_embeddings.py`
-(CV de las combinaciones, con el clásico como referencia, y test de la mejor por CV) y `entrenar_embeddings.py` (modelo final
-y calibración del rechazo). La etapa **`afinar`** (fine-tuning de la red) está **reservada pero sin implementar**: todavía no
-se ha decidido cómo hacerlo, y mientras tanto se muestra como "sin implementar" y se omite. Con ConvNeXt-Tiny sobre recortes:
-balanced accuracy 0,962 y AUC 0,997 en el test (24 especies), con 8 de 8 aciertos en las fotos de internet de `Pruebas/`
-(el clásico, 2 de 8). Resultados en `resultados/embeddings/` y `resultados/modelo_embeddings/`.
+(CV de las combinaciones, con el clásico como referencia, y test de la mejor por CV), `entrenar_embeddings.py` (modelo final
+y calibración del rechazo) y `afinar.py`.
 
-`prediccion/inferencia_embeddings.py` es el segundo motor de la app: devuelve el mismo `Resultado` que el clásico, con las
-mismas tres capas de rechazo (área de la máscara, distancia de Mahalanobis en el espacio del embedding, confianza). La app
-(`app/app.py`) tiene un selector: el **clásico** es el predeterminado y el de **embeddings** aparece solo si existe
-`app/modelo/modelo_embeddings.joblib`. Nada del trabajo anterior se reemplaza.
+**Afinado (`afinar.py`).** Ajusta **todos los pesos** de ConvNeXt-Tiny a partir de los de ImageNet, con tasa de aprendizaje por
+capa, AdamW, profundidad estocástica, suavizado de etiquetas, pesos por clase y aumentos moderados (sin alterar el matiz).
+Protocolo: se entrena solo con train, con un número fijo de épocas (10) y sin parada temprana; 3 semillas; se despliega la de
+mejor validación; el rechazo se calibra con la validación (la CV de los otros modelos no sirve con una red afinada) y el test
+se informa una sola vez. A diferencia de los otros modelos, **no se reentrena con train + val**. `--congelar-hasta 3` afina solo
+la última etapa.
+
+| Modelo (test de 24 especies, 122 imágenes) | Balanced accuracy | Errores |
+|---|---|---|
+| Clásico (textura y color) | 0,850 | 17 |
+| ConvNeXt-Tiny, embeddings sin afinar | 0,962 | 6 |
+| ConvNeXt-Tiny afinada (semilla desplegada) | 0,987 | 2 |
+
+Las 3 semillas dan 0,981 / 0,981 / 0,987 en test y 0,994 en validación, es decir, varían poco. La diferencia entre afinada y sin
+afinar es de +0,025, con un IC 95 % por especies de [+0,000, +0,052]: **sugiere una mejora, pero el intervalo llega a cero**.
+Los dos errores que quedan son de *Archonias brassolis*, un mimetismo. Con las 8 fotos de internet de `Pruebas/`, los dos
+modelos de ConvNeXt aciertan 8 de 8 (el clásico, 2): esas fotos no distinguen entre ellos. Resultados en
+`resultados/embeddings/`, `resultados/modelo_embeddings/` y `resultados/modelo_afinado/` (el archivo del modelo, ~60 MB, está
+en `.gitignore` porque se regenera).
+
+`prediccion/inferencia_embeddings.py` es el motor de los dos modelos de ConvNeXt en la app: devuelve el mismo `Resultado`
+que el clásico, con las mismas tres capas de rechazo (área de la máscara, distancia de Mahalanobis en el espacio del
+embedding, confianza). La app (`app/app.py`) tiene un selector de hasta tres modelos: el **clásico** es el predeterminado, y
+el de **embeddings** y el **afinado** aparecen solo si existen `app/modelo/modelo_embeddings.joblib` y
+`app/modelo/modelo_afinado.joblib`. Nada del trabajo anterior se reemplaza.
 
 Necesita `torch`, `torchvision` y `timm`; el orquestador instala lo que falte. En este equipo no hay GPU utilizable con PyTorch
-(la RX 6600 de AMD no tiene soporte oficial en Windows y `torch-directml` no existe para Python 3.14), pero la extracción de
-embeddings de las 812 imágenes es cuestión de minutos en CPU; el fine-tuning probablemente requiera Colab o Kaggle.
+(la RX 6600 de AMD no tiene soporte oficial en Windows y `torch-directml` no existe para Python 3.14), pero ConvNeXt-Tiny se
+afina en CPU: de 2 a 3 minutos por época con toda la red.
 
-**Cautela con las cifras:** ConvNeXt se entrenó con ImageNet, que incluye clases de mariposas, así que no es un modelo
-"ingenuo". La comparación con el modelo clásico es justa en el protocolo, pero no en los datos de preentrenamiento. Las dos
-familias vienen de catálogos distintos: con la foto completa en vez del recorte, una red puede aprender el fondo o la
-iluminación de cada catálogo, y por eso se prefirió el recorte.
+**Cautelas:** ConvNeXt se entrenó con ImageNet, que incluye clases de mariposas, así que no es un modelo "ingenuo". La
+comparación con el modelo clásico es justa en el protocolo, pero no en los datos de preentrenamiento. Las dos familias vienen
+de catálogos distintos: con la foto completa, una red puede aprender el fondo o la iluminación de cada catálogo, por eso se
+prefirió el recorte. Y la validación está saturada (1 error de 122 en las tres semillas), así que no sirve para distinguir
+modelos entre sí.
 
 ## Fuente de datos
 

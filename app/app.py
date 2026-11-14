@@ -1,10 +1,12 @@
 """
 App de Gradio (Space de Hugging Face): clasifica la familia de una mariposa (Papilionidae vs Pieridae) y rechaza lo que
-no parece una mariposa de esas familias. Ofrece dos modelos que se pueden alternar:
+no parece una mariposa de esas familias. Ofrece hasta tres modelos que se pueden alternar:
 
   - Clásico (predeterminado): características de textura y color + regresión logística. Lógica en inferencia.py.
-  - Embeddings: una red preentrenada + regresión logística. Lógica en inferencia_embeddings.py. Solo aparece si existe
-    modelo/modelo_embeddings.joblib.
+  - Embeddings: una red preentrenada (sin modificar) + regresión logística. Lógica en inferencia_embeddings.py.
+    Solo aparece si existe modelo/modelo_embeddings.joblib.
+  - Embeddings afinados: la misma red con todos sus pesos ajustados a las fotos del catálogo (fine-tuning).
+    Solo aparece si existe modelo/modelo_afinado.joblib.
 """
 from functools import lru_cache
 from pathlib import Path
@@ -15,26 +17,30 @@ import numpy as np
 from inferencia import Clasificador
 
 AQUI = Path(__file__).resolve().parent
-RUTA_EMB = AQUI / "modelo" / "modelo_embeddings.joblib"
 CLASICO = "Clásico: textura y color (predeterminado)"
 EMBEDDINGS = "Embeddings: red preentrenada"
-MODELOS = [CLASICO] + ([EMBEDDINGS] if RUTA_EMB.exists() else [])
+AFINADO = "Embeddings afinados: red ajustada a nuestras fotos"
+RUTAS = {EMBEDDINGS: AQUI / "modelo" / "modelo_embeddings.joblib", AFINADO: AQUI / "modelo" / "modelo_afinado.joblib"}
 
 clasico = Clasificador(AQUI / "modelo" / "final_model.joblib", AQUI / "modelo" / "rechazo.joblib")
 
 
-@lru_cache(maxsize=1)
-def motor_embeddings():
+@lru_cache(maxsize=None)
+def motor(nombre):
+    if nombre == CLASICO:
+        return clasico
     from inferencia_embeddings import ClasificadorEmbeddings   # importa torch solo si se usa
-    return ClasificadorEmbeddings(RUTA_EMB)
+    return ClasificadorEmbeddings(RUTAS[nombre])
 
 
-if RUTA_EMB.exists():                       # calentamiento: descarga y carga la red ahora, no en la primera foto del usuario
-    try:
-        motor_embeddings().predecir(np.full((200, 300, 3), 128, np.uint8))
-    except Exception as e:                  # si falla, la app sigue con el modelo clásico
-        print(f"[AVISO] No se pudo preparar el modelo de embeddings: {e}")
-        MODELOS = [CLASICO]
+MODELOS = [CLASICO]
+for nombre, ruta in RUTAS.items():
+    if ruta.exists():                       # calentamiento: descarga y carga la red ahora, no en la primera foto del usuario
+        try:
+            motor(nombre).predecir(np.full((200, 300, 3), 128, np.uint8))
+            MODELOS.append(nombre)
+        except Exception as e:              # si falla, la app sigue con los demás modelos
+            print(f"[AVISO] No se pudo preparar '{nombre}': {e}")
 
 DESCRIPCION = """
 # Clasificador de mariposas colombianas
@@ -64,17 +70,20 @@ def info_modelo(nombre):
     if nombre == CLASICO:
         return ("**Clásico:** características de textura (GLCM, Haralick, Gabor) y color (histogramas y momentos HSV) + "
                 "regresión logística. En fotos de catálogo: balanced accuracy 0,87 (IC 95 % 0,75 a 0,94, 24 especies no vistas).")
-    m = motor_embeddings()
+    m = motor(nombre)
     met = m.b.get("metricas_test") or {}
     medida = (f" En fotos de catálogo (test, {met['especies']} especies no vistas): balanced accuracy {met['balanced_acc']:.2f}, "
               f"AUC {met['auc']:.2f}.") if met else ""
+    if nombre == AFINADO:
+        return (f"**Embeddings afinados:** {m.descripcion}. Se ajustan todos los pesos de la red con las fotos del catálogo.{medida} "
+                "Ojo: con pocas fotos de entrenamiento, ajustar toda la red puede hacerla menos robusta con fotos distintas a las del catálogo.")
     return f"**Embeddings:** {m.descripcion} + regresión logística.{medida} {NOTAS_RED.get(m.b['red'], '')}"
 
 
 def clasificar(imagen, nombre):
     if imagen is None:
         raise gr.Error("Sube una imagen.")
-    r = (clasico if nombre == CLASICO else motor_embeddings()).predecir(imagen)
+    r = motor(nombre).predecir(imagen)
     if r.estado == "aceptada":
         titulo = f"{ESTILOS['aceptada']} **{r.familia}** ({r.probabilidades[r.familia]:.0%})"
     elif r.estado == "incierta":

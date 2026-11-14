@@ -1,7 +1,7 @@
 """Rutas del proyecto, calculadas desde la ubicación de este archivo (no dependen de dónde se clone el repo).
 
     dataset/                       fotos originales (Papilionidae/, Pieridae/) y sus CSV de etiquetas
-    scripts/                       todos los scripts
+    scripts/<proceso>/             los scripts, una carpeta por proceso; los orquestadores quedan en scripts/
     resultados/<etapa>/            la salida de cada script, una subcarpeta por etapa
 """
 import sys

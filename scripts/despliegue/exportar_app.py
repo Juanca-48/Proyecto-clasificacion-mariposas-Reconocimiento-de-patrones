@@ -11,8 +11,9 @@ app/requirements.txt y app/README.md se editan directamente en app/.
   resultados/final/final_model.joblib                                    ->  app/modelo/   (modelo clásico)
   resultados/rechazo/rechazo.joblib                                      ->  app/modelo/
   resultados/modelo_embeddings/modelo.joblib (si existe)                 ->  app/modelo/modelo_embeddings.joblib
+  resultados/modelo_afinado/modelo_afinado.joblib (si existe, ~60 MB)    ->  app/modelo/modelo_afinado.joblib
 
-La app ofrece dos modelos: el clásico (predeterminado) y, si existe el archivo de embeddings, un selector para usarlo.
+La app ofrece hasta tres modelos: el clásico (predeterminado) y, si existen sus archivos, el de embeddings y el afinado.
 Con --sin-clasico no se reemplaza el modelo clásico de app/modelo (útil mientras se reentrena o si quieres conservar el
 que ya está subido). Al final se comprueba que app/ funciona aislada: un proceso que no ve scripts/ carga los modelos y
 clasifica una imagen sintética.
@@ -48,6 +49,7 @@ MODULOS = ["rutas.py", "Segmentacion.py", "Segmentacion_rembg.py", "texturas.py"
            "embeddings.py", "inferencia_embeddings.py"]
 CLASICO = [FINAL_DIR / "final_model.joblib", REJECT_DIR / "rechazo.joblib"]
 EMBEDDINGS = RESULTS_DIR / "modelo_embeddings" / "modelo.joblib"
+AFINADO = RESULTS_DIR / "modelo_afinado" / "modelo_afinado.joblib"
 
 PRUEBA = """
 import sys
@@ -57,11 +59,12 @@ import numpy as np
 from inferencia import Clasificador
 img = np.full((200, 300, 3), 128, np.uint8)
 print('clásico, imagen gris:', Clasificador(Path('modelo/final_model.joblib'), Path('modelo/rechazo.joblib')).predecir(img).estado)
-ruta = Path('modelo/modelo_embeddings.joblib')
-if ruta.exists():
-    from inferencia_embeddings import ClasificadorEmbeddings
-    m = ClasificadorEmbeddings(ruta)
-    print('embeddings (' + m.descripcion + '), imagen gris:', m.predecir(img).estado)
+for archivo in ('modelo_embeddings', 'modelo_afinado'):
+    ruta = Path('modelo/' + archivo + '.joblib')
+    if ruta.exists():
+        from inferencia_embeddings import ClasificadorEmbeddings
+        m = ClasificadorEmbeddings(ruta)
+        print(archivo + ' (' + m.descripcion + '), imagen gris:', m.predecir(img).estado)
 """
 
 
@@ -84,8 +87,10 @@ def main():
         shutil.copy2(p, APP_DIR / "modelo" / p.name)
     if EMBEDDINGS.exists():
         shutil.copy2(EMBEDDINGS, APP_DIR / "modelo" / "modelo_embeddings.joblib")
+    if AFINADO.exists():
+        shutil.copy2(AFINADO, APP_DIR / "modelo" / "modelo_afinado.joblib")
     print(f"Copiados {len(MODULOS)} módulos y modelos: clásico {'(conservado)' if args.sin_clasico else '(actualizado)'}, "
-          f"embeddings {'(incluido)' if EMBEDDINGS.exists() else '(no existe, la app solo ofrecerá el clásico)'} -> {APP_DIR}")
+          f"embeddings {'(incluido)' if EMBEDDINGS.exists() else '(no existe)'}, afinado {'(incluido)' if AFINADO.exists() else '(no existe)'} -> {APP_DIR}")
 
     # la app debe funcionar sola: proceso nuevo, sin scripts/ en el path, con carpeta de trabajo en app/
     res = subprocess.run([sys.executable, "-c", PRUEBA], cwd=APP_DIR, capture_output=True, text=True)

@@ -4,4 +4,6 @@ resultados/dataset_split_forma/standardized/
 resultados/modelos/
 resultados/modelos_forma/
 
+resultados/modelo_afinado/*.joblib
+
 __pycache__/
