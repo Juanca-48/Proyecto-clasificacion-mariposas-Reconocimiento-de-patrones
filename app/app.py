@@ -1,15 +1,24 @@
 """
 App de Gradio (Space de Hugging Face): clasifica la familia de una mariposa (Papilionidae vs Pieridae) y rechaza lo que
-no parece una mariposa de esas familias. Ofrece hasta tres modelos que se pueden alternar:
+no parece una mariposa de esas familias. Ofrece dos modelos que se pueden alternar:
 
   - Clásico (predeterminado): características de textura y color + regresión logística. Lógica en inferencia.py.
-  - Embeddings: una red preentrenada (sin modificar) + regresión logística. Lógica en inferencia_embeddings.py.
-    Solo aparece si existe modelo/modelo_embeddings.joblib.
-  - Embeddings afinados: la misma red con todos sus pesos ajustados a las fotos del catálogo (fine-tuning).
-    Solo aparece si existe modelo/modelo_afinado.joblib.
+  - Afinado: ConvNeXt-Tiny con todos sus pesos ajustados a las fotos del catálogo (fine-tuning). Lógica en
+    inferencia_embeddings.py. Solo aparece si existe modelo/modelo_afinado.joblib.
 """
 from functools import lru_cache
 from pathlib import Path
+
+try:   # debe importarse antes que torch: el Space está en hardware ZeroGPU
+    import spaces
+
+    @spaces.GPU
+    def _requisito_zerogpu():
+        """No se usa: la app corre en CPU. ZeroGPU rechaza una app con PyTorch si no detecta al arrancar alguna
+        función @spaces.GPU, y así los visitantes no gastan cuota de GPU."""
+        return None
+except ImportError:   # fuera de ZeroGPU (en local o en un Space de CPU) el paquete no existe y no hace falta
+    pass
 
 import gradio as gr
 import numpy as np
@@ -18,9 +27,8 @@ from inferencia import Clasificador
 
 AQUI = Path(__file__).resolve().parent
 CLASICO = "Clásico: textura y color (predeterminado)"
-EMBEDDINGS = "Embeddings: red preentrenada"
-AFINADO = "Embeddings afinados: red ajustada a nuestras fotos"
-RUTAS = {EMBEDDINGS: AQUI / "modelo" / "modelo_embeddings.joblib", AFINADO: AQUI / "modelo" / "modelo_afinado.joblib"}
+AFINADO = "Afinado: ConvNeXt-Tiny ajustada a nuestras fotos"
+RUTA_AFINADO = AQUI / "modelo" / "modelo_afinado.joblib"
 
 clasico = Clasificador(AQUI / "modelo" / "final_model.joblib", AQUI / "modelo" / "rechazo.joblib")
 
@@ -30,17 +38,16 @@ def motor(nombre):
     if nombre == CLASICO:
         return clasico
     from inferencia_embeddings import ClasificadorEmbeddings   # importa torch solo si se usa
-    return ClasificadorEmbeddings(RUTAS[nombre])
+    return ClasificadorEmbeddings(RUTA_AFINADO)
 
 
 MODELOS = [CLASICO]
-for nombre, ruta in RUTAS.items():
-    if ruta.exists():                       # calentamiento: descarga y carga la red ahora, no en la primera foto del usuario
-        try:
-            motor(nombre).predecir(np.full((200, 300, 3), 128, np.uint8))
-            MODELOS.append(nombre)
-        except Exception as e:              # si falla, la app sigue con los demás modelos
-            print(f"[AVISO] No se pudo preparar '{nombre}': {e}")
+if RUTA_AFINADO.exists():                   # calentamiento: descarga y carga la red ahora, no en la primera foto del usuario
+    try:
+        motor(AFINADO).predecir(np.full((200, 300, 3), 128, np.uint8))
+        MODELOS.append(AFINADO)
+    except Exception as e:                  # si falla, la app sigue con el modelo clásico
+        print(f"[AVISO] No se pudo preparar el modelo afinado: {e}")
 
 DESCRIPCION = """
 # Clasificador de mariposas colombianas
@@ -56,28 +63,18 @@ segmenta (se separa la mariposa del fondo) y se clasifica con el modelo que elij
 """
 
 ESTILOS = {"aceptada": "✅", "incierta": "⚠️", "rechazada": "⛔"}
-NOTAS_RED = {
-    "convnext": "Ojo: la red se entrenó con millones de imágenes de ImageNet (que incluye varias clases de mariposas), "
-                "así que la cifra puede ser optimista para fotos distintas a las del catálogo.",
-    "bioclip": "Ojo: la red se entrenó con millones de fotos de seres vivos y su taxonomía, así que la cifra puede ser "
-               "optimista para fotos distintas a las del catálogo.",
-    "dinov2": "Ojo: la red se entrenó con millones de imágenes generales, así que la cifra puede ser optimista para fotos "
-              "distintas a las del catálogo.",
-}
 
 
 def info_modelo(nombre):
     if nombre == CLASICO:
         return ("**Clásico:** características de textura (GLCM, Haralick, Gabor) y color (histogramas y momentos HSV) + "
                 "regresión logística. En fotos de catálogo: balanced accuracy 0,87 (IC 95 % 0,75 a 0,94, 24 especies no vistas).")
-    m = motor(nombre)
-    met = m.b.get("metricas_test") or {}
+    met = motor(nombre).b.get("metricas_test") or {}
     medida = (f" En fotos de catálogo (test, {met['especies']} especies no vistas): balanced accuracy {met['balanced_acc']:.2f}, "
               f"AUC {met['auc']:.2f}.") if met else ""
-    if nombre == AFINADO:
-        return (f"**Embeddings afinados:** {m.descripcion}. Se ajustan todos los pesos de la red con las fotos del catálogo.{medida} "
-                "Ojo: con pocas fotos de entrenamiento, ajustar toda la red puede hacerla menos robusta con fotos distintas a las del catálogo.")
-    return f"**Embeddings:** {m.descripcion} + regresión logística.{medida} {NOTAS_RED.get(m.b['red'], '')}"
+    return ("**Afinado:** ConvNeXt-Tiny, una red preentrenada con ImageNet, con **todos sus pesos ajustados** a las fotos del "
+            f"catálogo (fine-tuning).{medida} Ojo: ImageNet incluye mariposas, así que la cifra puede ser optimista para fotos "
+            "distintas a las del catálogo, y con pocas fotos de entrenamiento la red puede ser menos robusta con ellas.")
 
 
 def clasificar(imagen, nombre):

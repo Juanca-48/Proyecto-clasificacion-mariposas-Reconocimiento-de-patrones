@@ -16,21 +16,19 @@ Proyecto de Reconocimiento de Patrones (Universidad Militar Nueva Granada). Dada
 mariposa del fondo con GrabCut, extrae características de **textura** (GLCM, Haralick, Gabor) y **color**
 (histogramas y momentos HSV/BGR) y las clasifica con una regresión logística entrenada con 690 fotos de catálogo.
 
-## Hasta tres modelos, con selector
+## Dos modelos, con selector
 
-La app alterna entre estos modelos con el selector "Modelo":
+La app alterna entre dos modelos con el selector "Modelo":
 
 - **Clásico** (predeterminado): características de textura y color + regresión logística, como se describe arriba.
-- **Embeddings**: **ConvNeXt-Tiny** (una red de ImageNet, con sus pesos sin modificar) sobre el recorte de la mariposa +
-  regresión logística.
-- **Embeddings afinados**: la misma red con **todos sus pesos ajustados** a las fotos del catálogo (fine-tuning), con su
-  propia capa de clasificación. En el test de catálogo da la mayor exactitud de los tres, aunque la diferencia con el de
-  embeddings sin afinar no es concluyente. Con pocas fotos de entrenamiento, ajustar toda la red puede hacerla menos robusta
-  con fotos distintas a las del catálogo.
+- **Afinado**: **ConvNeXt-Tiny** (una red preentrenada con ImageNet) con **todos sus pesos ajustados** a las fotos del catálogo
+  (fine-tuning), sobre el recorte de la mariposa y con su propia capa de clasificación. En el test de catálogo (24 especies
+  que la red no vio) da balanced accuracy 0,99 y AUC 1,00. Ojo: ImageNet incluye mariposas, así que la cifra puede ser
+  optimista para fotos distintas a las del catálogo, y con pocas fotos de entrenamiento la red puede ser menos robusta con
+  ellas.
 
-Los dos modelos de ConvNeXt ya conocen millones de imágenes (ImageNet incluye mariposas), así que sus cifras pueden ser
-optimistas para fotos nuevas. La primera vez que arranca el Space descarga los pesos de la red (unos 110 MB) y el modelo de
-segmentación `rembg` (unos 170 MB), por lo que el arranque tarda; el selector solo muestra los modelos disponibles.
+La primera vez que arranca el Space descarga el modelo de segmentación `rembg` (unos 170 MB), por lo que el arranque tarda;
+el selector solo muestra los modelos disponibles.
 
 ## Rendimiento
 

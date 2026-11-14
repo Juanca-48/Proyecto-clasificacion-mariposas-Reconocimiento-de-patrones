@@ -467,9 +467,18 @@ con Python 3.12 (instalación simulada). `requirements.txt` fija `scikit-learn==
 versión) y `opencv-python-headless==5.0.0.93` (para que GrabCut se comporte igual que en el entrenamiento); PyTorch viene del
 índice de CPU.
 
-**Sin verificar:** la construcción real en Hugging Face, el tiempo de arranque (descarga unos 110 MB de ConvNeXt y 170 MB de
-`rembg`, y carga dos redes) y el consumo de memoria en el plan gratuito. Tras reentrenar o recalibrar, hay que volver a ejecutar
-`exportar_app.py` y volver a subir.
+**ZeroGPU.** Si el Space está en hardware ZeroGPU (`zero-a10g`), Hugging Face rechaza al arrancar cualquier app que use
+PyTorch sin una función `@spaces.GPU` (*"No @spaces.GPU function detected during startup"*), y sin suscripción PRO no se puede
+cambiar a CPU. `app/app.py` incluye una función vacía con ese decorador, que nadie llama, solo para pasar esa comprobación: la
+app corre en CPU y los visitantes no gastan cuota de GPU. Fuera de ZeroGPU el paquete `spaces` no existe y el bloque no hace nada.
+
+**Resultado de la última subida:** el Space `Juancaninja/Mariposas_Pieridae_vs_Papilionidae` construyó y arrancó (RUNNING) y, con las
+8 fotos de `Pruebas/` a través de su API, dio los mismos resultados que en local: clásico 2 de 8, embeddings 8 de 8 y afinado 8 de 8,
+con una mediana de 1,5 s por foto. En el registro aparece un `ValueError: Invalid file descriptor: -1` de `selectors` al arrancar
+que no afecta al funcionamiento.
+
+**Sin verificar:** el comportamiento con mucho tráfico y el consumo de memoria bajo carga. El arranque descarga unos 110 MB de ConvNeXt
+y 170 MB de `rembg` y carga dos redes. Tras reentrenar o recalibrar, hay que volver a ejecutar `exportar_app.py` y volver a subir.
 
 ### 12. Modelos con ConvNeXt-Tiny (embeddings y afinado) y selector en la app
 
@@ -512,9 +521,9 @@ en `.gitignore` porque se regenera).
 
 `prediccion/inferencia_embeddings.py` es el motor de los dos modelos de ConvNeXt en la app: devuelve el mismo `Resultado`
 que el clásico, con las mismas tres capas de rechazo (área de la máscara, distancia de Mahalanobis en el espacio del
-embedding, confianza). La app (`app/app.py`) tiene un selector de hasta tres modelos: el **clásico** es el predeterminado, y
-el de **embeddings** y el **afinado** aparecen solo si existen `app/modelo/modelo_embeddings.joblib` y
-`app/modelo/modelo_afinado.joblib`. Nada del trabajo anterior se reemplaza.
+embedding, confianza). La app (`app/app.py`) tiene un selector de **dos modelos**: el **clásico** es el predeterminado y el **afinado**
+aparece solo si existe `app/modelo/modelo_afinado.joblib`. El modelo de embeddings sin afinar sigue siendo un resultado
+del proyecto (la comparación de arriba y `resultados/modelo_embeddings/`), pero no se ofrece en la app.
 
 Necesita `torch`, `torchvision` y `timm`; el orquestador instala lo que falte. En este equipo no hay GPU utilizable con PyTorch
 (la RX 6600 de AMD no tiene soporte oficial en Windows y `torch-directml` no existe para Python 3.14), pero ConvNeXt-Tiny se
